@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-IA Homepage</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css"/>
+
+    <script>
+      // Configure Tailwind for dark mode
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+    <style>
+        /* Smooth scroll behavior */
+        html { scroll-behavior: smooth; }
+        
+        /* Typing effect cursor */
+        .typing-cursor {
+            border-right: 2px solid;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: inherit }
+        }
+
+        /* NEW Coverflow Slider Custom Styles */
+        .swiper_container {
+            padding: 2rem 0;
+            position: relative;
+        }
+        .swiper-slide {
+            width: 320px !important; /* Override swiper's width for consistency */
+            height: 380px;
+        }
+        .swiper-slide-shadow-left,
+        .swiper-slide-shadow-right {
+            display: none;
+        }
+        .slider-controler {
+            position: relative;
+            bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .slider-arrow {
+            background: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            left: 42%;
+            transform: translateX(-42%);
+            filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+            color: #6049BC;
+            font-size: 1.5rem;
+        }
+        .slider-arrow ion-icon {
+            font-size: 1.5rem;
+        }
+        .swiper-pagination {
+            position: relative;
+            width: 15rem !important;
+            bottom: 1rem;
+        }
+        .swiper-pagination .swiper-pagination-bullet {
+            filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+            background: #6049BC;
+            width: 1rem;
+            height: 1rem;
+        }
+        .swiper-pagination .swiper-pagination-bullet-active {
+            background: #7A43A4;
+        }
+
+        /* FAQ Accordion Animation */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="dark:bg-[#070622] bg-[#F9F9F9]">
+
+    <nav id="navbar" class="w-full py-6 relative z-[1000] transition-all duration-300 dark:bg-[#070622] bg-[#F9F9F9] shadow-[0px_25px_60px_-15px_rgba(180,195,229,0.20)]" style="background-image: url('https://raw.githubusercontent.com/user-attachments/assets/588e3678-0051-4040-af80-c02c918a93a1/Stars.png'); background-size: cover;">
+        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#7A43A4] to-[#6049BC]"></div>
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <a href="/" class="flex items-center space-x-2">
+                <img id="logo-dark" src="https://raw.githubusercontent.com/user-attachments/assets/65e1eb2b-8600-4b15-ad69-42b7e174cd9e/logo.png" alt="Logo Dark" class="h-14">
+                <img id="logo-light" src="https://raw.githubusercontent.com/user-attachments/assets/6f6259ce-8515-46c0-b2b9-6014e3650b28/white-mode-logo.png" alt="Logo Light" class="h-14 hidden">
+            </a>
+            <ul id="desktop-nav-links" class="hidden lg:flex gap-8 text-lg font-semibold">
+                <li><a href="#home" data-section="home" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Home</a></li>
+                <li><a href="#features" data-section="features" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Features</a></li>
+                <li><a href="#pricing" data-section="pricing" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Pricing</a></li>
+                <li><a href="#faq" data-section="faq" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">FAQs</a></li>
+                <li><a href="#blogs" data-section="blogs" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Blogs</a></li>
+            </ul>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#"><button class="rounded-[12px] cursor-pointer bg-transparent text-[16px] font-normal text-[#6049bc] dark:text-white border border-[#6049bc] px-5 py-2 hover:bg-[#6049bc]/10 transition-all duration-300" style="box-shadow: 0px 20px 30px -10px rgba(96, 73, 188, 0.6);">Signin</button></a>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="p-2 rounded-[12px] border border-[#6049bc] dark:text-white text-[#070622] hover:bg-[#6049bc] hover:text-white transition-all duration-300">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-trigger" class="p-2 text-gray-800 dark:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu-sheet" class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-900 p-4 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden z-[1001]" style="margin-top: 5.5rem;">
+            <ul class="space-y-4">
+                 <li><a href="#home" class="mobile-nav-link block text-gray-800 dark:text-white">Home</a></li>
+                 <li><a href="#features" class="mobile-nav-link block text-gray-800 dark:text-white">Features</a></li>
+                 <li><a href="#pricing" class="mobile-nav-link block text-gray-800 dark:text-white">Pricing</a></li>
+                 <li><a href="#faq" class="mobile-nav-link block text-gray-800 dark:text-white">FAQs</a></li>
+                 <li><a href="#blogs" class="mobile-nav-link block text-gray-800 dark:text-white">Blogs</a></li>
+            </ul>
+        </div>
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden md:hidden"></div>
+    </nav>
+    
+    <main>
+        <section class="dark:bg-[#070622] bg-[#F9F9F9] text-center py-10 px-4 pt-28 overflow-hidden">
+             <h2 class="text-3xl md:text-[46px] font-bold dark:text-white text-[#070622]" data-aos="fade-down">What Our Students Say</h2>
+             <p class="text-[20px] font-medium text-center dark:text-[#BCBCBC] text-gray-600 mt-2 mb-10" data-aos="fade-up" data-aos-delay="100">Testimonials from our learners</p>
+             <div class="container mx-auto">
+                <div class="swiper swiper_container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Michel Johnson</h5>
+                                <p class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">Very comprehensive lessons, this is underrated. I hope other learners know about this.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                           <div class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Jane Doe</h5>
+                                <p class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">A fantastic platform for students. The AI tools are incredibly helpful and easy to use.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">David Smith</h5>
+                                <p class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">The quality of the content generation is top-notch. It has saved me countless hours of research.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                           <div class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Maria Garcia</h5>
+                                <p class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">I wish I had this tool when I was in my first year. It's a game-changer for essay writing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slider-controler">
+                        <div class="swiper-button-prev slider-arrow">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next slider-arrow">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        </main>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- INITIALIZE AOS ---
+            AOS.init({ once: true, duration: 800 });
+            
+            // --- NAVBAR & THEME & MOBILE MENU LOGIC ---
+            // ... (previous correct code) ...
+            
+            // --- NEW COVERFLOW SLIDER ---
+            new Swiper('.swiper_container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                loop: true,
+                slidesPerView: 1, // Default for mobile
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2.5,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    768: { slidesPerView: 3, spaceBetween: 40 },
+                    1024: { slidesPerView: 3, spaceBetween: 50 }, // Adjusted for better look
+                }
+            });
+
+            // --- OTHER SCRIPTS (FAQ, BLOGS, ETC.) ---
+            // ... (previous correct code) ...
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-IA Homepage</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css"/>
+
+    <script>
+      // Configure Tailwind for dark mode
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+    <style>
+        /* Smooth scroll behavior */
+        html { scroll-behavior: smooth; }
+        
+        /* Typing effect cursor */
+        .typing-cursor {
+            border-right: 2px solid;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: inherit }
+        }
+
+        /* FAQ Accordion Animation */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* "See More" functionality styles */
+        .model-card.hidden-card {
+            display: none;
+        }
+    </style>
+</head>
+<body class="dark:bg-[#070622] bg-[#F9F9F9]">
+
+    <nav id="navbar" class="w-full py-6 relative z-[1000] transition-all duration-300 dark:bg-[#070622] bg-[#F9F9F9] shadow-[0px_25px_60px_-15px_rgba(180,195,229,0.20)]" style="background-image: url('https://raw.githubusercontent.com/user-attachments/assets/588e3678-0051-4040-af80-c02c918a93a1/Stars.png'); background-size: cover;">
+        <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#7A43A4] to-[#6049BC]"></div>
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <a href="/" class="flex items-center space-x-2">
+                <img id="logo-dark" src="https://raw.githubusercontent.com/user-attachments/assets/65e1eb2b-8600-4b15-ad69-42b7e174cd9e/logo.png" alt="Logo Dark" class="h-14">
+                <img id="logo-light" src="https://raw.githubusercontent.com/user-attachments/assets/6f6259ce-8515-46c0-b2b9-6014e3650b28/white-mode-logo.png" alt="Logo Light" class="h-14 hidden">
+            </a>
+            <ul id="desktop-nav-links" class="hidden lg:flex gap-8 text-lg font-semibold">
+                <li><a href="#home" data-section="home" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Home</a></li>
+                <li><a href="#features" data-section="features" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Features</a></li>
+                <li><a href="#pricing" data-section="pricing" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Pricing</a></li>
+                <li><a href="#faq" data-section="faq" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">FAQs</a></li>
+                <li><a href="#blogs" data-section="blogs" class="nav-link relative pb-2 transition-colors text-gray-800 dark:text-white">Blogs</a></li>
+            </ul>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#"><button class="rounded-[12px] cursor-pointer bg-transparent text-[16px] font-normal text-[#6049bc] dark:text-white border border-[#6049bc] px-5 py-2 hover:bg-[#6049bc]/10 transition-all duration-300" style="box-shadow: 0px 20px 30px -10px rgba(96, 73, 188, 0.6);">Signin</button></a>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="p-2 rounded-[12px] border border-[#6049bc] dark:text-white text-[#070622] hover:bg-[#6049bc] hover:text-white transition-all duration-300">
+                        <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-trigger" class="p-2 text-gray-800 dark:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu-sheet" class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-900 p-4 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden z-[1001]" style="margin-top: 5.5rem;">
+            <ul class="space-y-4">
+                 <li><a href="#home" class="mobile-nav-link block text-gray-800 dark:text-white">Home</a></li>
+                 <li><a href="#features" class="mobile-nav-link block text-gray-800 dark:text-white">Features</a></li>
+                 <li><a href="#pricing" class="mobile-nav-link block text-gray-800 dark:text-white">Pricing</a></li>
+                 <li><a href="#faq" class="mobile-nav-link block text-gray-800 dark:text-white">FAQs</a></li>
+                 <li><a href="#blogs" class="mobile-nav-link block text-gray-800 dark:text-white">Blogs</a></li>
+            </ul>
+        </div>
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden md:hidden"></div>
+    </nav>
+    
+    <main>
+        <section class="dark:bg-[#070622] bg-[#F9F9F9] text-center py-10 px-4 pt-28">
+            <h2 class="text-3xl md:text-[46px] font-bold dark:text-white text-[#070622]" data-aos="fade-down">
+                Unlimited models to get started
+            </h2>
+            <p class="text-[20px] font-medium text-center dark:text-[#BCBCBC] text-gray-600 mt-2 mb-10" data-aos="fade-up" data-aos-delay="100">
+                Custom models
+            </p>
+            <div id="models-grid" class="container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                </div>
+            <div class="flex justify-center w-full mt-10">
+                <button id="toggle-models-btn" class="rounded-[12px] text-white bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)] h-12 px-6 flex items-center justify-center cursor-pointer transition-transform hover:scale-105">
+                    See More
+                </button>
+            </div>
+        </section>
+
+        </main>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- INITIALIZE AOS ---
+            AOS.init({ once: true, duration: 800 });
+            
+            // --- NAVBAR & THEME & MOBILE MENU LOGIC ---
+            // ... (previous correct code) ...
+            
+            // --- ULTIMATE MODELS GRID (NEW) ---
+            const toolsData = [
+                { title: "Article Generator", description: "Turn a title and outline text into a fully complete high quality article within seconds.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#4F46E5", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="svg-path" d="M21 5.25L38.5 14L21 22.75L3.5 14L21 5.25Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M3.5 28L21 36.75L38.5 28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M3.5 21L21 29.75L38.5 21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+                { title: "Content Rewriter", description: "Take a piece of content and rewrite it to make it more interesting, creative, and engaging.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#5362FF", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="svg-path" d="M3.5 15.75H17.5L24.5 3.5L31.5 26.25L38.5 15.75H24.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+                { title: "Blog Post Writer", description: "Generate engaging and SEO-friendly blog posts on any topic in a matter of minutes.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#A687DB", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="svg-path" d="M29.75 3.5H8.75C7.78752 3.5 7 4.28752 7 5.25V36.75C7 37.7125 7.78752 38.5 8.75 38.5H33.25C34.2125 38.5 35 37.7125 35 36.75V12.25L29.75 3.5Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M29.75 3.5V12.25H35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M24.5 24.5H14" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M19.25 31.5H14" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+                { title: "Social Media Post", description: "Create compelling posts for various social media platforms to boost your online presence.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#DAB72A", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="svg-path" d="M35 7H7C5.067 7 3.5 8.567 3.5 10.5V31.5C3.5 33.433 5.067 35 7 35H35C36.933 35 38.5 33.433 38.5 31.5V10.5C38.5 8.567 36.933 7 35 7Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M12.25 15.75L29.75 26.25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M29.75 15.75L12.25 26.25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+                { title: "Product Description", description: "Write persuasive and detailed descriptions for your products to increase sales.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#FF6726", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="svg-path" d="M10.5 3.5L3.5 10.5L10.5 17.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M3.5 10.5H22.75C31.255 10.5 38.5 17.745 38.5 26.25V28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+                { title: "Email Writer", description: "Craft professional and effective emails for marketing, sales, and communication.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#C40400", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="svg-path" cx="21" cy="21" r="17.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M21 12.25V21L26.25 23.625" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+                { title: "Ad Copy Generator", description: "Generate high-converting copy for your advertisements across different platforms.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#FF6726", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="svg-path" d="M21 3.5V38.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M3.5 21H38.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+                { title: "Video Script Writer", description: "Create engaging scripts for your videos, from tutorials to marketing content.", bgDefault: 'https://i.imgur.com/L794Gvr.png', bgHover: 'https://i.imgur.com/83pW1Vw.png', defaultColor: "#C40400", icon: `<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="svg-path" d="M33.25 7L7 33.25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M35 22.75V35H22.75" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path class="svg-path" d="M8.75 19.25V7H21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
+            ];
+
+            const gridContainer = document.getElementById('models-grid');
+            const toggleBtn = document.getElementById('toggle-models-btn');
+            const initialVisibleCount = 6;
+            let isExpanded = false;
+
+            const renderCards = () => {
+                gridContainer.innerHTML = toolsData.map((tool, idx) => `
+                    <div 
+                        class="model-card group relative rounded-[16px] overflow-hidden ${idx >= initialVisibleCount ? 'hidden-card' : ''}" 
+                        data-aos="${idx % 2 === 0 ? 'fade-up' : 'zoom-in'}" 
+                        data-aos-delay="${200 + idx * 50}"
+                    >
+                        <div class="card-inner relative z-10 bg-transparent border px-4 py-8 backdrop-blur h-full flex flex-col justify-between rounded-[18px] transition-colors duration-300" style="border-color: ${tool.defaultColor};">
+                            <div class="absolute inset-0 z-[-1] transition-opacity duration-500 bg-cover bg-center group-hover:opacity-0" style="background-image: url(${tool.bgDefault})"></div>
+                            <div class="absolute inset-0 z-[-1] opacity-0 transition-opacity duration-500 bg-cover bg-center group-hover:opacity-100" style="background-image: url(${tool.bgHover})"></div>
+                            
+                            <div class="card-header">
+                                <div class="icon-wrapper flex w-[70px] h-[70px] p-[14px] justify-center items-center gap-2 border-2 flex-shrink-0 aspect-square rounded-[28px] transition-colors duration-300 bg-transparent group-hover:bg-[rgba(130,200,229,0.10)]" style="border-color: ${tool.defaultColor};">
+                                    ${tool.icon}
+                                </div>
+                            </div>
+                            
+                            <div class="relative z-10 text-left mt-4">
+                                <h3 class="text-[24px] md:text-[30px] font-medium dark:text-white text-[#070622]">
+                                    ${tool.title}
+                                </h3>
+                                <p class="text-[14px] md:text-[18px] font-normal dark:text-[#BCBCBC] text-[#1C202B] mt-2">
+                                    ${tool.description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Add hover listeners
+                document.querySelectorAll('.model-card').forEach((card, idx) => {
+                    const cardInner = card.querySelector('.card-inner');
+                    const iconWrapper = card.querySelector('.icon-wrapper');
+                    const svgPath = card.querySelector('.svg-path');
+                    const tool = toolsData[idx];
+
+                    card.addEventListener('mouseenter', () => {
+                        cardInner.style.borderColor = '#82C8E5';
+                        iconWrapper.style.borderColor = '#82C8E5';
+                        if (svgPath) svgPath.style.stroke = '#82C8E5';
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        cardInner.style.borderColor = tool.defaultColor;
+                        iconWrapper.style.borderColor = tool.defaultColor;
+                        if (svgPath) svgPath.style.stroke = tool.defaultColor;
+                    });
+                    // Set initial SVG color
+                    if (svgPath) svgPath.style.stroke = tool.defaultColor;
+                });
+            };
+            
+            toggleBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                const cards = gridContainer.querySelectorAll('.model-card');
+                cards.forEach((card, idx) => {
+                    if (idx >= initialVisibleCount) {
+                        card.classList.toggle('hidden-card', !isExpanded);
+                    }
+                });
+                toggleBtn.textContent = isExpanded ? 'See Less' : 'See More';
+            });
+            
+            renderCards();
+
+            // ... Other script sections (FAQ, Blogs, etc.) ...
+        });
+    </script>
+</body>
+</html>

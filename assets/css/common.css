@@ -1,0 +1,91 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+strong,
+i,
+ol,
+ul,
+li,
+form,
+label,
+footer,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+main {
+  overflow-x: hidden;
+}
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --bw-black: #131313;
+}
+
+/*======== FONT STYLES ========*/
+
+/* common style starts */
+.show {
+  left: 0px;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Hide the original Google Translate dropdown */
+#google_translate_element {
+  display: none;
+}
+
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-ORHb-OEVmcd, .skiptranslate {
+  display: none !important;
+}
