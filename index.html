@@ -1,997 +1,962 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student-ia AI Web Analyzer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <style>
-        :root {
-            --bg-color-dark: #110B22;
-            --text-color-dark: #FFFFFF;
-            --secondary-bg-dark: #1A0D3C;
-            --card-bg-dark: linear-gradient(135deg, rgba(31, 16, 68, 0.5) 0%, rgba(20, 10, 48, 0.5) 100%);
-            --faq-card-bg-dark: #1B1037;
-            --purple-gradient-start: #8755DF;
-            --purple-gradient-end: #B18BF6;
-            --toggle-bg-dark: #2F2F2F;
-        }
+<html lang="en" class="dark"> <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Merit</title>
 
-        [data-theme='light'] {
-            --bg-color-light: #F9FAFB;
-            --text-color-light: #1F2937;
-            --secondary-bg-light: #FFFFFF;
-            --card-bg-light: #FFFFFF;
-            --faq-card-bg-light: #F3F4F6;
-            --purple-gradient-start: #6D28D9;
-            --purple-gradient-end: #8B5CF6;
-            --toggle-bg-light: #E2E8F0;
-            --footer-bg-light: #FFFFFF;
-            --nav-bg-light: #FFFFFF;
-        }
+        <script src="https://cdn.tailwindcss.com"></script>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            top: 0px !important;
-             position: static !important;
-        }
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        body[data-theme='dark'] {
-            background-color: var(--bg-color-dark);
-            color: var(--text-color-dark);
-        }
-        
-        body[data-theme='light'] {
-            background-color: var(--bg-color-light);
-            color: var(--text-color-light);
-        }
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css" />
 
+        <script>
+      // Configure Tailwind for dark mode
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
 
-        .bg-custom-dark {
-            background-color: #110B22;
-        }
-        
-        .text-gradient {
-            background: linear-gradient(90deg, var(--purple-gradient-start) 0%, var(--purple-gradient-end) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .bg-card-gradient {
-            background: linear-gradient(135deg, rgba(31, 16, 68, 0.5) 0%, rgba(20, 10, 48, 0.5) 100%);
-            backdrop-filter: blur(10px);
-        }
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body class="dark:bg-[#070622] bg-[#F9F9F9]">
+        <!-- Google Translate container -->
+        <div id="google_translate_element"></div>
 
-        .bg-faq-card-dark {
-            background-color: var(--faq-card-bg-dark);
-        }
+        <!-- Navbar start -->
 
-        body[data-theme='light'] .bg-card-gradient {
-            background: var(--card-bg-light);
-            border: 1px solid #e5e7eb;
-        }
+        <nav id="navbar"
+            class="w-full py-6 relative z-[1000] transition-all duration-300 dark:bg-[#070622] bg-[#F9F9F9] shadow-[0px_25px_60px_-15px_rgba(180,195,229,0.20)]"
+            style="background-image: url('https://raw.githubusercontent.com/user-attachments/assets/588e3678-0051-4040-af80-c02c918a93a1/Stars.png'); background-size: cover;">
+            <div
+                class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#7A43A4] to-[#6049BC]"></div>
+            <div
+                class="container mx-auto flex items-center justify-between px-4">
+                <a href="/" class="flex items-center space-x-2">
+                    <img id="logo-dark"
+                        src="./assets/images/logo.png"
+                        alt="Logo Dark" class="h-10">
+                    <img id="logo-light"
+                        src="./assets/images/white-mode-logo.png"
+                        alt="Logo Light" class="h-10 hidden">
+                </a>
+                <ul id="desktop-nav-links"
+                    class="hidden lg:flex gap-8 text-lg font-semibold">
+                    <li><a href="#home" data-section="home"
+                            class="nav-link relative pb-2 transition-colors">Home</a></li>
+                    <li><a href="#features" data-section="features"
+                            class="nav-link relative pb-2 transition-colors">Features</a></li>
+                    <li><a href="#pricing" data-section="pricing"
+                            class="nav-link relative pb-2 transition-colors">Pricing</a></li>
+                    <li><a href="#faq" data-section="faq"
+                            class="nav-link relative pb-2 transition-colors">FAQs</a></li>
+                    <li><a href="#blogs" data-section="blogs"
+                            class="nav-link relative pb-2 transition-colors">Blogs</a></li>
+                </ul>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#"><button
+                            class="rounded-[12px] cursor-pointer bg-transparent text-[16px] font-normal text-[#6049bc] dark:text-white border border-[#6049bc] px-5 py-2 hover:bg-[#6049bc]/10 transition-all duration-300"
+                            style="box-shadow: 0px 20px 30px -10px rgba(96, 73, 188, 0.6);">Signin</button></a>
 
-        body[data-theme='light'] .bg-faq-card-dark {
-            background-color: var(--faq-card-bg-light);
-            border: 1px solid #e5e7eb;
-        }
-        
-        body[data-theme='light'] .bg-pricing-card-dark {
-            background: var(--card-bg-light);
-            border: 1px solid #e5e7eb;
-        }
-
-        body[data-theme='light'] .bg-secondary-dark {
-            background-color: #F9FAFB;
-        }
-
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .swiper-container {
-            width: 100%;
-            height: 100px;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .swiper-pagination-bullet {
-            background-color: #6B7280;
-            width: 8px;
-            height: 8px;
-        }
-        .swiper-pagination-bullet-active {
-            background-color: #A78BFA;
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-        }
-        
-        .accordion-content.active {
-            max-height: 500px;
-            padding-top: 1rem;
-        }
-
-        .testimonials-grid {
-            transition: all 0.5s ease-in-out;
-        }
-        
-        .testimonials-grid.expanded {
-            height: auto !important;
-            opacity: 1 !important;
-        }
-        
-        .testimonial-item {
-            transition: opacity 0.5s ease-in-out;
-        }
-        
-        .testimonial-item.half-opacity {
-            opacity: 0.5;
-        }
-
-        .nav-item-active {
-            position: relative;
-            color: #C4B5FD;
-        }
-        
-        .nav-item-active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--purple-gradient-start) 0%, var(--purple-gradient-end) 100%);
-            border-radius: 9999px;
-        }
-
-        /* Google Translate branding hide */
-        .goog-te-gadget-simple {
-            background-color: transparent !important;
-            border: none !important;
-            color: var(--text-color-dark) !important;
-        }
-        .goog-te-menu-value {
-            color: var(--text-color-dark) !important;
-        }
-        .goog-te-menu-value span {
-            color: var(--text-color-dark) !important;
-        }
-
-    </style>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body data-theme="dark" class="bg-custom-dark text-white font-sans">
-    
-    <!-- Header -->
-    <header class="py-6 px-4 md:px-8 lg:px-16 flex justify-between items-center sticky top-0 z-50 bg-custom-dark bg-opacity-90">
-        <div class="flex items-center space-x-2">
-            <span class="text-xl font-bold">Student-ia.</span>
-        </div>
-        <nav class="hidden lg:flex flex-1 justify-center space-x-8 text-sm font-semibold" id="main-nav">
-            <a href="#" class="nav-item-active hover:text-purple-400 transition-colors">Home</a>
-            <a href="#" class="hover:text-purple-400 transition-colors">Features</a>
-            <a href="#" class="hover:text-purple-400 transition-colors">Pricing</a>
-            <a href="#" class="hover:text-purple-400 transition-colors">Blogs</a>
-            <a href="#" class="hover:text-purple-400 transition-colors">Pages &darr;</a>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <button class="bg-purple-600 hover:bg-purple-700 transition-colors text-white text-sm font-semibold py-2 px-6 rounded-lg hidden lg:block">
-                Sign In
-            </button>
-            
-            <div id="google_translate_element"></div>
-            
-            <!-- Dark/Light Mode Toggle -->
-            <button id="theme-toggle" class="p-2 rounded-full bg-gray-800 focus:outline-none">
-                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-            </button>
-            
-            <!-- Mobile Menu Button -->
-            <div class="lg:hidden">
-                <button class="text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="py-16 md:py-24 px-4 md:px-8 lg:px-16 text-center" data-aos="fade-up">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter">
-                Ultimate AI Creator For<br>
-                <span class="text-gradient">AI Web Analyzer</span>
-            </h1>
-            <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
-                Our innovative AI enhances your writing and elevates productivity while keeping your unique voice intact.
-            </p>
-            <div class="mt-8 flex justify-center space-x-4">
-                <button class="bg-purple-600 hover:bg-purple-700 transition-colors text-white font-semibold py-3 px-8 rounded-full">
-                    Start Explore Now
-                </button>
-                <button class="bg-transparent border border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white transition-colors font-semibold py-3 px-8 rounded-full">
-                    Free features
-                </button>
-            </div>
-            <div class="mt-12 relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
-                <img src="https://placehold.co/1200x675/1A0D3C/ffffff?text=AI+Dashboard+Interface" alt="AI Web Analyzer Dashboard" class="w-full h-auto">
-                <div class="absolute inset-0 flex justify-center items-center">
-                    <button class="play-button rounded-full flex items-center justify-center transition-transform hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-white ml-1">
-                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.464 1.503-2.193 2.72-1.488l11.54 6.348c1.218.67 1.218 2.31 0 2.979l-11.54 6.347c-1.217.705-2.72-.023-2.72-1.487V5.653z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Brand Logos Slider Section -->
-        <section class="py-8 px-4 md:px-8 lg:px-16 overflow-hidden">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=informa" alt="Informa" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=Microsoft" alt="Microsoft" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=IKEA" alt="IKEA" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=alexa" alt="Alexa" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=Google" alt="Google" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=logitech" alt="Logitech" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=alexa" alt="Alexa" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                    <div class="swiper-slide"><img src="https://placehold.co/150x50/3a1667/ffffff?text=informa" alt="Informa" class="h-8 md:h-10 opacity-70 hover:opacity-100 transition-opacity"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How it works -->
-        <section class="py-16 px-4 md:px-8 lg:px-16 text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-12">How does it work?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 rounded-full bg-purple-600 text-white text-3xl font-bold">1</div>
-                    <h3 class="text-xl font-bold mb-2">Create an account</h3>
-                    <p class="text-gray-400 text-sm">
-                        Sign up for free and get instant access to all our tools.
-                    </p>
-                </div>
-                <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 rounded-full bg-purple-600 text-white text-3xl font-bold">2</div>
-                    <h3 class="text-xl font-bold mb-2">Choose a model</h3>
-                    <p class="text-gray-400 text-sm">
-                        Select from our wide range of AI models to suit your needs.
-                    </p>
-                </div>
-                <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 rounded-full bg-purple-600 text-white text-3xl font-bold">3</div>
-                    <h3 class="text-xl font-bold mb-2">Generate content</h3>
-                    <p class="text-gray-400 text-sm">
-                        Input your requirements and let the AI do the work for you.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Unlimited Models Section -->
-        <section class="py-16 px-4 md:px-8 lg:px-16" data-aos="fade-up">
-            <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12">Unlimited models to get started</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <div class="p-6 md:p-8 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5V3.75m6 15V3.75m-6 0h.008v.008H12z" />
+                    <!-- Language Switcher -->
+                    <div class="relative inline-block text-left">
+                        <button
+                            id="langBtn"
+                            class="flex items-center gap-2 px-3 py-2 border border-purple-600 rounded-lg text-sm hover:bg-purple-600 hover:text-white dark:text-white transition">
+                            <img id="langIcon"
+                                src="https://flagcdn.com/w20/gb.png"
+                                alt="English Flag" class="w-5 h-5 rounded-sm" />
+                            <span id="langName">English</span>
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Article Generator</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Create an article in a moment with the help of AI to get more SEO benefits. It's a long established fact that a reader will be distracted by the readable content.
-                    </p>
-                </div>
-                <div class="p-6 md:p-8 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5V3.75m6 15V3.75m-6 0h.008v.008H12z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Content Rewriting</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                    </p>
-                </div>
-                <div class="p-6 md:p-8 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5V3.75m6 15V3.75m-6 0h.008v.008H12z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Paragraph Rewriting</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                    </p>
-                </div>
-                <div class="p-6 md:p-8 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5V3.75m6 15V3.75m-6 0h.008v.008H12z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Image to Text</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                    </p>
-                </div>
-                <div class="p-6 md:p-8 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5V3.75m6 15V3.75m-6 0h.008v.008H12z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Blog Ideas</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                    </p>
-                </div>
-                <div class="p-6 md:p-8 rounded-xl bg-card-gradient border border-purple-500/20">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5a6 6 0 006-6v-1.5m-6 7.5V3.75m6 15V3.75m-6 0h.008v.008H12z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold">Image to Text</h3>
-                    </div>
-                    <p class="text-gray-400">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.
-                    </p>
-                </div>
-            </div>
-        </section>
+                        </button>
 
-        <!-- Counter Section -->
-        <section class="py-16 px-4 md:px-8 lg:px-16 text-center counter-section" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-12">Work smarter, not harder with Student-All!</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                <div class="flex flex-col items-center">
-                    <p class="text-4xl md:text-5xl font-extrabold text-purple-400"><span id="counter1">0</span></p>
-                    <p class="text-gray-400 mt-2">satisfied Student-ia customers</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <p class="text-4xl md:text-5xl font-extrabold text-purple-400"><span id="counter2">0</span></p>
-                    <p class="text-gray-400 mt-2">say they save time</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <p class="text-4xl md:text-5xl font-extrabold text-purple-400"><span id="counter3">0</span></p>
-                    <p class="text-gray-400 mt-2">integrated AI tools</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <p class="text-4xl md:text-5xl font-extrabold text-purple-400"><span id="counter4">0</span></p>
-                    <p class="text-gray-400 mt-2">understand their courses more</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Pricing Section -->
-        <section class="py-16 px-4 md:px-8 lg:px-16 text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Our Pricing</h2>
-            <p class="text-gray-400 mb-8">Simple Pricing, Unbelievable Value</p>
-            
-            <div class="inline-flex rounded-full bg-card-gradient p-1 mb-8">
-                <button id="monthly-toggle" class="py-2 px-6 rounded-full font-semibold text-white bg-purple-600 transition-colors">
-                    Monthly
-                </button>
-                <button id="yearly-toggle" class="py-2 px-6 rounded-full font-semibold text-gray-400 hover:text-white transition-colors">
-                    Yearly
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="p-8 rounded-2xl bg-pricing-card-dark border border-purple-500/20">
-                    <h3 class="text-2xl font-bold">Standard</h3>
-                    <p class="text-3xl font-extrabold mt-4"><span id="price-standard" class="text-gradient">$29</span><span class="text-gray-400 text-base">/month</span></p>
-                    <ul class="text-left text-gray-400 space-y-2 mt-6">
-                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Priority support</li>
-                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Access to all models</li>
-                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Unlimited projects</li>
-                    </ul>
-                    <button class="w-full mt-8 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors font-semibold">Get Started</button>
-                </div>
-                <div class="p-8 rounded-2xl bg-pricing-card-dark border border-purple-500/20">
-                    <h3 class="text-2xl font-bold">Pro</h3>
-                    <p class="text-3xl font-extrabold mt-4"><span id="price-pro" class="text-gradient">$49</span><span class="text-gray-400 text-base">/month</span></p>
-                    <ul class="text-left text-gray-400 space-y-2 mt-6">
-                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>24/7 Priority support</li>
-                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Customizable dashboards</li>
-                        <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>All Standard features</li>
-                    </ul>
-                    <button class="w-full mt-8 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-colors font-semibold">Get Started</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="py-16 px-4 md:px-8 lg:px-16 text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-12">Testimonials</h2>
-            <div class="relative max-w-7xl mx-auto">
-                <div id="testimonials-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 testimonials-grid overflow-hidden h-96">
-                    <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item full-opacity">
-                        <p class="text-xl font-bold mb-2">Cameron Williamson</p>
-                        <p class="text-gray-400 text-sm">Medical Assistant</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "This app is a game-changer for students! The AI tools help me understand complex topics better than any textbook ever could."
-                        </p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item full-opacity">
-                        <p class="text-xl font-bold mb-2">Ronald Richards</p>
-                        <p class="text-gray-400 text-sm">Web Designer</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "I use it for my design work to generate creative ideas and speed up my workflow. It's an essential tool for my daily tasks."
-                        </p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item full-opacity">
-                        <p class="text-xl font-bold mb-2">Devon Lane</p>
-                        <p class="text-gray-400 text-sm">Marketing Coordinator</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "This tool has made my marketing research so much easier. The data analysis features are incredibly powerful and easy to use."
-                        </p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item full-opacity">
-                        <p class="text-xl font-bold mb-2">Annette Black</p>
-                        <p class="text-gray-400 text-sm">HR Manager</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "I use it for writing job descriptions and performance reviews. It saves me so much time and helps ensure all my communication is clear and professional."
-                        </p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item half-opacity">
-                        <p class="text-xl font-bold mb-2">Dianne Russell</p>
-                        <p class="text-gray-400 text-sm">Medical Assistant</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "This app is a game-changer for students! The AI tools help me understand complex topics better than any textbook ever could."
-                        </p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item half-opacity">
-                        <p class="text-xl font-bold mb-2">Esther Howard</p>
-                        <p class="text-gray-400 text-sm">Marketing Coordinator</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "I can't recommend this website enough! The AI is excellent for generating blog ideas and content outlines."
-                        </p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item half-opacity">
-                        <p class="text-xl font-bold mb-2">Theresa Webb</p>
-                        <p class="text-gray-400 text-sm">Web Designer</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "This website is a great tool for anyone working with data. The AI helps me find patterns and insights I would have otherwise missed."
-                        </p>
-                    </div>
-                     <div class="p-6 rounded-xl bg-card-gradient border border-purple-500/20 testimonial-item half-opacity">
-                        <p class="text-xl font-bold mb-2">Robert Fox</p>
-                        <p class="text-gray-400 text-sm">Student</p>
-                        <p class="text-gray-400 mt-4 text-left">
-                            "As a student, this has saved me countless hours on research and writing. The quality of the output is consistently high."
-                        </p>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <button id="show-more-testimonials" class="bg-transparent border border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white transition-colors font-semibold py-3 px-8 rounded-full">
-                        See More
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Only Platform Section -->
-        <section class="py-16 px-4 md:px-8 lg:px-16 relative overflow-hidden" data-aos="fade-up">
-            <div class="platform-dots"></div>
-            <div class="max-w-7xl mx-auto lg:flex items-center justify-between">
-                <div class="lg:w-1/2 text-left mb-8 lg:mb-0">
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-                        Only platform that you<br> will ever need
-                    </h2>
-                    <p class="text-gray-400">
-                        We have you covered from all AI Text to Audio generation aspects to allow you to focus on your content creation.
-                    </p>
-                </div>
-                <div class="lg:w-1/2 relative platform-image-container">
-                    <img src="https://placehold.co/600x400/1A0D3C/ffffff?text=User+with+AI+features" alt="User interacting with AI features" class="w-full h-auto rounded-3xl z-10">
-                    <div class="platform-overlay">
-                        AI for recording, exercise correction, revision,
-                    </div>
-                    <div class="platform-language-selector">
-                        Variety of language options
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section (Accordion) -->
-        <section class="py-16 px-4 md:px-8 lg:px-16" data-aos="fade-up">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Frequently Asked Questions</h2>
-                    <p class="text-gray-400">
-                        Got Questions? We have you covered, we are always here to provide full support and clear any doubts that you might have.
-                    </p>
-                    <div class="mt-8">
-                        <p class="font-semibold mb-2">Have another questions?</p>
-                        <div class="flex items-center space-x-2">
-                            <input type="text" placeholder="Enter your question" class="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                            <button class="bg-purple-600 hover:bg-purple-700 transition-colors text-white font-semibold py-3 px-6 rounded-lg">
-                                Ask Question
+                        <!-- Dropdown -->
+                        <div
+                            id="langMenu"
+                            class="hidden absolute mt-2 w-40 bg-white dark:bg-[#1e1b4b] text-gray-800 dark:text-white rounded-lg shadow-lg">
+                            <button
+                                onclick="setLanguage('en', 'https://flagcdn.com/w20/gb.png', 'English')"
+                                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                                <img src="https://flagcdn.com/w20/gb.png"
+                                    class="w-5 h-5 rounded-sm" alt="English" />
+                                English
+                            </button>
+                            <button
+                                onclick="setLanguage('fr', 'https://flagcdn.com/w20/fr.png', 'Français')"
+                                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                                <img src="https://flagcdn.com/w20/fr.png"
+                                    class="w-5 h-5 rounded-sm" alt="Français" />
+                                Français
                             </button>
                         </div>
                     </div>
-                </div>
-                <div class="space-y-4">
-                    <!-- FAQ Item 1 -->
-                    <div class="p-6 rounded-xl bg-faq-card-dark border border-purple-500/20 accordion-item">
-                        <div class="flex justify-between items-center cursor-pointer accordion-header">
-                            <h3 class="font-semibold text-lg">What is Student-IA and how does it work?</h3>
-                            <span class="plus-minus-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="text-gray-400">
-                                An intelligent educational assistant. Student-IA is a digital tool that helps students solve problems, write content, and better understand their courses. It's a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 2 -->
-                    <div class="p-6 rounded-xl bg-faq-card-dark border border-purple-500/20 accordion-item">
-                        <div class="flex justify-between items-center cursor-pointer accordion-header">
-                            <h3 class="font-semibold text-lg">How can Student-IA help me improve my academic results?</h3>
-                            <span class="plus-minus-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="text-gray-400">
-                                Yes, you can start with a free plan. It allows you to use the tool with limited features. This is a great way to try out our platform and see if it's the right fit for you.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 3 -->
-                    <div class="p-6 rounded-xl bg-faq-card-dark border border-purple-500/20 accordion-item">
-                        <div class="flex justify-between items-center cursor-pointer accordion-header">
-                            <h3 class="font-semibold text-lg">Can I customize the AI-generated content so it's closer to what I want to say?</h3>
-                            <span class="plus-minus-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="text-gray-400">
-                                The number of projects depends on your plan. The free plan has limitations, while the pro plan offers unlimited projects for your convenience.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 4 -->
-                    <div class="p-6 rounded-xl bg-faq-card-dark border border-purple-500/20 accordion-item">
-                        <div class="flex justify-between items-center cursor-pointer accordion-header">
-                            <h3 class="font-semibold text-lg">Is there a free trial available for Student-IA?</h3>
-                            <span class="plus-minus-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="text-gray-400">
-                                The number of projects depends on your plan. The free plan has limitations, while the pro plan offers unlimited projects for your convenience.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 5 -->
-                    <div class="p-6 rounded-xl bg-faq-card-dark border border-purple-500/20 accordion-item">
-                        <div class="flex justify-between items-center cursor-pointer accordion-header">
-                            <h3 class="font-semibold text-lg">What types of content can I create with Student-IA?</h3>
-                            <span class="plus-minus-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-content">
-                            <p class="text-gray-400">
-                                The number of projects depends on your plan. The free plan has limitations, while the pro plan offers unlimited projects for your convenience.
-                            </p>
-                        </div>
+
+                    <div class="flex items-center gap-3">
+                        <button id="theme-toggle"
+                            class="p-2 rounded-[12px] border border-[#6049bc] dark:text-white text-[#070622] hover:bg-[#6049bc] hover:text-white transition-all duration-300">
+                            <svg id="theme-icon-sun"
+                                xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                class="hidden"><circle cx="12" cy="12"
+                                    r="4" /><path d="M12 2v2" /><path
+                                    d="M12 20v2" /><path
+                                    d="m4.93 4.93 1.41 1.41" /><path
+                                    d="m17.66 17.66 1.41 1.41" /><path
+                                    d="M2 12h2" /><path d="M20 12h2" /><path
+                                    d="m6.34 17.66-1.41 1.41" /><path
+                                    d="m19.07 4.93-1.41 1.41" /></svg>
+                            <svg id="theme-icon-moon"
+                                xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"><path
+                                    d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Blog & Newsletter (reused) -->
-        <section class="py-16 px-4 md:px-8 lg:px-16" data-aos="fade-up">
-            <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-2">Our latest blogs</h2>
-            <p class="text-center text-gray-400 mb-8">Stay updated</p>
-            <div class="max-w-7xl mx-auto relative">
-                <div class="swiper-container-blog overflow-hidden rounded-xl">
-                    <div class="swiper-wrapper">
-                        <!-- Blog Post 1 -->
-                        <div class="swiper-slide rounded-xl bg-card-gradient border border-purple-500/20 overflow-hidden">
-                            <div class="pb-6">
-                                <img src="https://images.unsplash.com/photo-1549692520-acc6669f98a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Blog post" class="w-full h-48 object-cover">
-                                <div class="p-6">
-                                    <p class="text-sm text-gray-400">Technology • 20 June, 2023</p>
-                                    <h3 class="text-xl font-bold mt-2 mb-4">
-                                        How Our AI Startup is Transforming Industries
-                                    </h3>
-                                    <p class="text-gray-400 text-sm">
-                                        In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as a transformative force, revolutionizing the way we live, work, and interact. At [Your AI Startup's Name], we are proud to be at the forefront of this revolution.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Blog Post 2 -->
-                        <div class="swiper-slide rounded-xl bg-card-gradient border border-purple-500/20 overflow-hidden">
-                            <div class="pb-6">
-                                <img src="https://images.unsplash.com/photo-1579547620311-6625890e0c1f?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog post" class="w-full h-48 object-cover">
-                                <div class="p-6">
-                                    <p class="text-sm text-gray-400">Technology • 20 June, 2023</p>
-                                    <h3 class="text-xl font-bold mt-2 mb-4">
-                                        How Our AI Startup is Transforming Industries
-                                    </h3>
-                                    <p class="text-gray-400 text-sm">
-                                        In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as a transformative force, revolutionizing the way we live, work, and interact. At [Your AI Startup's Name], we are proud to be at the forefront of this revolution.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Blog Post 3 -->
-                        <div class="swiper-slide rounded-xl bg-card-gradient border border-purple-500/20 overflow-hidden">
-                            <div class="pb-6">
-                                <img src="https://images.unsplash.com/photo-1620138475294-f2a9914711f1?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Blog post" class="w-full h-48 object-cover">
-                                <div class="p-6">
-                                    <p class="text-sm text-gray-400">Technology • 20 June, 2023</p>
-                                    <h3 class="text-xl font-bold mt-2 mb-4">
-                                        How Our AI Startup is Transforming Industries
-                                    </h3>
-                                    <p class="text-gray-400 text-sm">
-                                        In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as a transformative force, revolutionizing the way we live, work, and interact. At [Your AI Startup's Name], we are proud to be at the forefront of this revolution.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Additional slides for the carousel -->
-                        <div class="swiper-slide rounded-xl bg-card-gradient border border-purple-500/20 overflow-hidden">
-                            <div class="pb-6">
-                                <img src="https://images.unsplash.com/photo-1549692520-acc6669f98a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Blog post" class="w-full h-48 object-cover">
-                                <div class="p-6">
-                                    <p class="text-sm text-gray-400">Technology • 20 June, 2023</p>
-                                    <h3 class="text-xl font-bold mt-2 mb-4">
-                                        How Our AI Startup is Transforming Industries
-                                    </h3>
-                                    <p class="text-gray-400 text-sm">
-                                        In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as a transformative force, revolutionizing the way we live, work, and interact. At [Your AI Startup's Name], we are proud to be at the forefront of this revolution.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination-blog mt-8 flex items-center justify-center"></div>
-            </div>
-        </section>
-        
-        <!-- Newsletter Section -->
-        <section class="py-16 px-4 md:px-8 lg:px-16 text-center">
-            <div class="max-w-7xl mx-auto p-8 rounded-2xl bg-card-gradient">
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-                    Don't worry, we've got you
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto mb-8">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <input type="email" placeholder="Enter your email" class="w-full sm:w-auto flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    <button class="w-full sm:w-auto px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-semibold">
-                        Get started
+                <div class="md:hidden">
+                    <button id="mobile-menu-trigger"
+                        class="p-2 text-gray-800 dark:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"><line
+                                x1="4" x2="20" y1="12" y2="12" /><line x1="4"
+                                x2="20" y1="6" y2="6" /><line x1="4" x2="20"
+                                y1="18" y2="18" /></svg>
                     </button>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-16 px-4 md:px-8 lg:px-16 text-gray-400 text-sm">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Left Section -->
-            <div class="md:col-span-2">
-                <div class="flex items-center space-x-2">
-                    <span class="text-white text-3xl font-bold">Student-ia.</span>
-                </div>
-                <p class="mt-4 max-w-md">
-                    By enhancing your communication and giving your writing greater impact. We can help you reach your personal and professional goals.
-                </p>
-                <div class="flex space-x-4 mt-6">
-                    <a href="#" class="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.414V16c3.729-.629 6.25-3.951 6.25-7.951z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M5.026 15c6.038 0 9.341-5.071 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.291 3.291 0 0 1 .491 8.815a3.37 3.37 0 0 0 2.974 3.064 3.29 3.29 0 0 1-1.85.07L.742 11.78a3.293 3.293 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a9.213 9.213 0 0 0 5.05 1.442z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.491h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.667 2.667 0 0 1-.599.92c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.665 2.665 0 0 1-.92-.598 2.627 2.627 0 0 1-.598-.92c-.11-.28-.24-.705-.276-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.02-.044 2.586-.045zm-1.858 5.377a2.27 2.27 0 0 1 2.27-2.269 2.269 2.269 0 0 1 2.269 2.269c0 1.258-1.018 2.271-2.269 2.271A2.27 2.27 0 0 1 8 10.27zM11.837 3.635a1.237 1.237 0 0 1-1.238-1.238 1.237 1.237 0 0 1 1.238-1.238c.683 0 1.237.552 1.237 1.238 0 .686-.554 1.238-1.237 1.238z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Links Section -->
-            <div>
-                <h3 class="font-bold text-white mb-4">Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-purple-400 transition-colors">About Us</a></li>
-                    <li><a href="#" class="hover:text-purple-400 transition-colors">Specimen & Commercial Transaction Law</a></li>
-                    <li><a href="#" class="hover:text-purple-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-purple-400 transition-colors">Terms of Service</a></li>
-                    <li><a href="#" class="hover:text-purple-400 transition-colors">Contact Us</a></li>
+            <div id="mobile-menu-sheet"
+                class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 p-4 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden z-[1001]"
+                style="margin-top: 5.5rem;">
+                <ul class="space-y-4">
+                    <li><a href="#home"
+                            class="mobile-nav-link block text-gray-800 dark:text-white">Home</a></li>
+                    <li><a href="#features"
+                            class="mobile-nav-link block text-gray-800 dark:text-white">Features</a></li>
+                    <li><a href="#pricing"
+                            class="mobile-nav-link block text-gray-800 dark:text-white">Pricing</a></li>
+                    <li><a href="#faq"
+                            class="mobile-nav-link block text-gray-800 dark:text-white">FAQs</a></li>
+                    <li><a href="#blogs"
+                            class="mobile-nav-link block text-gray-800 dark:text-white">Blogs</a></li>
                 </ul>
             </div>
-            
-            <!-- Newsletter Sign-up -->
-            <div class="lg:col-span-1">
-                <h3 class="font-bold text-white mb-4">Newsletter</h3>
-                <p>Subscribe to our newsletter to receive the latest updates.</p>
-                <div class="mt-4">
-                    <form action="#" method="post">
-                        <div class="relative">
-                            <input type="email" placeholder="Your email here" class="w-full px-4 py-3 rounded-full bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                            <button type="submit" class="absolute right-1 top-1 bg-purple-600 hover:bg-purple-700 transition-colors text-white font-semibold py-2 px-6 rounded-full">
-                                Subscribe
-                            </button>
+            <div id="mobile-menu-overlay"
+                class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden md:hidden"></div>
+        </nav>
+
+        <!-- Navbar End -->
+
+        <!-- Main Start -->
+
+        <main>
+
+            <!-- Hero section start -->
+
+            <section id="home"
+                class="p-5 md:p-10 dark:bg-[#070622] bg-[#F9F9F9] h-full overflow-hidden">
+                <div
+                    class="dark:bg-[url('/assets/images/white-mode-stars.png')] bg-none bg-cover">
+                    <div class="py-[50px]">
+                        <div
+                            class="flex flex-col justify-center items-center gap-10"
+                            data-aos="fade-up" data-aos-duration="1000">
+                            <div
+                                class="flex gap-2 justify-center items-center border rounded-[8px] border-[#7A43A4] max-w-[240px] px-3.5 py-1.5"
+                                data-aos="fade-down" data-aos-delay="200">
+                                <div
+                                    class="h-2 w-2 rounded-full bg-black dark:bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)]"></div>
+                                <h1
+                                    class="text-[12px] dark:text-white text-[#070622] font-normal leading-[164%] font-['Space_Grotesk']">New
+                                    feature: Grammar Checker</h1>
+                            </div>
+                            <div data-aos="zoom-in" data-aos-delay="400">
+                                <h1
+                                    class="text-[40px] md:text-[60px] lg:text-[80px] leading-tight font-bold text-center tracking-tight font-['Space_Grotesk'] text-[#070622] dark:text-white">
+                                    Ultimate AI Creator For <br> <span
+                                        class="text-[#7A43A4]"
+                                        id="typing-effect"></span>
+                                </h1>
+                                <p
+                                    class="text-[#b0b1b9] text-center font-bold text-[20px] leading-[132%] tracking-[-0.2px] font-['Space_Grotesk']">The
+                                    Our innovative AI enhances your writing and
+                                    elevates productivity while keeping your
+                                    unique voice intact.</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex -space-x-4" data-aos="fade-up"
+                                    data-aos-delay="600">
+                                    <img
+                                        class="w-12 h-12 border-2 border-white rounded-full dark:border-gray-800"
+                                        src="https://i.pravatar.cc/150?img=1"
+                                        alt>
+                                    <img
+                                        class="w-12 h-12 border-2 border-white rounded-full dark:border-gray-800"
+                                        src="https://i.pravatar.cc/150?img=2"
+                                        alt>
+                                    <img
+                                        class="w-12 h-12 border-2 border-white rounded-full dark:border-gray-800"
+                                        src="https://i.pravatar.cc/150?img=3"
+                                        alt>
+                                    <img
+                                        class="w-12 h-12 border-2 border-white rounded-full dark:border-gray-800"
+                                        src="https://i.pravatar.cc/150?img=4"
+                                        alt>
+                                    <img
+                                        class="w-12 h-12 border-2 border-white rounded-full dark:border-gray-800"
+                                        src="https://i.pravatar.cc/150?img=5"
+                                        alt>
+
+                                </div>
+                                <p
+                                    class="text-[#222] dark:text-white font-[Space_Grotesk] text-[12px] not-italic font-normal leading-[164%] ">
+                                    12,577 Clients satisfaits
+                                </p>
+                            </div>
+                            <div class="flex gap-4" data-aos="fade-up"
+                                data-aos-delay="700">
+                                <button
+                                    class="font-medium capitalize text-[16px] py-3 px-6 rounded-[8px] cursor-pointer shadow-md transition duration-300 ease-in-out bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)] text-white hover:shadow-lg hover:scale-105 active:scale-95">
+                                    Start Explore now</button>
+                                <button
+                                    class="dark:bg-[#101531] hover:dark:bg-[#1a1a2e] font-semibold text-[16px] dark:text-[#9d4edd] cursor-pointer border dark:border-[#9d4edd] border-[#7A43A4] py-3 px-6 rounded-[8px] shadow-md transition duration-300 ease-in-out bg-white text-[#7A43A4] hover:bg-[#7A43A4] hover:text-white hover:shadow-lg hover:scale-105 active:scale-95">See
+                                    feature</button>
+                            </div>
+                             <div
+      class="relative flex items-center justify-center mt-12 w-full max-w-6xl"
+      data-aos="fade-up"
+      data-aos-delay="900"
+    >
+      <!-- Left glow -->
+      <div
+        class="absolute left-[-100px] top-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full z-0 blur-[160px]"
+        style="background: radial-gradient(59.43% 50% at 50% 50%, #C7EDFD 0%, #82C8E5 49.48%);"
+      ></div>
+
+      <!-- Right glow -->
+      <div
+        class="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full z-0 blur-[160px]"
+        style="background: radial-gradient(59.43% 50% at 50% 50%, #C7EDFD 0%, #82C8E5 49.48%);"
+      ></div>
+
+      <!-- Video Container -->
+      <div
+        class="relative z-10 w-full aspect-video overflow-hidden bg-[#070622]"
+        style="border-radius:16px; box-shadow:
+          0px 0px 62.395px 0px #82C8E5,
+          0px 0px 35.654px 0px #82C8E5,
+          0px 0px 20.798px 0px #C2FEFF,
+          0px 0px 10.399px 0px #82C8E5,
+          0px 0px 2.971px 0px #82C8E5,
+          0px 0px 1.486px 0px #C2FEFF;"
+      >
+        <div class="relative z-10 w-full h-full">
+          <!-- Video element -->
+          <video
+            id="videoPlayer"
+            class="w-full h-full object-cover"
+            poster="./assets/images/bashboardbg.png"
+            controls
+          >
+            <source src="./assets/images/dashboard.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <!-- Play Button Overlay -->
+          <div
+            id="playOverlay"
+            class="absolute inset-0 flex items-center justify-center cursor-pointer shrink-0"
+          >
+            <div
+              class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
+            >
+              <div
+                class="w-0 h-0 border-l-[20px] border-t-[12px] border-b-[12px] border-l-white border-t-transparent border-b-transparent ml-1"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
+            </section>
+
+            <section id="features"
+                class="dark:bg-[#070622] bg-[#F9F9F9] py-20 text-center px-4">
+                <h2
+                    class="text-3xl md:text-[54px] leading-[132%] font-bold dark:text-white text-[#070622]"
+                    data-aos="fade-down">How does it work?</h2>
+                <p
+                    class="text-[12px] md:text-[20px] font-medium dark:text-[#F9F9F9] text-[#1C202B] mb-10"
+                    data-aos="fade-up" data-aos-delay="100">Start Writing in 3
+                    Easy Steps</p>
+                <div
+                    class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="relative w-full min-h-[280px] border border-[#7A43A4] bg-gradient-to-b from-[rgba(43,43,43,0.08)] to-[rgba(32,32,32,0)] backdrop-blur p-6 flex flex-col justify-start rounded-[16px]"
+                        data-aos="zoom-in" data-aos-delay="200">
+                        <div
+                            class="relative w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                            <img
+                                src="https://raw.githubusercontent.com/user-attachments/assets/61f0674f-bd58-45b0-8e11-e6da48529329/howitworkbg.png"
+                                alt="Step BG"
+                                class="absolute inset-0 z-0 hidden dark:block">
+                            <img
+                                src="https://raw.githubusercontent.com/user-attachments/assets/d1c95690-674b-4a57-b2e1-4c17242d547d/dark-circle.png"
+                                alt="Step BG Light"
+                                class="absolute inset-0 z-0 block dark:hidden">
+                            <span
+                                class="relative z-10 text-white text-center text-[64px] font-bold font-['ADLaM_Display']">1</span>
+                        </div>
+                        <h3
+                            class="dark:text-white text-[#070622] text-[24px] font-bold">Choose
+                            your AI Tool</h3>
+                        <p
+                            class="dark:text-[#9A98B9] text-[#070622] text-[16px] mt-2">Browse
+                            and select the AI tool that suits your needs. Each
+                            tool is designed for a specific task.</p>
+                    </div>
+                    <div
+                        class="relative w-full min-h-[280px] border border-[#7A43A4] bg-gradient-to-b from-[rgba(43,43,43,0.08)] to-[rgba(32,32,32,0)] backdrop-blur p-6 flex flex-col justify-start rounded-[16px]"
+                        data-aos="zoom-in" data-aos-delay="400">
+                        <div
+                            class="relative w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                            <img
+                                src="https://raw.githubusercontent.com/user-attachments/assets/61f0674f-bd58-45b0-8e11-e6da48529329/howitworkbg.png"
+                                alt="Step BG"
+                                class="absolute inset-0 z-0 hidden dark:block">
+                            <img
+                                src="https://raw.githubusercontent.com/user-attachments/assets/d1c95690-674b-4a57-b2e1-4c17242d547d/dark-circle.png"
+                                alt="Step BG Light"
+                                class="absolute inset-0 z-0 block dark:hidden">
+                            <span
+                                class="relative z-10 text-white text-center text-[64px] font-bold font-['ADLaM_Display']">2</span>
+                        </div>
+                        <h3
+                            class="dark:text-white text-[#070622] text-[24px] font-bold">Customize
+                            & Input</h3>
+                        <p
+                            class="dark:text-[#9A98B9] text-[#070622] text-[16px] mt-2">Provide
+                            your input or preferences. The tool adapts to your
+                            needs instantly.</p>
+                    </div>
+                    <div
+                        class="relative w-full min-h-[280px] border border-[#7A43A4] bg-gradient-to-b from-[rgba(43,43,43,0.08)] to-[rgba(32,32,32,0)] backdrop-blur p-6 flex flex-col justify-start rounded-[16px]"
+                        data-aos="zoom-in" data-aos-delay="600">
+                        <div
+                            class="relative w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                            <img
+                                src="https://raw.githubusercontent.com/user-attachments/assets/61f0674f-bd58-45b0-8e11-e6da48529329/howitworkbg.png"
+                                alt="Step BG"
+                                class="absolute inset-0 z-0 hidden dark:block">
+                            <img
+                                src="https://raw.githubusercontent.com/user-attachments/assets/d1c95690-674b-4a57-b2e1-4c17242d547d/dark-circle.png"
+                                alt="Step BG Light"
+                                class="absolute inset-0 z-0 block dark:hidden">
+                            <span
+                                class="relative z-10 text-white text-center text-[64px] font-bold font-['ADLaM_Display']">3</span>
+                        </div>
+                        <h3
+                            class="dark:text-white text-[#070622] text-[24px] font-bold">Get
+                            Results Instantly</h3>
+                        <p
+                            class="dark:text-[#9A98B9] text-[#070622] text-[16px] mt-2">Get
+                            AI-generated results instantly and refine them as
+                            needed.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="dark:bg-[#070622] bg-[#F9F9F9] text-center py-10 px-4 pt-28 overflow-hidden">
+                <h2
+                    class="text-3xl md:text-[46px] font-bold dark:text-white text-[#070622]"
+                    data-aos="fade-down">Unlimited models to get started</h2>
+                <p
+                    class="text-[20px] font-medium text-center dark:text-[#BCBCBC] text-[#070622] mt-2 mb-10"
+                    data-aos="fade-up" data-aos-delay="100">Custom models</p>
+                <div class="swiper swiper_container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div
+                                class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                        d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5
+                                    class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Michel
+                                    Johnson</h5>
+                                <p
+                                    class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">Very
+                                    comprehensive lessons, this is underrated. I
+                                    hope other learners know about this.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                        d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5
+                                    class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Jane
+                                    Doe</h5>
+                                <p
+                                    class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">A
+                                    fantastic platform for students. The AI
+                                    tools are incredibly helpful and easy to
+                                    use.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                        d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5
+                                    class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">David
+                                    Smith</h5>
+                                <p
+                                    class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">The
+                                    quality of the content generation is
+                                    top-notch. It has saved me countless hours
+                                    of research.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="h-full max-w-sm p-6 text-center bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <svg class="w-7 h-7 text-gray-500 mx-auto mb-3"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                        d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" /></svg>
+                                <h5
+                                    class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Maria
+                                    Garcia</h5>
+                                <p
+                                    class="mb-3 text-start font-normal text-gray-500 dark:text-gray-400 text-[18px]">I
+                                    wish I had this tool when I was in my first
+                                    year. It's a game-changer for essay
+                                    writing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-controler">
+                        <div class="swiper-button-prev slider-arrow">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next slider-arrow">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="work-smarter-section"
+                class="dark:bg-[#070622] bg-[#F9F9F9] py-16 md:py-28">
+                <h1
+                    class="dark:text-[#F9F9F9] text-[#070622] mb-10 text-center font-['Space_Grotesk'] text-[24px] md:text-[46px] font-bold"
+                    data-aos="fade-up">Work smarter, not harder with
+                    Student-AI!</h1>
+                <div
+                    class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-3">
+                    <div class="border-r-0 lg:border-r border-[#7045ac]">
+                        <h2 id="stat-1"
+                            class="text-center text-[#7A43A4] text-[65px] font-bold">0K</h2>
+                        <p class="text-center text-[#BCBCBC] text-xl">satisfied
+                            Student-IA customers</p>
+                    </div>
+                    <div class="border-r-0 lg:border-r border-[#7045ac]">
+                        <h2 id="stat-2"
+                            class="text-center text-[#7A43A4] text-[65px] font-bold">0%</h2>
+                        <p class="text-center text-[#BCBCBC] text-xl">say they
+                            save time</p>
+                    </div>
+                    <div class="border-r-0 lg:border-r border-[#7045ac]">
+                        <h2 id="stat-3"
+                            class="text-center text-[#7A43A4] text-[65px] font-bold">0</h2>
+                        <p class="text-center text-[#BCBCBC] text-xl">integrated
+                            AI tools</p>
+                    </div>
+                    <div>
+                        <h2 id="stat-4"
+                            class="text-center text-[#7A43A4] text-[65px] font-bold">0%</h2>
+                        <p class="text-center text-[#BCBCBC] text-xl">say they
+                            understand courses better</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pricing"
+                class="dark:bg-[#070622] bg-[#F9F9F9] py-10 lg:pt-10 px-4 text-center">
+                <h2
+                    class="dark:text-white text-[#070622] text-center font-bold text-3xl md:text-[48px]"
+                    data-aos="fade-down">Our Pricing</h2>
+                <p
+                    class="dark:text-[#F9F9F9] text-[#070622] text-center font-bold text-[20px] mt-4"
+                    data-aos="fade-up">Simple Pricing, Unbeatable Value</p>
+                <div id="pricing-tabs-container"
+                    class="w-full container mx-auto py-10">
+                    <div class="flex justify-center mb-4">
+                        <div
+                            class="dark:bg-[#10122e] bg-[#F9F9F9] p-2 border border-[#D24AC966] rounded-full flex gap-2 mb-5">
+                            <button data-tab="monthly"
+                                class="pricing-tab-trigger cursor-pointer px-6 py-3 rounded-full transition-colors">Monthly</button>
+                            <button data-tab="yearly"
+                                class="pricing-tab-trigger cursor-pointer px-6 py-3 rounded-full transition-colors">Yearly</button>
+                        </div>
+                    </div>
+                    <div id="monthly-content" class="pricing-tab-content">
+                        <div
+                            class="flex flex-wrap justify-center gap-10 p-3 md:p-0">
+                            <div
+                                class="border border-[#7A43A4] rounded-2xl bg-transparent dark:hover:bg-[linear-gradient(180deg,rgba(122,67,164,0.3),rgba(96,73,188,0.17))] p-6 shadow-lg w-full max-w-sm min-h-[660px] flex flex-col justify-between">
+                                <div>
+                                    <div
+                                        class="text-sm dark:text-white/60 text-[#070622] rounded-full border dark:border-white/60 border-[#070622] w-fit mx-auto px-3 py-1 mb-2">Essential
+                                        Plan</div>
+                                    <div
+                                        class="text-3xl font-bold dark:text-white text-[#070622] text-start">$29
+                                        <span
+                                            class="text-base font-medium dark:text-white/50 text-[#070622]">/Month</span></div>
+                                    <p
+                                        class="dark:text-white text-[#070622] text-base font-normal mt-2 mb-4 text-start">Ideal
+                                        for small teams and individuals getting
+                                        started.</p>
+                                    <hr class="border-white/10 mb-4" />
+                                    <ul
+                                        class="space-y-2 mt-2 dark:text-white text-[#070622] text-left">
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            4: 100,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            3.5: 5,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>AI
+                                            Writer Feature</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>AI
+                                            Image Feature</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6"><button
+                                        class="w-full text-white hover:opacity-90 py-3 cursor-pointer rounded-md bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)]">Get
+                                        Started</button></div>
+                            </div>
+                            <div
+                                class="border border-[#7A43A4] rounded-2xl bg-transparent dark:hover:bg-[linear-gradient(180deg,rgba(122,67,164,0.3),rgba(96,73,188,0.17))] p-6 shadow-lg w-full max-w-sm min-h-[660px] flex flex-col justify-between">
+                                <div>
+                                    <div
+                                        class="text-sm dark:text-white/60 text-[#070622] rounded-full border dark:border-white/60 border-[#070622] w-fit mx-auto px-3 py-1 mb-2">Pro
+                                        Plan</div>
+                                    <div
+                                        class="text-3xl font-bold dark:text-white text-[#070622] text-start">$49
+                                        <span
+                                            class="text-base font-medium dark:text-white/50 text-[#070622]">/Month</span></div>
+                                    <p
+                                        class="dark:text-white text-[#070622] text-base font-normal mt-2 mb-4 text-start">For
+                                        professionals who need more power and
+                                        support.</p>
+                                    <hr class="border-white/10 mb-4" />
+                                    <ul
+                                        class="space-y-2 mt-2 dark:text-white text-[#070622] text-left">
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            4: 200,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            3.5: 15,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>All
+                                            Essential Features</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>Priority
+                                            Support</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6"><button
+                                        class="w-full text-white hover:opacity-90 py-3 cursor-pointer rounded-md bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)]">Get
+                                        Started</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="yearly-content" class="pricing-tab-content hidden">
+                        <div
+                            class="flex flex-wrap justify-center gap-10 p-3 md:p-0">
+                            <div
+                                class="border border-[#7A43A4] rounded-2xl bg-transparent dark:hover:bg-[linear-gradient(180deg,rgba(122,67,164,0.3),rgba(96,73,188,0.17))] p-6 shadow-lg w-full max-w-sm min-h-[660px] flex flex-col justify-between">
+                                <div>
+                                    <div
+                                        class="text-sm dark:text-white/60 text-[#070622] rounded-full border dark:border-white/60 border-[#070622] w-fit mx-auto px-3 py-1 mb-2">Essential
+                                        Plan</div>
+                                    <div
+                                        class="text-3xl font-bold dark:text-white text-[#070622] text-start">$29
+                                        <span
+                                            class="text-base font-medium dark:text-white/50 text-[#070622]">/Month</span></div>
+                                    <p
+                                        class="dark:text-white text-[#070622] text-base font-normal mt-2 mb-4 text-start">Save
+                                        big with our annual plan for
+                                        individuals.</p>
+                                    <hr class="border-white/10 mb-4" />
+                                    <ul
+                                        class="space-y-2 mt-2 dark:text-white text-[#070622] text-left">
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            4: 300,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            3.5: 30,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>50
+                                            Images</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6"><button
+                                        class="w-full text-white hover:opacity-90 py-3 cursor-pointer rounded-md bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)]">Get
+                                        Started</button></div>
+                            </div>
+                            <div
+                                class="border border-[#7A43A4] rounded-2xl bg-transparent dark:hover:bg-[linear-gradient(180deg,rgba(122,67,164,0.3),rgba(96,73,188,0.17))] p-6 shadow-lg w-full max-w-sm min-h-[660px] flex flex-col justify-between">
+                                <div>
+                                    <div
+                                        class="text-sm dark:text-white/60 text-[#070622] rounded-full border dark:border-white/60 border-[#070622] w-fit mx-auto px-3 py-1 mb-2">Pro
+                                        Yearly</div>
+                                    <div
+                                        class="text-3xl font-bold dark:text-white text-[#070622] text-start">$99
+                                        <span
+                                            class="text-base font-medium dark:text-white/50 text-[#070622]">/Month</span></div>
+                                    <p
+                                        class="dark:text-white text-[#070622] text-base font-normal mt-2 mb-4 text-start">Maximum
+                                        value for power users and
+                                        professionals.</p>
+                                    <hr class="border-white/10 mb-4" />
+                                    <ul
+                                        class="space-y-2 mt-2 dark:text-white text-[#070622] text-left">
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            4: 1,000,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>GPT
+                                            3.5: 150,000 mots</li>
+                                        <li class="flex items-center gap-2"><svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="16"
+                                                viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"><polyline
+                                                    points="20 6 9 17 4 12"></polyline></svg>200
+                                            Images</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6"><button
+                                        class="w-full text-white hover:opacity-90 py-3 cursor-pointer rounded-md bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)]">Get
+                                        Started</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="testimonial"
+                class="relative dark:bg-[#070622] bg-[#F9F9F9] dark:text-white text-[#070622] py-20 px-4 overflow-hidden">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-[48px] font-bold">Testimonials</h2>
+                    <p
+                        class="text-lg mt-2 dark:text-gray-300 text-[#070622]">What
+                        Saying Our Customers</p>
+                </div>
+                <div id="testimonials-grid"
+                    class="container mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                </div>
+                <div id="testimonials-fade"
+                    class="absolute bottom-20 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/90 to-transparent dark:from-[#070622] dark:via-[#070622]/90 dark:to-transparent z-20 pointer-events-none"></div>
+                <div class="relative z-30 mt-10 flex justify-center">
+                    <button id="testimonials-toggle-btn"
+                        class="rounded-[12px] bg-[linear-gradient(180deg,_#7A43A4_0%,_#6049BC_100%)] h-12 px-6 flex items-center justify-center cursor-pointer text-white">Read
+                        More</button>
+                </div>
+            </section>
+
+            <section class="w-full bg-[#fff] dark:bg-[#070622] py-8">
+                <div
+                    class="container mx-auto flex flex-col md:flex-row items-center justify-center p-3">
+                    <div data-aos="fade-right">
+                        <h1
+                            class="text-3xl md:text-[48px] font-medium text-black dark:text-[#FFF] max-w-xl">Only
+                            platform that you will ever need</h1>
+                        <p
+                            class="text-[14px] md:text-[20px] font-medium text-[#BCBCBC] max-w-3xl mt-8">We
+                            have you covered from all AI Text & Audio generation
+                            aspects to allow you to focus only on your content
+                            creation</p>
+                    </div>
+                    <div data-aos="fade-left">
+                        <img
+                            src="https://raw.githubusercontent.com/user-attachments/assets/1f1a58ba-e07e-412e-9d2a-874ca957f12e/platformimg.png"
+                            alt="Platform" class="mt-8 md:mt-0">
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq"
+                class="flex items-center justify-center bg-[#fff] dark:bg-[#070622] py-10 md:py-20 px-4">
+                <div
+                    class="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="space-y-6" data-aos="fade-right">
+                        <h2
+                            class="text-black dark:text-white text-4xl font-semibold">Frequently
+                            Asked Questions</h2>
+                        <p class="text-gray-600 dark:text-gray-400 max-w-md">Got
+                            Questions? We have you covered. We are always here
+                            to provide full support.</p>
+                        <div
+                            class="relative w-full max-w-md border rounded-[10px] border-[#36393B] bg-[#fff] dark:bg-[#13152e] mt-10">
+                            <input placeholder="Have another question?"
+                                class="w-full bg-transparent text-black dark:text-white border-none pr-32 pl-5 py-5 placeholder:text-[#BCBCBC]">
+                            <button
+                                class="absolute right-4 top-1/2 -translate-y-1/2 px-4 bg-[#7b2cbf] hover:bg-[#9d4edd] text-white h-9 rounded-full cursor-pointer">Ask
+                                Question</button>
+                        </div>
+                    </div>
+                    <div id="faq-accordion" class="space-y-4"
+                        data-aos="fade-left">
+                    </div>
+                </div>
+            </section>
+
+            <section id="blogs"
+                class="py-16 md:pb-36 dark:bg-[#060722] bg-[#fff] text-center p-3">
+                <h2
+                    class="dark:text-white text-black text-center font-['Space_Grotesk'] text-3xl md:text-[48px] font-bold"
+                    data-aos="fade-up">Our latest blogs</h2>
+                <p
+                    class="dark:text-white/80 text-gray-600 font-['Space_Grotesk'] text-[18px] font-normal mt-2"
+                    data-aos="fade-up" data-aos-delay="100">Stay updated</p>
+                <div id="blog-carousel"
+                    class="keen-slider mt-10 container mx-auto"
+                    data-aos="fade-up" data-aos-delay="200">
+                </div>
+                <div id="blog-dots"
+                    class="mt-8 flex justify-center items-center space-x-2">
+                </div>
+            </section>
+
+        </main>
+
+        <div class="bg-[#070622]">
+            <footer
+                class="text-white rounded-t-4xl border-t-4 border-t-[#7A43A4] py-36 px-6 md:px-16"
+                style="background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                <div
+                    class="container mx-auto flex flex-col md:flex-row justify-between gap-10">
+                    <div class="mb-10 md:mb-0">
+                        <h3
+                            class="text-[32px] font-semibold mb-2 max-w-xl">Start
+                            writing clearly with <span
+                                class="text-[#7b2cbf]">Student IA</span></h3>
+                        <div class="flex gap-5 mt-6">
+                            <a href="#" aria-label="Facebook"><svg width="32"
+                                    height="32" viewBox="0 0 24 24"
+                                    fill="white"><path
+                                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+                            <a href="#" aria-label="X"><svg width="32"
+                                    height="32" viewBox="0 0 24 24"
+                                    fill="white"><path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg></a>
+                            <a href="#" aria-label="YouTube"><svg width="32"
+                                    height="32" viewBox="0 0 24 24"
+                                    fill="white"><path
+                                        d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33.22 2.65.28c1.3.07 2.49.1 3.59.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73Z" /></svg></a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 space-y-3">
+                        <h4
+                            class="text-2xl text-[#6049BC] font-medium">Links</h4>
+                        <a href="#"
+                            class="text-lg hover:underline text-[#D4D4D4]">About
+                            Us</a>
+                        <a href="#"
+                            class="text-lg hover:underline text-[#D4D4D4]">Privacy
+                            Policy</a>
+                        <a href="#"
+                            class="text-lg hover:underline text-[#D4D4D4]">Terms
+                            of Service</a>
+                    </div>
+                    <div class="flex flex-col gap-4 items-start md:items-end">
+                        <a href="/"><img id="footer-logo-dark"
+                                src="./assets/images/logo.png"
+                                alt="Logo Dark" class="h-10"><img
+                                id="footer-logo-light"
+                                src="./assets/images/logo.png"
+                                alt="Logo Light" class="h-10 hidden"></a>
+                        <div class="relative w-full md:w-80 mt-4">
+                            <input placeholder="Your email here"
+                                class="w-full !bg-[#070622] text-white placeholder:text-white/60 border-none pr-28 pl-8 py-5 rounded-lg">
+                            <button
+                                class="absolute right-1 top-1/2 -translate-y-1/2 px-6 bg-[#7b2cbf] hover:bg-[#9d4edd] text-white h-[85%] text-sm cursor-pointer rounded-[8px]">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div id="video-modal"
+            class="fixed inset-0 bg-black bg-opacity-80 z-[2000] hidden items-center justify-center">
+            <div class="relative w-full max-w-4xl p-4">
+                <button id="close-modal-btn"
+                    class="absolute -top-2 -right-2 text-white bg-black rounded-full p-2 z-10">&times;</button>
+                <video id="banner-video" class="w-full rounded-lg" controls>
+                    <source
+                        src="https://raw.githubusercontent.com/user-attachments/assets/b6d63d80-8774-4b47-a442-70b922a9f24e/dashboard.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
-        <div class="mt-8 text-center md:text-left">
-            <p>© 2023 Student-ia. All Rights Reserved.</p>
-        </div>
-    </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.js"></script>
+        <script type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="./assets/js/main.js"></script>
 
-    <script>
-        // Swiper.js for the brand logos slider
-        window.onload = function() {
-            // Initialize AOS
-            AOS.init({
-                duration: 1000,
-                once: true,
-            });
+        <!-- Google Translate script -->
+        <script
+            type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-            new Swiper('.swiper-container', {
-                loop: true,
-                slidesPerView: 3,
-                spaceBetween: 30,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 4,
-                    },
-                    768: {
-                        slidesPerView: 5,
-                    },
-                    1024: {
-                        slidesPerView: 6,
-                    },
-                }
-            });
-
-            // Blog Carousel
-            new Swiper('.swiper-container-blog', {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination-blog',
-                    clickable: true,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                }
-            });
-
-            // FAQ Accordion
-            const accordionItems = document.querySelectorAll('.accordion-item');
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                const content = item.querySelector('.accordion-content');
-                const icon = header.querySelector('.plus-minus-icon svg path');
-
-                header.addEventListener('click', () => {
-                    const isActive = content.classList.contains('active');
-                    
-                    accordionItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            const otherContent = otherItem.querySelector('.accordion-content');
-                            const otherIcon = otherItem.querySelector('.plus-minus-icon svg path');
-                            otherContent.classList.remove('active');
-                            otherIcon.setAttribute('d', 'M12 6v6m0 0v6m0-6h6m-6 0H6');
-                        }
-                    });
-
-                    content.classList.toggle('active');
-                    if (isActive) {
-                        icon.setAttribute('d', 'M12 6v6m0 0v6m0-6h6m-6 0H6');
-                    } else {
-                        icon.setAttribute('d', 'M6 12h12');
-                    }
-                });
-            });
-
-            // Dark/Light Mode Toggle
-            const themeToggle = document.getElementById('theme-toggle');
-            const sunIcon = document.getElementById('sun-icon');
-            const moonIcon = document.getElementById('moon-icon');
-            const body = document.body;
-
-            const currentTheme = localStorage.getItem('theme') || 'dark';
-            if (currentTheme === 'light') {
-                body.setAttribute('data-theme', 'light');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-            }
-
-            themeToggle.addEventListener('click', () => {
-                const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                if (newTheme === 'light') {
-                    moonIcon.classList.add('hidden');
-                    sunIcon.classList.remove('hidden');
-                } else {
-                    moonIcon.classList.remove('hidden');
-                    sunIcon.classList.add('hidden');
-                }
-            });
-
-            // Counter animation
-            const counters = [
-                { id: 'counter1', target: 12, suffix: 'k', duration: 2000 },
-                { id: 'counter2', target: 98, suffix: '%', duration: 2500 },
-                { id: 'counter3', target: 25, duration: 1500 },
-                { id: 'counter4', target: 92, suffix: '%', duration: 2500 },
-            ];
-
-            function animateCounter(id, target, suffix, duration) {
-                const element = document.getElementById(id);
-                let start = 0;
-                const increment = target / (duration / 10);
-                const step = () => {
-                    start += increment;
-                    element.textContent = Math.floor(start) + (suffix || '');
-                    if (start < target) {
-                        requestAnimationFrame(step);
-                    } else {
-                        element.textContent = target + (suffix || '');
-                    }
-                };
-                requestAnimationFrame(step);
-            }
-
-            let countersAnimated = false;
-            const counterSection = document.querySelector('.counter-section');
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !countersAnimated) {
-                        counters.forEach(counter => {
-                            animateCounter(counter.id, counter.target, counter.suffix, counter.duration);
-                        });
-                        countersAnimated = true;
-                        observer.disconnect();
-                    }
-                });
-            }, { threshold: 0.5 });
-            observer.observe(counterSection);
-
-            // Testimonials "See More" functionality
-            const showMoreBtn = document.getElementById('show-more-testimonials');
-            const testimonialsGrid = document.getElementById('testimonials-grid');
-            const testimonialItems = document.querySelectorAll('.testimonial-item');
-
-            let isExpanded = false;
-            showMoreBtn.addEventListener('click', () => {
-                if (!isExpanded) {
-                    testimonialsGrid.style.height = 'auto';
-                    showMoreBtn.textContent = 'See Less';
-                    testimonialItems.forEach(item => item.classList.remove('half-opacity'));
-                } else {
-                    testimonialsGrid.style.height = '24rem';
-                    showMoreBtn.textContent = 'See More';
-                    testimonialItems.forEach((item, index) => {
-                        if (index >= 4) {
-                            item.classList.add('half-opacity');
-                        }
-                    });
-                }
-                isExpanded = !isExpanded;
-            });
-
-            // Pricing Toggle
-            const monthlyToggle = document.getElementById('monthly-toggle');
-            const yearlyToggle = document.getElementById('yearly-toggle');
-            const priceStandard = document.getElementById('price-standard');
-            const pricePro = document.getElementById('price-pro');
-
-            monthlyToggle.addEventListener('click', () => {
-                monthlyToggle.classList.add('bg-purple-600', 'text-white');
-                yearlyToggle.classList.remove('bg-purple-600', 'text-white');
-                yearlyToggle.classList.add('text-gray-400');
-                priceStandard.textContent = '$29';
-                pricePro.textContent = '$49';
-            });
-
-            yearlyToggle.addEventListener('click', () => {
-                yearlyToggle.classList.add('bg-purple-600', 'text-white');
-                monthlyToggle.classList.remove('bg-purple-600', 'text-white');
-                monthlyToggle.classList.add('text-gray-400');
-                priceStandard.textContent = '$290';
-                pricePro.textContent = '$490';
-            });
-        };
-    </script>
-</body>
+    </body>
 </html>
