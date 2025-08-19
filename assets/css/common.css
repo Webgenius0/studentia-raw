@@ -71,21 +71,4 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* Hide the original Google Translate dropdown */
-#google_translate_element {
-  display: none;
-}
 
-.goog-te-banner-frame.skiptranslate,
-.goog-te-gadget-icon {
-  display: none !important;
-}
-
-body {
-  top: 0px !important;
-}
-
-.VIpgJd-ZVi9od-ORHb-OEVmcd,
-.VIpgJd-ZVi9od-ORHb-OEVmcd, .skiptranslate {
-  display: none !important;
-}
