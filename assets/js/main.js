@@ -257,161 +257,36 @@ langBtn.addEventListener('click', () => {
      setActiveTab('monthly'); // Set initial active tab
 
      // --- TESTIMONIALS ---
-     const testimonialsData = [
-       {
-         name: 'Cameron Williamson',
-         role: 'President of Sales',
-         text: 'Incredibly useful for students! It offers a variety of resources that make studying for exams a breeze.',
-         avatar: 'https://i.pravatar.cc/150?img=4',
-       },
-       {
-         name: 'Ronald Richards',
-         role: 'Web Designer',
-         text: 'A must-have site for students, ideal for efficient revision and quick report writing! Highly recommended!',
-         avatar: 'https://i.pravatar.cc/150?img=5',
-       },
-       {
-         name: 'Devon Lane',
-         role: 'Marketing Coordinator',
-         text: 'This site is fantastic for learning how to use the humanizer tool; it really eases worries about AI detectors.',
-         avatar: 'https://i.pravatar.cc/150?img=6',
-       },
-       {
-         name: 'Annette Black',
-         role: 'Dog Trainer',
-         text: 'This site is awesome for understanding how to use the humanizer; it really helps us relax about AI detectors.',
-         avatar: 'https://i.pravatar.cc/150?img=7',
-       },
-       {
-         name: 'Esther Howard',
-         role: 'Marketing Coordinator',
-         text: "I can't recommend this website enough! It has truly surpassed my expectations in every aspect.",
-         avatar: 'https://i.pravatar.cc/150?img=8',
-       },
-       {
-         name: 'Eleanor Pena',
-         role: 'Web Designer',
-         text: 'This website is a game-changer for students! It provides a wealth of resources that make studying for exams a breeze.',
-         avatar: 'https://i.pravatar.cc/150?img=9',
-       },
-       {
-         name: 'Jacob Jones',
-         role: 'President of Sales',
-         text: 'An essential site for students, perfect for efficient studying and drafting papers quickly! I highly recommend it.',
-         avatar: 'https://i.pravatar.cc/150?img=10',
-       },
-       {
-         name: 'Cameron Williamson',
-         role: 'Web Designer',
-         text: 'This site is fantastic for learning how to use the humanizer tool; it really eases the worries about AI detectors.',
-         avatar: 'https://i.pravatar.cc/150?img=11',
-       },
-     ];
-     const grid = document.getElementById('testimonials-grid');
-     const toggleBtn = document.getElementById('testimonials-toggle-btn');
-     const fadeEl = document.getElementById('testimonials-fade');
-     let showAll = false;
+const accordionItems = document.querySelectorAll('.accordion-item');
 
-     const renderTestimonials = () => {
-       const itemsToShow = showAll
-         ? testimonialsData
-         : testimonialsData.slice(0, 4);
-       grid.innerHTML = itemsToShow
-         .map(
-           (item) => `
-                    <div class="dark:bg-[#060b24]/90 bg-white p-4 border dark:border-white/10 border-gray-200 rounded-[22px] transition-all duration-300 dark:hover:shadow-[0_0_20px_rgba(124,58,237,0.4)]" data-aos="fade-up">
-                        <div class="flex items-center gap-3">
-                            <img src="${item.avatar}" alt="${item.name}" class="w-10 h-10 rounded-full object-cover"/>
-                            <div><p class="font-semibold">${item.name}</p><p class="text-sm text-gray-400">${item.role}</p></div>
-                        </div>
-                        <p class="text-sm dark:text-gray-300 text-gray-500 mt-3">${item.text}</p>
-                    </div>
-                `
-         )
-         .join('');
-     };
+accordionItems.forEach((item) => {
+  const trigger = item.querySelector('.accordion-trigger');
+  trigger.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
 
-     toggleBtn.addEventListener('click', () => {
-       showAll = !showAll;
-       toggleBtn.textContent = showAll ? 'Show Less' : 'Read More';
-       fadeEl.classList.toggle('hidden', showAll);
-       renderTestimonials();
-     });
-     renderTestimonials();
+    // Close all others
+    accordionItems.forEach((i) => {
+      i.classList.remove('open');
+      i.querySelector('.accordion-content').style.maxHeight = null;
+      i.querySelector('.icon-plus').style.opacity = '1';
+      i.querySelector('.icon-minus').style.opacity = '0';
+    });
 
-     // --- FAQ ACCORDION (Corrected Icons & Design) ---
-     const faqData = [
-       {
-         question: 'What is Student-IA and how does it work?',
-         answer:
-           'An intelligent educational assistant: Student-IA is a digital tool that helps students solve problems, write content, and better understand their courses. A personalized guide: It adapts to your needs, your level of study, and your academic goals. A time-saver: It provides quick and accurate answers, whether it’s for an exercise, research, or revision.',
-       },
-       {
-         question: 'How can Student-IA help me improve my academic results?',
-         answer:
-           'By providing instant feedback, personalized study plans, and access to a vast database of knowledge, Student-IA helps you learn more efficiently and effectively.',
-       },
-       {
-         question:
-           'Can I customize the AI-generated content so it’s closer to what I want to say?',
-         answer:
-           'Yes, Student-IA allows you to adjust tone, style, and content length. You can refine the AI’s suggestions until the output fully matches your personal voice or project requirements.',
-       },
-       {
-         question: 'Is there a free trial available for Student-IA?',
-         answer:
-           'Yes, we offer a free trial with limited access to features so you can experience the power of Student-IA before committing to a plan.',
-       },
-       {
-         question: 'What types of content can I create with Student-IA?',
-         answer:
-           'You can create essays, reports, study notes, summaries, presentations, research drafts, and even creative writing pieces. Student-IA adapts to different academic and creative needs.',
-       },
-     ];
-     const accordionContainer = document.getElementById('faq-accordion');
-     accordionContainer.innerHTML = faqData
-       .map(
-         (item, index) => `
-                <div class="accordion-item border border-[#433c61] rounded-lg bg-gradient-to-br from-[#2B2B5C]/30 to-[#1A1A3C]/30 backdrop-blur-[10px]">
-                    <button class="accordion-trigger w-full flex justify-between items-center text-left text-black dark:text-white font-medium px-4 py-4">
-                        <span>${item.question}</span>
-                        <div class="relative w-6 h-6 flex items-center justify-center">
-                            <svg class="icon-plus w-6 h-6 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                            <svg class="icon-minus w-6 h-6 absolute transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="px-4 pb-4 text-gray-600 dark:text-[#BCBCBC]"><div class="w-full border-t border-white/10 my-2"></div>${item.answer}</div>
-                    </div>
-                </div>
-            `
-       )
-       .join('');
+    // Open this one
+    if (!isOpen) {
+      item.classList.add('open');
+      const content = item.querySelector('.accordion-content');
+      content.style.maxHeight = content.scrollHeight + 'px';
+      item.querySelector('.icon-plus').style.opacity = '0';
+      item.querySelector('.icon-minus').style.opacity = '1';
+    }
+  });
+});
 
-     const accordionItems =
-       accordionContainer.querySelectorAll('.accordion-item');
-     accordionItems.forEach((item) => {
-       const trigger = item.querySelector('.accordion-trigger');
-       trigger.addEventListener('click', () => {
-         const isOpen = item.classList.contains('open');
-         accordionItems.forEach((i) => {
-           // Close all others
-           i.classList.remove('open');
-           i.querySelector('.accordion-content').style.maxHeight = null;
-           i.querySelector('.icon-plus').style.opacity = '1';
-           i.querySelector('.icon-minus').style.opacity = '0';
-         });
-         if (!isOpen) {
-           item.classList.add('open');
-           const content = item.querySelector('.accordion-content');
-           content.style.maxHeight = content.scrollHeight + 'px';
-           item.querySelector('.icon-plus').style.opacity = '0';
-           item.querySelector('.icon-minus').style.opacity = '1';
-         }
-       });
-     });
-     if (accordionItems.length > 0)
-       accordionItems[0].querySelector('.accordion-trigger').click(); // Open first one by default
+// Open first item by default
+if (accordionItems.length > 0)
+  accordionItems[0].querySelector('.accordion-trigger').click();
+
 
      // --- BLOG CAROUSEL (KEEN SLIDER - STYLED TO MATCH IMAGE) ---
    const dotsContainer = document.getElementById('blog-dots');
@@ -447,9 +322,9 @@ langBtn.addEventListener('click', () => {
      dot.className = 'transition-all duration-300 cursor-pointer rounded-full'; // Reset classes
 
     if (current === idx) {
-      dot.classList.add('w-8', 'h-2.5', 'bg-gray-800', 'dark:bg-white');
+      dot.classList.add('w-8', 'h-2.5', 'bg-[#6049bc]', 'dark:bg-[#6049bc]');
     } else {
-      dot.classList.add('w-2.5', 'h-2.5', 'bg-gray-400/60', 'dark:bg-white/40');
+      dot.classList.add('w-2.5', 'h-2.5', 'bg-[#070622]', 'dark:bg-[#F9F9F9]');
     }
 
    });
