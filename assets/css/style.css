@@ -301,6 +301,7 @@ html {
 
 body {
     top: 0px !important;
+    font-family: "Space Grotesk", sans-serif;
 }
 
 .VIpgJd-ZVi9od-ORHb-OEVmcd {
@@ -309,4 +310,8 @@ body {
 
 .VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc {
     display: none !important;
+}
+
+.font-space {
+    font-family: "Space Grotesk", sans-serif;
 }

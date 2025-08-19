@@ -57,6 +57,15 @@ langBtn.addEventListener('click', () => {
        document
          .getElementById('footer-logo-light')
          .classList.toggle('hidden', !isDark);
+
+       // "How does it work?" background
+       document
+         .querySelectorAll('.how-bg-dark')
+         .forEach((el) => el.classList.toggle('hidden', !isDark));
+       document
+         .querySelectorAll('.how-bg-white')
+         .forEach((el) => el.classList.toggle('hidden', isDark));
+
      };
      const currentTheme = localStorage.getItem('theme') || 'dark';
      applyTheme(currentTheme);
@@ -136,7 +145,7 @@ langBtn.addEventListener('click', () => {
      const closeModalBtn = document.getElementById('close-modal-btn');
      const bannerVideo = document.getElementById('banner-video');
 
-     videoThumbnail.addEventListener('click', () => {
+     videoThumbnail?.addEventListener('click', () => {
        videoModal.classList.remove('hidden');
        videoModal.classList.add('flex');
        bannerVideo.play();
@@ -174,9 +183,18 @@ langBtn.addEventListener('click', () => {
          prevEl: '.swiper-button-prev',
        },
        breakpoints: {
-         640: { slidesPerView: 2, spaceBetween: 20 },
-         768: { slidesPerView: 3, spaceBetween: 40 },
-         1024: { slidesPerView: 3, spaceBetween: 50 }, // Adjusted for better look
+         640: {
+           slidesPerView: 1,
+           spaceBetween: 20,
+         },
+         768: {
+           slidesPerView: 3,
+           spaceBetween: 40,
+         },
+         1024: {
+           slidesPerView: 4,
+           spaceBetween: 50,
+         },
        },
      });
 
@@ -224,7 +242,7 @@ langBtn.addEventListener('click', () => {
          );
          trigger.classList.toggle('bg-[#7A43A4]', isActive);
          trigger.classList.toggle('text-white', isActive);
-         trigger.classList.toggle('dark:text-primary', !isActive);
+         trigger.classList.toggle('dark:text-[#7A43A4]', !isActive);
          trigger.classList.toggle('text-[#070622]', !isActive);
        });
        tabContents.forEach((content) => {
@@ -326,7 +344,7 @@ langBtn.addEventListener('click', () => {
        {
          question: 'What is Student-IA and how does it work?',
          answer:
-           'An intelligent educational assistant, Student-IA is a digital tool that helps students solve problems, write content, and better understand their courses.',
+           'An intelligent educational assistant: Student-IA is a digital tool that helps students solve problems, write content, and better understand their courses. A personalized guide: It adapts to your needs, your level of study, and your academic goals. A time-saver: It provides quick and accurate answers, whether it’s for an exercise, research, or revision.',
        },
        {
          question: 'How can Student-IA help me improve my academic results?',
@@ -334,9 +352,20 @@ langBtn.addEventListener('click', () => {
            'By providing instant feedback, personalized study plans, and access to a vast database of knowledge, Student-IA helps you learn more efficiently and effectively.',
        },
        {
+         question:
+           'Can I customize the AI-generated content so it’s closer to what I want to say?',
+         answer:
+           'Yes, Student-IA allows you to adjust tone, style, and content length. You can refine the AI’s suggestions until the output fully matches your personal voice or project requirements.',
+       },
+       {
          question: 'Is there a free trial available for Student-IA?',
          answer:
            'Yes, we offer a free trial with limited access to features so you can experience the power of Student-IA before committing to a plan.',
+       },
+       {
+         question: 'What types of content can I create with Student-IA?',
+         answer:
+           'You can create essays, reports, study notes, summaries, presentations, research drafts, and even creative writing pieces. Student-IA adapts to different academic and creative needs.',
        },
      ];
      const accordionContainer = document.getElementById('faq-accordion');
@@ -385,104 +414,48 @@ langBtn.addEventListener('click', () => {
        accordionItems[0].querySelector('.accordion-trigger').click(); // Open first one by default
 
      // --- BLOG CAROUSEL (KEEN SLIDER - STYLED TO MATCH IMAGE) ---
-     const blogsData = [
-       {
-         title: 'How Our AI Startup is Transforming Industries',
-         date: 'Jul 21',
-         tag: 'Technology',
-         image: 'https://i.imgur.com/8n11K39.png',
-         desc: 'In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as the trailblazer, revolutionizing the way we live, work, and interact.',
-       },
-       {
-         title: 'Notre vision',
-         date: 'Jul 21',
-         tag: 'Technology',
-         image: 'https://i.imgur.com/k2vr75V.png',
-         desc: 'In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as the trailblazer, revolutionizing the way we live, work, and interact.',
-       },
-       {
-         title: 'Student-IA',
-         date: 'Jul 21',
-         tag: 'Technology',
-         image: 'https://i.imgur.com/w9zW5cT.png',
-         desc: 'In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as the trailblazer, revolutionizing the way we live, work, and interact.',
-       },
-       {
-         title: 'Our Vision Revisited',
-         date: 'Jul 21',
-         tag: 'Technology',
-         image: 'https://i.imgur.com/k2vr75V.png',
-         desc: 'In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as the trailblazer, revolutionizing the way we live, work, and interact.',
-       },
-       {
-         title: 'The Future with Student-IA',
-         date: 'Jul 21',
-         tag: 'Technology',
-         image: 'https://i.imgur.com/w9zW5cT.png',
-         desc: 'In an age where innovation reigns supreme, artificial intelligence (AI) has emerged as the trailblazer, revolutionizing the way we live, work, and interact.',
-       },
-     ];
-     const carousel = document.getElementById('blog-carousel');
-     const dotsContainer = document.getElementById('blog-dots');
+   const dotsContainer = document.getElementById('blog-dots');
 
-     carousel.innerHTML = blogsData
-       .map(
-         (blog) => `
-                <div class="keen-slider__slide">
-                    <div class="p-5 border border-gray-200 dark:border-[#3a2c6c] rounded-xl dark:bg-gradient-to-br dark:from-[#221C4A] dark:to-[#3B2B6C] bg-[#EDF0FA] h-full flex flex-col">
-                        <img src="${blog.image}" alt="${blog.title}" class="w-full h-[200px] object-cover rounded-lg mb-4">
-                        <div class="text-left flex-grow flex flex-col">
-                           <div class="flex items-center space-x-2 text-xs text-gray-600 dark:text-gray-400 mb-2">
-                               <span class="px-2 py-1 rounded bg-gray-200 dark:bg-white/10">${blog.tag}</span>
-                               <span class="rounded-full h-1.5 w-1.5 bg-gray-500 dark:bg-white/50"></span>
-                               <span>${blog.date}</span>
-                           </div>
-                           <h3 class="text-black dark:text-white text-xl font-semibold mb-1 flex-grow">${blog.title}</h3>
-                           <p class="text-gray-600 dark:text-[#BCBCBC] text-base font-normal">${blog.desc}</p>
-                        </div>
-                    </div>
-                </div>
-            `
-       )
-       .join('');
+   const keenSlider = new KeenSlider('#blog-carousel', {
+     loop: true,
+     slides: { perView: 1, spacing: 16 },
+     breakpoints: {
+       '(min-width: 768px)': { slides: { perView: 2, spacing: 20 } },
+       '(min-width: 1024px)': { slides: { perView: 3, spacing: 24 } },
+     },
+     slideChanged(slider) {
+       updateDots(slider.track.details.rel);
+     },
+     created(slider) {
+       const slidesCount = slider.track.details.slides.length;
+       for (let i = 0; i < slidesCount; i++) {
+         const dot = document.createElement('button');
+         dot.addEventListener('click', () => slider.moveToIdx(i));
+         dotsContainer.appendChild(dot);
+       }
+       updateDots(0);
+       // Autoplay
+       setInterval(() => {
+         slider.next();
+       }, 4000);
+     },
+   });
 
-     const keenSlider = new KeenSlider('#blog-carousel', {
-       loop: true,
-       slides: { perView: 1, spacing: 16 },
-       breakpoints: {
-         '(min-width: 768px)': { slides: { perView: 2, spacing: 20 } },
-         '(min-width: 1024px)': { slides: { perView: 3, spacing: 24 } },
-       },
-       slideChanged(slider) {
-         updateDots(slider.track.details.rel);
-       },
-       created(slider) {
-         const slidesCount = slider.track.details.slides.length;
-         for (let i = 0; i < slidesCount; i++) {
-           const dot = document.createElement('button');
-           dot.addEventListener('click', () => slider.moveToIdx(i));
-           dotsContainer.appendChild(dot);
-         }
-         updateDots(0);
-         // Autoplay
-         setInterval(() => {
-           slider.next();
-         }, 4000);
-       },
-     });
+ function updateDots(current) {
+   const dots = dotsContainer.querySelectorAll('button');
+   dots.forEach((dot, idx) => {
+     dot.className = 'transition-all duration-300 cursor-pointer rounded-full'; // Reset classes
 
-     function updateDots(current) {
-       const dots = dotsContainer.querySelectorAll('button');
-       dots.forEach((dot, idx) => {
-         dot.className =
-           'transition-all duration-300 cursor-pointer rounded-full'; // Reset classes
-         if (current === idx) {
-           dot.classList.add('w-8', 'h-2.5', 'bg-white');
-         } else {
-           dot.classList.add('w-2.5', 'h-2.5', 'bg-white/40');
-         }
-       });
-     }
+    if (current === idx) {
+      dot.classList.add('w-8', 'h-2.5', 'bg-gray-800', 'dark:bg-white');
+    } else {
+      dot.classList.add('w-2.5', 'h-2.5', 'bg-gray-400/60', 'dark:bg-white/40');
+    }
+
+   });
+ }
+
+
    });
 
 
@@ -505,3 +478,6 @@ langBtn.addEventListener('click', () => {
       video.addEventListener("play", () => {
         overlay.style.display = "none";
       });
+
+
+   
