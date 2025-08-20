@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex ml-16 mt-4">
+  <div class="dark:bg-[#10122e] light:bg-[#f0f0f5] px-6 py-9 border border-[#D24AC966] rounded-[16px] flex gap-2">
+    <a href="#writing-tools-ai-writers" class="writing-tools-tab cursor-pointer data-[state=active]:bg-gradient-to-b from-primary to-secondary data-[state=active]:text-white px-5 py-6 text-primary border border-[#D24AC966] rounded-[12px] flex items-center gap-2" data-tab="ai-writers">
+      <img src="https://i.imgur.com/eQfBf3k.png" alt="icon" />
+      <p class="text-xl font-medium leading-[164%] capitalize text-light-dark">Ai Writer</p>
+    </a>
+    <a href="#writing-tools-article-writer" class="writing-tools-tab cursor-pointer data-[state=active]:bg-gradient-to-b from-primary to-secondary data-[state=active]:text-white px-5 py-6 text-primary border border-[#D24AC966] rounded-[12px] flex items-center gap-2" data-tab="article-writer">
+      <img src="https://i.imgur.com/kUjL9L8.png" alt="icon" />
+      <p class="text-xl font-medium leading-[164%] capitalize text-light-dark">Article Writer</p>
+    </a>
+    <a href="#writing-tools-ai-code" class="writing-tools-tab cursor-pointer data-[state=active]:bg-gradient-to-b from-primary to-secondary data-[state=active]:text-white px-5 py-6 text-primary border border-[#D24AC966] rounded-[12px] flex items-center gap-2" data-tab="ai-code">
+      <img src="https://i.imgur.com/bW3h56a.png" alt="icon" />
+      <p class="text-xl font-medium leading-[164%] capitalize text-light-dark">Ai Code</p>
+    </a>
+  </div>
+</div>
+
+<div id="writing-tools-content" class="mt-4 border border-[#D24AC966] flex flex-col gap-6 h-full px-[22px] p-4">
+  </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contentArea = document.getElementById('writing-tools-content');
+    const tabs = document.querySelectorAll('.writing-tools-tab');
+
+    async function loadContent(tabId) {
+      const url = `${tabId}.html`;
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Could not load ${url}`);
+        const html = await response.text();
+        contentArea.innerHTML = html;
+        // Re-run any scripts in the loaded content
+        const scripts = contentArea.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          newScript.textContent = script.textContent;
+          document.body.appendChild(newScript).parentNode.removeChild(newScript);
+        });
+      } catch (error) {
+        console.error(error);
+        contentArea.innerHTML = `<div class="p-8 text-center text-red-500">
+          <h1 class="text-4xl font-bold">Error 404</h1>
+          <p class="mt-2 text-xl">Content for "${tabId}" not found.</p>
+        </div>`;
+      }
+    }
+
+    function updateTabs() {
+      const currentHash = window.location.hash.substring(1);
+      const activeTabId = currentHash.split('-')[2] || 'ai-writers';
+      
+      tabs.forEach(tab => {
+        const tabId = tab.getAttribute('data-tab');
+        if (tabId === activeTabId) {
+          tab.classList.add('bg-gradient-to-b', 'from-primary', 'to-secondary', 'text-white');
+          tab.classList.remove('text-primary', 'border-primary', 'dark:text-light-dark', 'light:text-[#6049BC]');
+          tab.querySelector('p').classList.add('text-white');
+        } else {
+          tab.classList.remove('bg-gradient-to-b', 'from-primary', 'to-secondary', 'text-white');
+          tab.classList.add('text-primary', 'border-primary', 'dark:text-light-dark', 'light:text-[#6049BC]');
+          tab.querySelector('p').classList.remove('text-white');
+        }
+      });
+      loadContent(`writing-tools-${activeTabId}`);
+    }
+
+    window.addEventListener('hashchange', updateTabs);
+    updateTabs();
+  });
+</script>
+</body>
+</html>
