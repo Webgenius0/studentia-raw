@@ -56,32 +56,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', setActiveNav);
   setActiveNav();
-  const applyTheme = (theme) => {
-    const isDark = theme === 'dark';
-    document.documentElement.classList.toggle('dark', isDark);
-    document
-      .getElementById('theme-icon-sun')
-      .classList.toggle('hidden', !isDark);
-    document
-      .getElementById('theme-icon-moon')
-      .classList.toggle('hidden', isDark);
-    document.getElementById('logo-dark').classList.toggle('hidden', !isDark);
-    document.getElementById('logo-light').classList.toggle('hidden', isDark);
-    document
-      .getElementById('footer-logo-dark')
-      .classList.toggle('hidden', isDark);
-    document
-      .getElementById('footer-logo-light')
-      .classList.toggle('hidden', !isDark);
+ const applyTheme = (theme) => {
+   const isDark = theme === 'dark';
+   document.documentElement.classList.toggle('dark', isDark);
 
-    // "How does it work?" background
-    document
-      .querySelectorAll('.how-bg-dark')
-      .forEach((el) => el.classList.toggle('hidden', !isDark));
-    document
-      .querySelectorAll('.how-bg-white')
-      .forEach((el) => el.classList.toggle('hidden', isDark));
-  };
+   const sunIcon = document.getElementById('theme-icon-sun');
+   const moonIcon = document.getElementById('theme-icon-moon');
+   if (sunIcon) sunIcon.classList.toggle('hidden', !isDark);
+   if (moonIcon) moonIcon.classList.toggle('hidden', isDark);
+
+   const logoDark = document.getElementById('logo-dark');
+   const logoLight = document.getElementById('logo-light');
+   if (logoDark) logoDark.classList.toggle('hidden', !isDark);
+   if (logoLight) logoLight.classList.toggle('hidden', isDark);
+ };
+
   const currentTheme = localStorage.getItem('theme') || 'dark';
   applyTheme(currentTheme);
   themeToggleBtn.addEventListener('click', () => {

@@ -3,46 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Writing Tools - Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/dashboard.css" />
-
 </head>
 <body class="bg-[#1C202B] text-white transition-colors duration-300">
-      <!-- Google Translate container -->
-    <div id="google_translate_element"></div>
+  <!-- Google Translate -->
+  <div id="google_translate_element"></div>
 
   <div class="flex">
+    <!-- Sidebar (same as dashboard.html) -->
     <div id="sidebar" class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
       <div class="flex flex-col min-h-screen bg-sidebar">
         <div class="h-[80px] p-[10px] bg-sidebar">
           <img id="logo" src="./assets/images/logo.png" alt="logo" />
         </div>
         <div class="h-[calc(100vh-80px)] flex flex-col font-['Space_Grotesk'] px-8 overflow-y-auto scrollbar-hide">
-          <a href="#dashboard" class="sidebar-link flex items-center gap-1 p-[10px] rounded-[6px] text-[#E6A0E2] transition-all duration-200" data-route="dashboard">
-            <img id="dashboard-icon" src="./assets/images/icons/dashboard-icon.svg" alt="dashboard-icon" />
-            <p class="text-3xl font-bold leading-[132%] tracking-[-0.237px] text-light-dark">
-              Dashboards
-            </p>
+          <!-- Sidebar links (same as dashboard.html) -->
+          <a href="dashboard.html" class="sidebar-link flex items-center gap-1 p-[10px] rounded-[6px] text-[#E6A0E2] transition-all duration-200">
+            <img src="./assets/images/icons/dashboard-icon.svg" alt="dashboard-icon" />
+            <p class="text-3xl font-bold leading-[132%] tracking-[-0.237px] text-light-dark">Dashboards</p>
           </a>
+          <!-- Ai Panel Section -->
           <div class="text-light-dark">
-            <h2 class="text-base leading-[132%] tracking-[-0.158px] px-8 py-[10px] font-bold">
-              Ai Panel
-            </h2>
+            <h2 class="text-base leading-[132%] tracking-[-0.158px] px-8 py-[10px] font-bold">Ai Panel</h2>
             <div id="sidebar-menu" class="flex flex-col gap-3 px-4">
+              <div>
+                <a href="writing-tools.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="writing-tools">
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/images/icons/writing-tools-icon.svg" alt="icon" />
+                    <p class="text-base font-medium">Writing tools</p>
+                  </div>
+                  <img src="./assets/images/icons/lower-arrow-icon.svg" alt="icon" />
+                </a>
               </div>
+              <div>
+                <a href="revision-tools.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="revision-tools">
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/images/icons/revision-tools-icon.svg" alt="icon" />
+                    <p class="text-base font-medium">Revision Tools</p>
+                  </div>
+                  <img src="./assets/images/icons/lower-arrow-icon.svg" alt="icon" />
+                </a>
+              </div>
+              <div>
+                <a href="documents.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="documents">
+                  <div class="flex items-center gap-2">
+                    <img src="./assets/images/icons/documents-icon.svg" alt="icon" />
+                    <p class="text-base font-medium">Documents</p>
+                  </div>
+                  <img src="./assets/images/icons/lower-arrow-icon.svg" alt="icon" />
+                </a>
+              </div>
+              <a href="subscription.html" class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                <img src="./assets/images/icons/subscription-panel-icon.svg" alt="icon" />
+                <p class="text-base font-medium">Subscription Panel</p>
+              </a>
+              <a href="account.html" class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                <img src="./assets/images/icons/account-icon.svg" alt="icon" />
+                <p class="text-base font-medium">Account</p>
+              </a>
+              <a href="admin.html" class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                <img src="./assets/images/icons/admin-panel-icon.svg" alt="icon" />
+                <p class="text-base font-medium">Admin Panel</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Main Content -->
     <div class="w-full h-full lg:w-[calc(100dvw-320px)] ml-0 lg:ml-[320px] flex flex-col transition-all duration-300">
       <div class="h-[80px] sticky top-0 z-[450] w-full">
         <nav class="h-full flex items-center justify-between px-4 sm:px-6 py-2 bg-sidebar text-light-dark">
@@ -146,23 +180,220 @@
           </div>
         </nav>
       </div>
-      <div id="main-contentt" class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
-        </div>
+      <div class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
+         <div id="dashboard-content">
+    <div class="flex ml-16 mt-4">
+      <div class="bg-[#10122e] px-4 py-7 border border-[#D24AC966] rounded-full flex gap-2 mb-5">
+        <button id="statistic-tab" class="cursor-pointer bg-gradient-to-b from-primary to-secondary text-white px-6 py-4 border border-[#D24AC966] rounded-[12px]">
+          Statistic
+        </button>
+        <button id="ai-tools-tab" class="cursor-pointer text-primary px-6 py-4 border border-[#D24AC966] rounded-[12px]">
+          All AI Tools
+        </button>
+      </div>
     </div>
-    
-    <div id="overlay" class="bg-gray-500 bg-opacity-50 z-[490] transition-all duration-400 ease-in-out fixed inset-0 hidden"></div>
+
+    <div id="tabs-content" class="w-full">
+      <!-- Statistic Content -->
+      <div id="statistic-content">
+        <div class="flex flex-col gap-8">
+          <!-- Top Cards -->
+          <div class="grid xl:grid-cols-2 gap-6">
+            <!-- Welcome Card -->
+            <div class="px-8 py-6 flex justify-between rounded-[15.784px] bg-gradient-to-t from-[rgba(96,73,188,0.17)] to-[rgba(122,67,164,0.30)]">
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 p-[10px]">
+                  <img src="https://i.imgur.com/k6lP0Wn.png" alt="icon" />
+                  <p class="text-base leading-[164%]">Apr 15, 2025 19:55 PM</p>
+                </div>
+                <h1 class="text-[32px] font-bold">Welcome, Admin!</h1>
+                <div class="flex items-center justify-center border border-[#F9F9F9] rounded-[12px] w-max">
+                  <p class="text-base font-medium px-4 py-2">Current Plan</p>
+                </div>
+                <h1 class="text-[32px] font-bold">No Active Plan</h1>
+                <p class="text-base">You do not have any active subscription</p>
+              </div>
+              <img src="https://i.imgur.com/P1t2K9X.png" alt="icon" />
+            </div>
+
+            <!-- Time Saved Card -->
+            <div class="pl-8 flex flex-col justify-end rounded-[15.784px] bg-gradient-to-t from-[rgba(96,73,188,0.17)] to-[rgba(122,67,164,0.30)] overflow-hidden">
+              <div class="flex items-center gap-2 p-[10px]">
+                <img src="https://i.imgur.com/V72t33N.png" alt="icon" />
+                <p class="text-3xl font-bold">Time Saved</p>
+              </div>
+              <div class="flex">
+                <div class="flex flex-col">
+                  <h1 class="text-[48px] font-bold">161</h1>
+                  <p class="text-[#BCBCBC] text-lg">Total hours you have saved</p>
+                </div>
+                <img src="https://i.imgur.com/83pQjWk.png" alt="chart" class="ml-auto" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Count Limit Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="flex flex-col items-center gap-2 py-4 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
+              <h1 class="text-[48px] font-bold text-gradient-purple">10812</h1>
+              <p class="text-3xl font-medium text-[#F9F9F9]">Words Left</p>
+            </div>
+            <div class="flex flex-col items-center gap-2 py-4 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
+              <h1 class="text-[48px] font-bold text-gradient-purple">1920</h1>
+              <p class="text-3xl font-medium text-[#F9F9F9]">Images Left</p>
+            </div>
+            <div class="flex flex-col items-center gap-2 py-4 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
+              <h1 class="text-[48px] font-bold text-gradient-purple">73821</h1>
+              <p class="text-3xl font-medium text-[#F9F9F9]">Humanize Left</p>
+            </div>
+          </div>
+
+          <!-- Generated Docs -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
+              <div><p class="text-[#FFF]/70 text-xl font-medium">Words Generated</p><p class="text-[#BCBCBC] text-base">40,689 words</p></div>
+              <img src="https://i.imgur.com/8Qp4S9E.png" />
+            </div>
+            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
+              <div><p class="text-[#FFF]/70 text-xl font-medium">Documents Saved</p><p class="text-[#BCBCBC] text-base">86 documents</p></div>
+              <img src="https://i.imgur.com/Rk6t1wT.png" />
+            </div>
+            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
+              <div><p class="text-[#FFF]/70 text-xl font-medium">Images Created</p><p class="text-[#BCBCBC] text-base">13 images</p></div>
+              <img src="https://i.imgur.com/P4Wf6uW.png" />
+            </div>
+            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
+              <div><p class="text-[#FFF]/70 text-xl font-medium">Humanize Generated</p><p class="text-[#BCBCBC] text-base">40,689 words</p></div>
+              <img src="https://i.imgur.com/1G6Kz8B.png" />
+            </div>
+          </div>
+
+          <!-- Table & Templates -->
+          <div class="flex flex-col xl:flex-row gap-5">
+            <!-- Table -->
+            <div class="flex-1 p-6 bg-[#070622] border border-[#7A43A4] rounded-[16px]">
+              <div class="overflow-x-auto">
+                <table class="min-w-full">
+                  <thead class="bg-[#1C202B] text-white">
+                    <tr>
+                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Name</th>
+                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Words</th>
+                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Category</th>
+                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-[#1C202B] divide-y divide-gray-700">
+                    <tr class="hover:bg-[#2D3240]">
+                      <td class="px-6 py-4">Document 1</td>
+                      <td class="px-6 py-4">1200</td>
+                      <td class="px-6 py-4">Academic</td>
+                      <td class="px-6 py-4">2025-08-20</td>
+                    </tr>
+                    <tr class="hover:bg-[#2D3240]">
+                      <td class="px-6 py-4">Document 2</td>
+                      <td class="px-6 py-4">500</td>
+                      <td class="px-6 py-4">Blog Post</td>
+                      <td class="px-6 py-4">2025-08-19</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Templates -->
+            <div class="p-6 bg-[#070622] border border-[#7A43A4] rounded-[16px] w-full xl:w-2/5">
+              <div class="flex flex-col gap-4 mb-8">
+                <img src="https://i.imgur.com/u5dIuJ7.png" class="w-6 h-6" />
+                <p class="text-3xl font-bold">Favorite Ai writer Templates</p>
+              </div>
+              <div class="flex flex-col gap-6 mb-[60px]">
+                <div class="p-3 flex flex-col gap-4 rounded-[13.811px] bg-gradient-to-t from-[rgba(122,67,164,0.3)] to-[rgba(96,73,188,0.17)]">
+                  <img src="https://i.imgur.com/f25jT4N.png" class="w-10 h-10" />
+                  <p class="text-xl font-medium text-[#FFF]/70">Academic Essay</p>
+                  <p class="text-[#BCBCBC] text-base">Create Creative academic essays for various subject just in a second</p>
+                </div>
+                <div class="p-3 flex flex-col gap-4 rounded-[13.811px] bg-gradient-to-t from-[rgba(122,67,164,0.3)] to-[rgba(96,73,188,0.17)]">
+                  <img src="https://i.imgur.com/f25jT4N.png" class="w-10 h-10" />
+                  <p class="text-xl font-medium text-[#FFF]/70">Academic Essay</p>
+                  <p class="text-[#BCBCBC] text-base">Create Creative academic essays for various subject just in a second</p>
+                </div>
+              </div>
+              <button class="rounded-[12px] py-3 px-5 border border-[#7A43A4] hover:bg-gradient-purple text-white w-full">Show more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Tools Content -->
+      <div id="ai-tools-content" class="hidden">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/eQfBf3k.png" />
+            <div><h1 class="text-2xl font-bold">Ai Writing Tools</h1><p class="text-base text-[#BCBCBC]">crerate quality conten effortlessly with AI</p></div>
+          </a>
+          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/kUjL9L8.png" />
+            <div><h1 class="text-2xl font-bold">Article writer</h1><p class="text-base text-[#BCBCBC]">Generate Comprehensive articales in minutes</p></div>
+          </a>
+          <a href="#humanizer" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/8Fk71n1.png" />
+            <div><h1 class="text-2xl font-bold">Humanizer</h1><p class="text-base text-[#BCBCBC]">make content sound more natural and relatable</p></div>
+          </a>
+          <a href="#image-generator" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/r62Y9n9.png" />
+            <div><h1 class="text-2xl font-bold">Images Generator</h1><p class="text-base text-[#BCBCBC]">Create visually appealling images with AI</p></div>
+          </a>
+          <a href="#ai-assistant" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/a4gYvYn.png" />
+            <div><h1 class="text-2xl font-bold">Ai Assistant</h1><p class="text-base text-[#BCBCBC]">Get instant answers and guidence from Ai</p></div>
+          </a>
+          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/q13fXg5.png" />
+            <div><h1 class="text-2xl font-bold">Ai tutor</h1><p class="text-base text-[#BCBCBC]">Learn Interactively with AI-powered guidance</p></div>
+          </a>
+          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/bW3h56a.png" />
+            <div><h1 class="text-2xl font-bold">Learn Code</h1><p class="text-base text-[#BCBCBC]">Master Coding With AI-powered examples and tips</p></div>
+          </a>
+          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
+            <img src="https://i.imgur.com/0uB0i5e.png" />
+            <div><h1 class="text-2xl font-bold">Podcast IA</h1><p class="text-base text-[#BCBCBC]">crerate quality conten effortlessly with AI</p></div>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
+      </div>
+    </div>
 
-  
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script src="./assets/js/dashboard.js"></script>
-     <!-- Google Translate script -->
-    <script
-      type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./assets/js/dashboard.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const statisticTab = document.getElementById('statistic-tab');
+  const aiToolsTab = document.getElementById('ai-tools-tab');
+  const statisticContent = document.getElementById('statistic-content');
+  const aiToolsContent = document.getElementById('ai-tools-content');
 
+  statisticTab.addEventListener('click', () => {
+    statisticContent.classList.remove('hidden');
+    aiToolsContent.classList.add('hidden');
+    statisticTab.classList.add('bg-gradient-to-b','from-primary','to-secondary','text-white');
+    aiToolsTab.classList.remove('bg-gradient-to-b','from-primary','to-secondary','text-white');
+    aiToolsTab.classList.add('text-primary');
+  });
+
+  aiToolsTab.addEventListener('click', () => {
+    aiToolsContent.classList.remove('hidden');
+    statisticContent.classList.add('hidden');
+    aiToolsTab.classList.add('bg-gradient-to-b','from-primary','to-secondary','text-white');
+    statisticTab.classList.remove('bg-gradient-to-b','from-primary','to-secondary','text-white');
+    statisticTab.classList.add('text-primary');
+  });
+});
+</script>
 </body>
 </html>
