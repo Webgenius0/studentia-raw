@@ -32,14 +32,49 @@
             <h2 class="text-base leading-[132%] tracking-[-0.158px] px-8 py-[10px] font-bold">Ai Panel</h2>
             <div id="sidebar-menu" class="flex flex-col gap-3 px-4">
               <div>
-                <a href="writing-tools.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="writing-tools">
-                  <div class="flex items-center gap-2">
-                    <img src="./assets/images/icons/writing-tools-icon.svg" alt="icon" />
-                    <p class="text-base font-medium">Writing tools</p>
-                  </div>
-                  <img src="./assets/images/icons/lower-arrow-icon.svg" alt="icon" />
-                </a>
-              </div>
+  <a
+    href="#"
+    id="sidebar-writing-tools-trigger"
+    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] bg-[#6049BC]/20"
+    data-route="writing-tools"
+  >
+    <div class="flex items-center gap-2">
+      <img src="./assets/images/icons/writing-tools-icon.svg" alt="icon" />
+      <p class="text-base font-medium">Writing tools</p>
+    </div>
+    <img
+      src="./assets/images/icons/lower-arrow-icon.svg"
+      alt="icon"
+      class="transition-transform duration-300"
+    />
+  </a>
+  <div id="writing-tools-submenu" class="mt-2 flex flex-col gap-1 pl-10">
+    <a
+      href="#"
+      data-sidebar-tab="ai-writers"
+      class="sidebar-submenu-item sidebar-submenu-active flex items-center gap-3 p-2 rounded-md"
+    >
+      <span class="indicator"></span>
+      <span>Ai Writer</span>
+    </a>
+    <a
+      href="#"
+      data-sidebar-tab="article"
+      class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md"
+    >
+      <span class="indicator"></span>
+      <span>Article Writer</span>
+    </a>
+    <a
+      href="#"
+      data-sidebar-tab="ai-code"
+      class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md"
+    >
+      <span class="indicator"></span>
+      <span>Ai Code</span>
+    </a>
+  </div>
+</div>
               <div>
                 <a href="revision-tools.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="revision-tools">
                   <div class="flex items-center gap-2">
@@ -181,7 +216,7 @@
         </nav>
       </div>
       <div class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
-        <!-- PAGE SPECIFIC CONTENT -->
+        <!-- PAGE SPECIFIC CONTENT wii be here -->
       </div>
     </div>
 

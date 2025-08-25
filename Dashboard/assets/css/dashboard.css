@@ -148,3 +148,27 @@
    .font-space {
        font-family: "Space Grotesk", sans-serif;
    }
+
+
+
+
+
+   /* In your main CSS file or in a <style> tag in the <head> */
+   .sidebar-submenu-item .indicator {
+       width: 10px;
+       height: 10px;
+       border-radius: 50%;
+       border: 1px solid #e6a0e2;
+       transition: all 0.3s;
+   }
+
+   .sidebar-submenu-item.sidebar-submenu-active .indicator {
+       background-color: #6049bc;
+       border-color: #6049bc;
+   }
+
+   .sidebar-submenu-item.sidebar-submenu-active {
+       color: white;
+       font-weight: 500;
+   }
+

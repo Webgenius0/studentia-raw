@@ -1,194 +1,1078 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Writing Tools - Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/dashboard.css" />
-</head>
-<body class="bg-[#1C202B] text-white transition-colors duration-300">
-  <!-- Google Translate -->
-  <div id="google_translate_element"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writing Tools - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/dashboard.css" />
+  </head>
+  <body class="bg-[#1C202B] text-white transition-colors duration-300">
+    <!-- Google Translate -->
+    <div id="google_translate_element"></div>
 
-  <div class="flex">
-    <!-- Sidebar (same as dashboard.html) -->
-    <div id="sidebar" class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
-      <div class="flex flex-col min-h-screen bg-sidebar">
-        <div class="h-[80px] p-[10px] bg-sidebar">
-          <img id="logo" src="./assets/images/logo.png" alt="logo" />
-        </div>
-        <div class="h-[calc(100vh-80px)] flex flex-col font-['Space_Grotesk'] px-8 overflow-y-auto scrollbar-hide">
-          <!-- Sidebar links (same as dashboard.html) -->
-          <a href="dashboard.html" class="sidebar-link flex items-center gap-1 p-[10px] rounded-[6px] text-[#E6A0E2] transition-all duration-200">
-            <img src="./assets/images/icons/dashboard-icon.svg" alt="dashboard-icon" />
-            <p class="text-3xl font-bold leading-[132%] tracking-[-0.237px] text-light-dark">Dashboards</p>
-          </a>
-          <!-- Ai Panel Section -->
-          <div class="text-light-dark">
-            <h2 class="text-base leading-[132%] tracking-[-0.158px] px-8 py-[10px] font-bold">Ai Panel</h2>
-            <div id="sidebar-menu" class="flex flex-col gap-3 px-4">
-              <div>
-                <a href="writing-tools.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="writing-tools">
-                  <div class="flex items-center gap-2">
-                    <img src="./assets/images/icons/writing-tools-icon.svg" alt="icon" />
-                    <p class="text-base font-medium">Writing tools</p>
-                  </div>
-                  <img src="./assets/images/icons/lower-arrow-icon.svg" alt="icon" />
-                </a>
-              </div>
-              <div>
-                <a href="revision-tools.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="revision-tools">
-                  <div class="flex items-center gap-2">
-                    <img src="./assets/images/icons/revision-tools-icon.svg" alt="icon" />
-                    <p class="text-base font-medium">Revision Tools</p>
-                  </div>
-                  <img src="./assets/images/icons/lower-arrow-icon.svg" alt="icon" />
-                </a>
-              </div>
-              <div>
-                <a href="documents.html" class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]" data-route="documents">
-                  <div class="flex items-center gap-2">
-                    <img src="./assets/images/icons/documents-icon.svg" alt="icon" />
-                    <p class="text-base font-medium">Documents</p>
-                  </div>
-                  <img src="./assets/images/icons/lower-arrow-icon.svg" alt="icon" />
-                </a>
-              </div>
-              <a href="subscription.html" class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
-                <img src="./assets/images/icons/subscription-panel-icon.svg" alt="icon" />
-                <p class="text-base font-medium">Subscription Panel</p>
-              </a>
-              <a href="account.html" class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
-                <img src="./assets/images/icons/account-icon.svg" alt="icon" />
-                <p class="text-base font-medium">Account</p>
-              </a>
-              <a href="admin.html" class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
-                <img src="./assets/images/icons/admin-panel-icon.svg" alt="icon" />
-                <p class="text-base font-medium">Admin Panel</p>
-              </a>
-            </div>
+    <div class="flex">
+      <!-- Sidebar (same as dashboard.html) -->
+      <div id="sidebar"
+        class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
+        <div class="flex flex-col min-h-screen bg-sidebar">
+          <div class="h-[80px] p-[10px] bg-sidebar">
+            <img id="logo" src="./assets/images/logo.png" alt="logo" />
           </div>
-        </div>
-      </div>
+          <div
+            class="h-[calc(100vh-80px)] flex flex-col font-['Space_Grotesk'] px-8 overflow-y-auto scrollbar-hide">
+            <!-- Sidebar links (same as dashboard.html) -->
+            <a href="dashboard.html"
+              class="sidebar-link flex items-center gap-1 p-[10px] rounded-[6px] text-[#E6A0E2] transition-all duration-200">
+              <img src="./assets/images/icons/dashboard-icon.svg"
+                alt="dashboard-icon" />
+              <p
+                class="text-3xl font-bold leading-[132%] tracking-[-0.237px] text-light-dark">Dashboards</p>
+            </a>
+            <!-- Ai Panel Section -->
+            <div class="text-light-dark">
+              <h2
+                class="text-base leading-[132%] tracking-[-0.158px] px-8 py-[10px] font-bold">Ai
+                Panel</h2>
+              <div id="sidebar-menu" class="flex flex-col gap-3 px-4">
+                <div>
+  <a
+    href="#"
+    id="sidebar-writing-tools-trigger"
+    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] bg-[#6049BC]/20"
+    data-route="writing-tools"
+  >
+    <div class="flex items-center gap-2">
+      <img src="./assets/images/icons/writing-tools-icon.svg" alt="icon" />
+      <p class="text-base font-medium">Writing tools</p>
     </div>
-
-    <!-- Main Content -->
-    <div class="w-full h-full lg:w-[calc(100dvw-320px)] ml-0 lg:ml-[320px] flex flex-col transition-all duration-300">
-      <div class="h-[80px] sticky top-0 z-[450] w-full">
-        <nav class="h-full flex items-center justify-between px-4 sm:px-6 py-2 bg-sidebar text-light-dark">
-          <div class="flex items-center gap-4">
-            <button id="sidebar-toggle" class="lg:hidden p-2 rounded-full border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-200">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            </button>
-            <div class="flex-1 flex items-center gap-3 w-full placeholder-white focus:outline-none max-w-md rounded-[19px] border dark:border-[rgba(207,207,207,0.11)] light:border-[#E6A0E2] bg-card-dark bg-card-light px-4 py-1 cursor-pointer">
-              <img id="search-icon" src="./assets/images/icons/search-icon.svg" alt="search-icon" />
-              <input type="text" placeholder="Search" class="w-full text-sm dark:text-white light:text-[#1C202B] border-none outline-none focus-visible:ring-0 bg-transparent" />
-            </div>
-          </div>
-          
-          <div class="flex items-center gap-4 sm:gap-6 ml-4">
-              <!-- Language Switcher -->
-          <div class="relative inline-block text-left">
-            <button
-              id="langBtn"
-              class="flex items-center gap-2 px-3 py-2 border border-purple-600 rounded-lg text-sm hover:bg-purple-600 hover:text-white dark:text-white transition"
-            >
-              <img
-                id="langIcon"
-                src="https://flagcdn.com/w20/gb.png"
-                alt="English Flag"
-                class="w-5 h-5 rounded-sm"
-              />
-              <span id="langName">English</span>
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-            <!-- Dropdown -->
-            <div
-              id="langMenu"
-              class="hidden absolute mt-2 w-40 bg-white dark:bg-[#1e1b4b] text-gray-800 dark:text-white rounded-lg shadow-lg"
-            >
-              <button
-                onclick="setLanguage('en', 'https://flagcdn.com/w20/gb.png', 'English')"
-                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]"
-              >
-                <img
-                  src="https://flagcdn.com/w20/gb.png"
-                  class="w-5 h-5 rounded-sm"
-                  alt="English"
-                />
-                English
-              </button>
-              <button
-                onclick="setLanguage('fr', 'https://flagcdn.com/w20/fr.png', 'Français')"
-                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]"
-              >
-                <img
-                  src="https://flagcdn.com/w20/fr.png"
-                  class="w-5 h-5 rounded-sm"
-                  alt="Français"
-                />
-                Français
-              </button>
-            </div>
-          </div>
-
-            <button id="theme-toggle" class="p-2 rounded-[12px] border border-[#6049bc] text-light-dark hover:bg-[#6049bc] hover:text-white transition-all duration-300">
-              <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
-                <circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2m-7.07-15.07l1.41 1.41m10.61 10.61l1.41 1.41M2 12h2m16 0h2m-15.07 6.07l1.41-1.41m10.61-10.61l1.41-1.41" />
-              </svg>
-              <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-              </svg>
-            </button>
-
-            <div class="relative">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 dark:text-white light:text-[#1C202B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0m6 0v2a3 3 0 00-6 0v-2" />
-              </svg>
-              <span id="notification-count" class="absolute -top-2 -right-2 bg-red-600 text-xs w-5 h-5 flex items-center justify-center rounded-full">6</span>
-            </div>
-
-            <div class="flex items-center gap-2 cursor-pointer">
-              <img src="./assets/images/profile.png" alt="profile-icon" class="rounded-full w-12 h-12" />
-              <div class="text-sm text-left hidden sm:block">
-                <div class="font-medium leading-none text-light-dark">Jane Cooper</div>
-                <div class="text-xs dark:text-gray-400 light:text-gray-600">Admin</div>
-              </div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden sm:block dark:text-white light:text-[#1C202B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div  class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
-        <!-- PAGE SPECIFIC CONTENT -->
-      </div>
-    </div>
+    <img
+      src="./assets/images/icons/lower-arrow-icon.svg"
+      alt="icon"
+      class="transition-transform duration-300"
+    />
+  </a>
+  <div
+    id="writing-tools-submenu"
+    class="hidden mt-2 flex flex-col gap-1 pl-10"
+  >
+    <a
+      href="#"
+      data-sidebar-tab="ai-writers"
+      class="sidebar-submenu-item sidebar-submenu-active flex items-center gap-3 p-2 rounded-md"
+    >
+      <span class="indicator"></span>
+      <span>Ai Writer</span>
+    </a>
+    <a
+      href="#"
+      data-sidebar-tab="article"
+      class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md"
+    >
+      <span class="indicator"></span>
+      <span>Article Writer</span>
+    </a>
+    <a
+      href="#"
+      data-sidebar-tab="ai-code"
+      class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md"
+    >
+      <span class="indicator"></span>
+      <span>Ai Code</span>
+    </a>
   </div>
+</div>
+                <div>
+                  <a href="revision-tools.html"
+                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]"
+                    data-route="revision-tools">
+                    <div class="flex items-center gap-2">
+                      <img src="./assets/images/icons/revision-tools-icon.svg"
+                        alt="icon" />
+                      <p class="text-base font-medium">Revision Tools</p>
+                    </div>
+                    <img src="./assets/images/icons/lower-arrow-icon.svg"
+                      alt="icon" />
+                  </a>
+                </div>
+                <div>
+                  <a href="documents.html"
+                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]"
+                    data-route="documents">
+                    <div class="flex items-center gap-2">
+                      <img src="./assets/images/icons/documents-icon.svg"
+                        alt="icon" />
+                      <p class="text-base font-medium">Documents</p>
+                    </div>
+                    <img src="./assets/images/icons/lower-arrow-icon.svg"
+                      alt="icon" />
+                  </a>
+                </div>
+                <a href="subscription.html"
+                  class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                  <img src="./assets/images/icons/subscription-panel-icon.svg"
+                    alt="icon" />
+                  <p class="text-base font-medium">Subscription Panel</p>
+                </a>
+                <a href="account.html"
+                  class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                  <img src="./assets/images/icons/account-icon.svg"
+                    alt="icon" />
+                  <p class="text-base font-medium">Account</p>
+                </a>
+                <a href="admin.html"
+                  class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                  <img src="./assets/images/icons/admin-panel-icon.svg"
+                    alt="icon" />
+                  <p class="text-base font-medium">Admin Panel</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="./assets/js/dashboard.js"></script>
-  <script src="./assets/js/main.js"></script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
+      <!-- Main Content -->
+      <div
+        class="w-full h-full lg:w-[calc(100dvw-320px)] ml-0 lg:ml-[320px] flex flex-col transition-all duration-300">
+        <div class="h-[80px] sticky top-0 z-[450] w-full">
+          <nav
+            class="h-full flex items-center justify-between px-4 sm:px-6 py-2 bg-sidebar text-light-dark">
+            <div class="flex items-center gap-4">
+              <button id="sidebar-toggle"
+                class="lg:hidden p-2 rounded-full border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              </button>
+              <div
+                class="flex-1 flex items-center gap-3 w-full placeholder-white focus:outline-none max-w-md rounded-[19px] border dark:border-[rgba(207,207,207,0.11)] light:border-[#E6A0E2] bg-card-dark bg-card-light px-4 py-1 cursor-pointer">
+                <img id="search-icon"
+                  src="./assets/images/icons/search-icon.svg"
+                  alt="search-icon" />
+                <input type="text" placeholder="Search"
+                  class="w-full text-sm dark:text-white light:text-[#1C202B] border-none outline-none focus-visible:ring-0 bg-transparent" />
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 sm:gap-6 ml-4">
+              <!-- Language Switcher -->
+              <div class="relative inline-block text-left">
+                <button
+                  id="langBtn"
+                  class="flex items-center gap-2 px-3 py-2 border border-purple-600 rounded-lg text-sm hover:bg-purple-600 hover:text-white dark:text-white transition">
+                  <img
+                    id="langIcon"
+                    src="https://flagcdn.com/w20/gb.png"
+                    alt="English Flag"
+                    class="w-5 h-5 rounded-sm" />
+                  <span id="langName">English</span>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                <!-- Dropdown -->
+                <div
+                  id="langMenu"
+                  class="hidden absolute mt-2 w-40 bg-white dark:bg-[#1e1b4b] text-gray-800 dark:text-white rounded-lg shadow-lg">
+                  <button
+                    onclick="setLanguage('en', 'https://flagcdn.com/w20/gb.png', 'English')"
+                    class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                    <img
+                      src="https://flagcdn.com/w20/gb.png"
+                      class="w-5 h-5 rounded-sm"
+                      alt="English" />
+                    English
+                  </button>
+                  <button
+                    onclick="setLanguage('fr', 'https://flagcdn.com/w20/fr.png', 'Français')"
+                    class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                    <img
+                      src="https://flagcdn.com/w20/fr.png"
+                      class="w-5 h-5 rounded-sm"
+                      alt="Français" />
+                    Français
+                  </button>
+                </div>
+              </div>
+
+              <button id="theme-toggle"
+                class="p-2 rounded-[12px] border border-[#6049bc] text-light-dark hover:bg-[#6049bc] hover:text-white transition-all duration-300">
+                <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg"
+                  width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="hidden">
+                  <circle cx="12" cy="12" r="4" /><path
+                    d="M12 2v2M12 20v2m-7.07-15.07l1.41 1.41m10.61 10.61l1.41 1.41M2 12h2m16 0h2m-15.07 6.07l1.41-1.41m10.61-10.61l1.41-1.41" />
+                </svg>
+                <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg"
+                  width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+              </button>
+
+              <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 dark:text-white light:text-[#1C202B]"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0m6 0v2a3 3 0 00-6 0v-2" />
+                </svg>
+                <span id="notification-count"
+                  class="absolute -top-2 -right-2 bg-red-600 text-xs w-5 h-5 flex items-center justify-center rounded-full">6</span>
+              </div>
+
+              <div class="flex items-center gap-2 cursor-pointer">
+                <img src="./assets/images/profile.png" alt="profile-icon"
+                  class="rounded-full w-12 h-12" />
+                <div class="text-sm text-left hidden sm:block">
+                  <div class="font-medium leading-none text-light-dark">Jane
+                    Cooper</div>
+                  <div
+                    class="text-xs dark:text-gray-400 light:text-gray-600">Admin</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 hidden sm:block dark:text-white light:text-[#1C202B]"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div
+          class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
+
+          <div id="writing-tools-container">
+            <div class="flex ml-4 sm:ml-16 mt-4">
+              <div
+                id="main-tabs-list"
+                class="bg-[#10122e] p-2 sm:px-6 sm:py-9 border border-[#D24AC966] rounded-[16px] flex flex-col sm:flex-row gap-2">
+                <button
+                  data-tab="ai-writers"
+                  class="main-tab-trigger cursor-pointer px-5 py-6 text-[#F9F9F9] border border-[#D24AC966] rounded-[12px] flex items-center justify-center sm:justify-start gap-2 bg-gradient-to-b from-[#6049BC] to-[#D24AC9]">
+                  <img src="./assets/images/icons/ai-writer.svg" alt="icon" />
+                  <p
+                    class="text-lg sm:text-xl font-medium leading-[164%] capitalize hidden sm:block">
+                    Ai Writer
+                  </p>
+                </button>
+                <button
+                  data-tab="article"
+                  class="main-tab-trigger cursor-pointer px-5 py-6 text-white border border-[#D24AC966] rounded-[12px] flex items-center justify-center sm:justify-start gap-2">
+                  <img src="./assets/images/icons/article.svg" alt="icon" />
+                  <p
+                    class="text-lg sm:text-xl font-medium leading-[164%] capitalize text-[#F9F9F9] hidden sm:block">
+                    Article Writer
+                  </p>
+                </button>
+                <button
+                  data-tab="ai-code"
+                  class="main-tab-trigger cursor-pointer px-5 py-6 text-white border border-[#D24AC966] rounded-[12px] flex items-center justify-center sm:justify-start gap-2">
+                  <img src="./assets/images/icons/ai-code.svg" alt="icon" />
+                  <p
+                    class="text-lg sm:text-xl font-medium leading-[164%] capitalize text-[#F9F9F9] hidden sm:block">
+                    Ai Code
+                  </p>
+                </button>
+              </div>
+            </div>
+
+            <div id="main-tabs-content" class="mt-4 px-2 sm:px-[22px]">
+              <div id="ai-writers-content"
+                class="main-tab-content flex flex-col gap-6">
+                <div class="flex ml-4 sm:ml-16 mt-4">
+                  <div
+                    id="sub-tabs-list"
+                    class="bg-[#10122e] px-4 py-7 border border-[#D24AC966] rounded-full flex gap-2 mb-5">
+                    <button
+                      data-sub-tab="templates"
+                      class="sub-tab-trigger cursor-pointer px-6 py-4 border border-[#D24AC966] rounded-[12px] bg-gradient-to-b from-[#6049BC] to-[#D24AC9] text-white">
+                      Templates
+                    </button>
+                    <button
+                      data-sub-tab="fav-templates"
+                      class="sub-tab-trigger cursor-pointer px-6 py-4 border border-[#D24AC966] rounded-[12px] text-white">
+                      Favorite Templates
+                    </button>
+                  </div>
+                </div>
+
+                <div id="templates-content" class="sub-tab-content">
+                  <section class="text-center px-4 text-white">
+                    <div
+                      id="all-tools-grid"
+                      class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 justify-center items-stretch">
+                      <div
+                        data-tool-title="Article Generator"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                        <button
+                          title="Toggle Favorite"
+                          class="favorite-btn absolute top-4 right-4 z-20 text-yellow-400">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#FFD700"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-star">
+                            <polygon
+                              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                          </svg>
+                        </button>
+                        <div
+                          class="relative z-10 bg-transparent border-0 p-6 h-[300px] w-full aspect-[400/300] backdrop-blur">
+                          <div
+                            style="
+                    background-image: url(./assets/images/ultimatecard.png);
+                  "
+                            class="absolute inset-0 z-0 transition-opacity duration-500 bg-cover bg-center group-hover:opacity-0"></div>
+                          <div
+                            style="
+                    background-image: url(./assets/images/ultimatehovercard.png);
+                  "
+                            class="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 bg-cover bg-center group-hover:opacity-100"></div>
+                          <div
+                            class="flex w-[70px] h-[70px] p-[14px] justify-center items-center gap-2 border-2 flex-shrink-0 aspect-square rounded-[28px] bg-[rgba(130,200,229,0.05)] group-hover:bg-[rgba(130,200,229,0.10)]"
+                            style="border-color: #4f46e5">
+                            <svg
+                              width="42"
+                              height="42"
+                              viewBox="0 0 42 42"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M21 38.5C30.665 38.5 38.5 30.665 38.5 21C38.5 11.335 30.665 3.5 21 3.5C11.335 3.5 3.5 11.335 3.5 21C3.5 30.665 11.335 38.5 21 38.5Z"
+                                stroke="#4F46E5"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M21 14V28"
+                                stroke="#4F46E5"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M14 21H28"
+                                stroke="#4F46E5"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                          </div>
+                          <div class="relative z-10 text-left space-y-3 mt-2">
+                            <h3
+                              class="text-2xl lg:text-[40px] font-medium leading-[132%] tracking-[-0.8px] font-['Space_Grotesk'] text-white">
+                              Article Generator
+                            </h3>
+                            <p
+                              class="text-base lg:text-[20px] font-normal leading-[164%] font-['Space_Grotesk'] text-[#BCBCBC]">
+                              Turn a title and outline text into a fully
+                              complete high
+                              quality article within seconds
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        data-tool-title="Content Rewriter"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                        <button
+                          title="Toggle Favorite"
+                          class="favorite-btn absolute top-4 right-4 z-20 text-yellow-400">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#FFD700"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-star">
+                            <polygon
+                              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                          </svg>
+                        </button>
+                        <div
+                          class="relative z-10 bg-transparent border-0 p-6 h-[300px] w-full aspect-[400/300] backdrop-blur">
+                          <div
+                            style="
+                    background-image: url(./assets/images/ultimatecard.png);
+                  "
+                            class="absolute inset-0 z-0 transition-opacity duration-500 bg-cover bg-center group-hover:opacity-0"></div>
+                          <div
+                            style="
+                    background-image: url(./assets/images/ultimatehovercard.png);
+                  "
+                            class="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 bg-cover bg-center group-hover:opacity-100"></div>
+                          <div
+                            class="flex w-[70px] h-[70px] p-[14px] justify-center items-center gap-2 border-2 flex-shrink-0 aspect-square rounded-[28px] bg-[rgba(130,200,229,0.05)] group-hover:bg-[rgba(130,200,229,0.10)]"
+                            style="border-color: #5362ff">
+                            <svg
+                              width="42"
+                              height="42"
+                              viewBox="0 0 42 42"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M3.5 21C3.5 21 10.5 7 21 7C31.5 7 38.5 21 38.5 21C38.5 21 31.5 35 21 35C10.5 35 3.5 21 3.5 21Z"
+                                stroke="#5362FF"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M21 28C24.866 28 28 24.866 28 21C28 17.134 24.866 14 21 14C17.134 14 14 17.134 14 21C14 24.866 17.134 28 21 28Z"
+                                stroke="#5362FF"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                          </div>
+                          <div class="relative z-10 text-left space-y-3 mt-2">
+                            <h3
+                              class="text-2xl lg:text-[40px] font-medium leading-[132%] tracking-[-0.8px] font-['Space_Grotesk'] text-white">
+                              Content Rewriter
+                            </h3>
+                            <p
+                              class="text-base lg:text-[20px] font-normal leading-[164%] font-['Space_Grotesk'] text-[#BCBCBC]">
+                              Take a piece of content and rewrite it to make it
+                              more
+                              interesting, creative, and engaging
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        data-tool-title="Summarize Text"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                        <button
+                          title="Toggle Favorite"
+                          class="favorite-btn absolute top-4 right-4 z-20 text-yellow-400">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#FFD700"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-star">
+                            <polygon
+                              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                          </svg>
+                        </button>
+                        <div
+                          class="relative z-10 bg-transparent border-0 p-6 h-[300px] w-full aspect-[400/300] backdrop-blur">
+                          <div
+                            style="
+                    background-image: url(./assets/images/ultimatecard.png);
+                  "
+                            class="absolute inset-0 z-0 transition-opacity duration-500 bg-cover bg-center group-hover:opacity-0"></div>
+                          <div
+                            style="
+                    background-image: url(./assets/images/ultimatehovercard.png);
+                  "
+                            class="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 bg-cover bg-center group-hover:opacity-100"></div>
+                          <div
+                            class="flex w-[70px] h-[70px] p-[14px] justify-center items-center gap-2 border-2 flex-shrink-0 aspect-square rounded-[28px] bg-[rgba(130,200,229,0.05)] group-hover:bg-[rgba(130,200,229,0.10)]"
+                            style="border-color: #a687db">
+                            <svg
+                              width="42"
+                              height="42"
+                              viewBox="0 0 42 42"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M35 7H7C5.067 7 3.5 8.567 3.5 10.5V31.5C3.5 33.433 5.067 35 7 35H35C36.933 35 38.5 33.433 38.5 31.5V10.5C38.5 8.567 36.933 7 35 7Z"
+                                stroke="#A687DB"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M21 14L10.5 24.5H24.5L17.5 17.5L21 14Z"
+                                stroke="#A687DB"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                          </div>
+                          <div class="relative z-10 text-left space-y-3 mt-2">
+                            <h3
+                              class="text-2xl lg:text-[40px] font-medium leading-[132%] tracking-[-0.8px] font-['Space_Grotesk'] text-white">
+                              Summarize Text
+                            </h3>
+                            <p
+                              class="text-base lg:text-[20px] font-normal leading-[164%] font-['Space_Grotesk'] text-[#BCBCBC]">
+                              Another powerful generator for long-form articles
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- remaing card -->
+                      <div data-tool-title="Dictionary"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+                      <div data-tool-title="Correcteur"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+                      <div data-tool-title="ToneChanger"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+                      <div data-tool-title="Summarize for 2nd Grader"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+                      <div data-tool-title="Grammar checker"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+                      <div data-tool-title="Paragraph Generator"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+                      <div data-tool-title="Text Extender Form"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+                      <div data-tool-title="Correcteur d'exercice Form"
+                        class="tool-card relative w-full group rounded-xl overflow-hidden cursor-pointer">
+                      </div>
+
+                    </div>
+                  </section>
+                </div>
+
+                <div id="fav-templates-content" class="sub-tab-content hidden">
+                  <div
+                    id="no-favorites-message"
+                    class="text-center text-white mt-10 text-lg">
+                    No favorite templates selected.
+                  </div>
+                  <section class="text-center px-4 text-white">
+                    <div
+                      id="favorite-tools-grid"
+                      class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 justify-center items-stretch">
+                    </div>
+                  </section>
+                </div>
+              </div>
+
+              <div id="article-content" class="main-tab-content hidden">
+                <div
+                  class="min-h-screen text-white flex flex-col md:flex-row gap-6">
+                  <div
+                    class="md:w-1/2 bg-[#0E0B1F] p-6 rounded-xl shadow-lg space-y-4"
+                    style="box-shadow: 2px 11px 40px 0px rgba(114, 75, 150, 0.32)">
+                    <div>
+                      <label class="block text-sm mb-1">Topic</label>
+                      <textarea
+                        placeholder="Describe what is your article about"
+                        class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2"
+                        maxlength="2000"></textarea>
+                      <div
+                        class="text-right text-xs mt-1 text-gray-400">0/2000</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                      <div>
+                        <label class="block text-sm mb-1">Number of
+                          Topic</label>
+                        <input
+                          type="number"
+                          value="3"
+                          class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                      </div>
+                      <div>
+                        <label class="block text-sm mb-1">Maximum Topic</label>
+                        <input
+                          type="number"
+                          value="20"
+                          class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                      </div>
+                    </div>
+
+                    <button
+                      id="toggle-advanced-options"
+                      class="text-sm text-purple-400 flex items-center gap-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-down">
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                      Advanced Options
+                    </button>
+
+                    <div id="advanced-options" class="space-y-4 hidden">
+                      <div>
+                        <label class="block text-sm mb-1">AI Model</label>
+                        <input value="open AI / GPT 4.0"
+                          class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                      </div>
+                      <div>
+                        <label class="block text-sm mb-1">Language</label>
+                        <input value="English"
+                          class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                      </div>
+                      <div>
+                        <label class="block text-sm mb-1">Writing Tone</label>
+                        <input value="Professional"
+                          class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                      </div>
+                      <div>
+                        <label class="block text-sm mb-1">Creativity</label>
+                        <input value="Original"
+                          class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                      </div>
+                      <div class="grid grid-cols-2 gap-4">
+                        <div>
+                          <label class="block text-sm mb-1">Point of
+                            View</label>
+                          <input value="First Person"
+                            class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                        </div>
+                        <div>
+                          <label class="block text-sm mb-1">Article
+                            Length</label>
+                          <input value="-19"
+                            class="w-full bg-[#161325] border border-[#2A2550] text-white rounded-md p-2" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      class="w-full bg-gradient-to-b from-[#6049BC] to-[#D24AC9] text-white py-2 rounded-lg hover:from-purple-700 hover:to-purple-500">
+                      Generate Ideas
+                    </button>
+                  </div>
+
+                  <div
+                    class="md:w-1/2 bg-[#0B0A1C] p-6 rounded-xl shadow-lg flex flex-col justify-between"
+                    style="box-shadow: 2px 11px 40px 0px rgba(114, 75, 150, 0.32)">
+                    <div
+                      class="text-center flex items-center gap-2 mb-4 text-white font-medium font-['spa'] text-md border border-[#65306a] rounded-lg py-2 px-4"
+                      style="
+              background: linear-gradient(
+                180deg,
+                rgba(122, 67, 164, 0.3) 0%,
+                rgba(96, 73, 188, 0.17) 100%
+              );
+            ">
+                      <span
+                        class="p-2 rounded-full border border-[#7A43A4] flex items-center justify-center mr-2">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                          <path
+                            d="M14 2V8H20"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Add a Topic to Generate Magic
+                    </div>
+                    <div class="flex-grow">
+                      <textarea
+                        placeholder="Generated content will appear here..."
+                        class="w-full h-full min-h-[300px] bg-[#161325] border border-[#65306a] text-white resize-none rounded-md p-2"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="ai-code-content" class="main-tab-content hidden">
+                <div
+                  class="flex flex-col md:flex-row min-h-screen gap-5 text-white">
+                  <div class="w-full md:w-2/3 p-4">
+                    <div
+                      class="flex items-center gap-4 mb-4 border rounded-lg p-2 bg-[#1C202B]"
+                      style="box-shadow: 2px 11px 40px 0px rgba(114, 75, 150, 0.32)">
+                      <button
+                        id="new-code-btn"
+                        class="bg-gray-800 px-4 py-2 rounded hover:bg-gray-700">
+                        New Code
+                      </button>
+                      <button
+                        id="upload-pdf-btn"
+                        title="Upload PDF"
+                        class="p-2 rounded-lg border border-[#7A43A4] hover:bg-[#7A43A4] flex items-center justify-center">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                            stroke="white"></path>
+                        </svg>
+                      </button>
+                      <button
+                        id="save-local-btn"
+                        title="Save to Local"
+                        class="p-2 rounded-lg border border-[#7A43A4] hover:bg-[#7A43A4] flex items-center justify-center">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16L21 8V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21Z"
+                            stroke="white"></path>
+                        </svg>
+                      </button>
+                      <button
+                        id="download-btn"
+                        title="Download Code"
+                        class="p-2 rounded-lg border border-[#7A43A4] hover:bg-[#7A43A4] flex items-center justify-center">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                            stroke="white"></path>
+                          <polyline points="7 10 12 15 17 10"
+                            stroke="white"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"
+                            stroke="white"></line>
+                        </svg>
+                      </button>
+                      <input
+                        type="file"
+                        id="hidden-file-input"
+                        class="hidden"
+                        accept=".pdf" />
+                    </div>
+                    <textarea
+                      id="code-display-area"
+                      class="bg-[#181824] h-[80vh] w-full p-4 rounded text-left text-white resize-none"
+                      style="box-shadow: 2px 11px 40px 0px rgba(114, 75, 150, 0.32)"
+                      placeholder="Generated Code Will Appear Here..."></textarea>
+                  </div>
+
+                  <div
+                    class="w-full md:w-1/3 bg-[#1f1f2e] p-6 space-y-6 rounded-l-xl"
+                    style="box-shadow: 2px 11px 40px 0px rgba(114, 75, 150, 0.32)">
+                    <h2 class="text-lg font-semibold">🧠 AI Code Generator</h2>
+                    <p class="text-sm text-gray-400">
+                      Create quality content effortlessly with AI
+                    </p>
+                    <div
+                      class="text-sm border border-[#7A43A4] bg-gradient-to-b from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)] text-white p-4 rounded-lg flex items-center justify-center mb-4"
+                      style="box-shadow: 2px 11px 40px 0px rgba(114, 75, 150, 0.32)">
+                      Your Balance: <span class="text-purple-400 ml-1">13.4k
+                        Words</span>
+                    </div>
+                    <div>
+                      <label class="block text-sm mb-1">Program</label>
+                      <select
+                        class="w-full bg-gray-800 p-2 rounded text-white border border-gray-700">
+                        <option>Python</option>
+                        <option>JavaScript</option>
+                        <option>Java</option>
+                        <option>C++</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="block text-sm mb-1">Provide
+                        Instruction</label>
+                      <textarea
+                        id="instruction-textarea"
+                        class="w-full bg-gray-800 p-2 rounded text-white border border-gray-700"
+                        placeholder="Specify what kind of function or code you want..."
+                        rows="6"></textarea>
+                    </div>
+                    <button
+                      class="w-full bg-gradient-to-b from-[#6049BC] to-[#D24AC9] text-white py-2 rounded-lg hover:bg-purple-700">
+                      Generate Code
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+     // --- Element Selections ---
+  const sidebarWritingToolsTrigger = document.getElementById(
+    "sidebar-writing-tools-trigger"
+  );
+  const writingToolsSubmenu = document.getElementById(
+    "writing-tools-submenu"
+  );
+  const mainTabsList = document.getElementById("main-tabs-list");
+  const mainTabTriggers = document.querySelectorAll(".main-tab-trigger");
+  const mainTabContents = document.querySelectorAll(".main-tab-content");
+  const subTabList = document.getElementById("sub-tabs-list");
+
+  // --- Main Function to Activate a Tab ---
+  const activateTab = (tabId) => {
+    // 1. Activate main content tab button
+    mainTabTriggers.forEach((trigger) => {
+      trigger.classList.remove(
+        "bg-gradient-to-b",
+        "from-[#6049BC]",
+        "to-[#D24AC9]"
+      );
+      if (trigger.dataset.tab === tabId) {
+        trigger.classList.add(
+          "bg-gradient-to-b",
+          "from-[#6049BC]",
+          "to-[#D24AC9]"
+        );
+      }
+    });
+
+    // 2. Show the correct main content panel
+    mainTabContents.forEach((content) => {
+      content.classList.toggle("hidden", content.id !== `${tabId}-content`);
+    });
+
+    // 3. Update the active state in the sidebar submenu
+    writingToolsSubmenu
+      .querySelectorAll(".sidebar-submenu-item")
+      .forEach((item) => {
+        item.classList.toggle(
+          "sidebar-submenu-active",
+          item.dataset.sidebarTab === tabId
+        );
+      });
+  };
+
+  // --- Event Listener 1: Toggle Sidebar Dropdown ---
+  if (sidebarWritingToolsTrigger) {
+    sidebarWritingToolsTrigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      writingToolsSubmenu.classList.toggle("hidden");
+      const arrowIcon = sidebarWritingToolsTrigger.querySelector(
+        "img[alt='icon']:last-child"
+      );
+      arrowIcon.classList.toggle("rotate-180");
+    });
+  }
+
+  // --- Event Listener 2: Click on a Sidebar Submenu Item ---
+  if (writingToolsSubmenu) {
+    writingToolsSubmenu.addEventListener("click", (e) => {
+      const subItem = e.target.closest(".sidebar-submenu-item");
+      if (!subItem) return;
+      e.preventDefault();
+      activateTab(subItem.dataset.sidebarTab);
+    });
+  }
+
+  // --- Event Listener 3: Click on a Main Content Tab ---
+  if (mainTabsList) {
+    mainTabsList.addEventListener("click", (e) => {
+      const trigger = e.target.closest(".main-tab-trigger");
+      if (!trigger) return;
+      activateTab(trigger.dataset.tab);
+    });
+  }
+  
+  // --- Event Listener 4: Sub-Tabs Logic (for AI Writer) ---
+  if (subTabList) {
+      const subTabTriggers = subTabList.querySelectorAll(".sub-tab-trigger");
+      const subTabContents = document.querySelectorAll(".sub-tab-content");
+
+      subTabList.addEventListener("click", (e) => {
+          const trigger = e.target.closest(".sub-tab-trigger");
+          if (!trigger) return;
+
+          subTabTriggers.forEach((t) => t.classList.remove("bg-gradient-to-b", "from-[#6049BC]", "to-[#D24AC9]"));
+          trigger.classList.add("bg-gradient-to-b", "from-[#6049BC]", "to-[#D24AC9]");
+
+          const subTabId = trigger.dataset.subTab;
+          subTabContents.forEach((content) => {
+              content.classList.toggle("hidden", content.id !== `${subTabId}-content`);
+          });
+      });
+  }
+
+    // --- Favorites System Logic ---
+    let favorites = [];
+    const allToolsGrid = document.getElementById("all-tools-grid");
+    const favoriteToolsGrid = document.getElementById("favorite-tools-grid");
+    const noFavoritesMessage = document.getElementById("no-favorites-message");
+
+    const updateFavoritesDisplay = () => {
+      favoriteToolsGrid.innerHTML = ""; // Clear current favorites
+      if (favorites.length === 0) {
+        noFavoritesMessage.classList.remove("hidden");
+      } else {
+        noFavoritesMessage.classList.add("hidden");
+        favorites.forEach((title) => {
+          const originalCard = document.querySelector(
+            `.tool-card[data-tool-title="${title}"]`
+          );
+          if (originalCard) {
+            const clonedCard = originalCard.cloneNode(true);
+            // Re-attach event listener to the cloned star button
+            const clonedStarBtn = clonedCard.querySelector(".favorite-btn");
+            clonedStarBtn.addEventListener("click", handleFavoriteClick);
+            favoriteToolsGrid.appendChild(clonedCard);
+          }
+        });
+      }
+    };
+
+    const handleFavoriteClick = (e) => {
+      e.stopPropagation();
+      const btn = e.currentTarget;
+      const card = btn.closest(".tool-card");
+      const title = card.dataset.toolTitle;
+      const starSvg = btn.querySelector("svg");
+
+      if (favorites.includes(title)) {
+        favorites = favorites.filter((fav) => fav !== title);
+        starSvg.setAttribute("fill", "none");
+      } else {
+        favorites.push(title);
+        starSvg.setAttribute("fill", "#FFD700");
+      }
+      // Also update the star on the original card in the "All Templates" tab
+      const originalCardStar = document
+        .querySelector(`.tool-card[data-tool-title="${title}"]`)
+        .querySelector(".favorite-btn svg");
+      if (originalCardStar) {
+        originalCardStar.setAttribute("fill", starSvg.getAttribute("fill"));
+      }
+
+      updateFavoritesDisplay();
+    };
+
+    document
+      .querySelectorAll(".favorite-btn")
+      .forEach((btn) => btn.addEventListener("click", handleFavoriteClick));
+
+    // --- Article Writer Advanced Options Logic ---
+    const toggleBtn = document.getElementById("toggle-advanced-options");
+    const advancedOptionsDiv = document.getElementById("advanced-options");
+
+    toggleBtn.addEventListener("click", () => {
+      const isHidden = advancedOptionsDiv.classList.toggle("hidden");
+      if (isHidden) {
+        toggleBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            Advanced Options`;
+      } else {
+        toggleBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            Advanced Options`;
+      }
+    });
+
+    // --- AI Code Generator Logic ---
+    const newCodeBtn = document.getElementById("new-code-btn");
+    const uploadPdfBtn = document.getElementById("upload-pdf-btn");
+    const hiddenFileInput = document.getElementById("hidden-file-input");
+    const saveLocalBtn = document.getElementById("save-local-btn");
+    const downloadBtn = document.getElementById("download-btn");
+    const instructionTextarea = document.getElementById(
+      "instruction-textarea"
+    );
+    const codeDisplayArea = document.getElementById("code-display-area");
+
+    newCodeBtn.addEventListener("click", () => {
+      instructionTextarea.value = "";
+      codeDisplayArea.value = "";
+    });
+
+    uploadPdfBtn.addEventListener("click", () => {
+      hiddenFileInput.click();
+    });
+
+    saveLocalBtn.addEventListener("click", () => {
+      localStorage.setItem("savedCode", codeDisplayArea.value);
+      alert("Code saved to local storage!");
+    });
+
+    downloadBtn.addEventListener("click", () => {
+      if (!codeDisplayArea.value) {
+        alert("Nothing to download!");
+        return;
+      }
+      const blob = new Blob([codeDisplayArea.value], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "generated_code.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // Sync the two text areas
+    instructionTextarea.addEventListener("input", () => {
+      codeDisplayArea.value = instructionTextarea.value;
+    });
+    codeDisplayArea.addEventListener("input", () => {
+      instructionTextarea.value = codeDisplayArea.value;
+    });
+  });
+</script>
+  </body>
 </html>
