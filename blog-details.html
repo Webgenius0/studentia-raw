@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merit</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Configure Tailwind for dark mode
+      tailwind.config = {
+        darkMode: 'class',
+      };
+    </script>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="dark:bg-[#070622] bg-[#F9F9F9]">
+    <!-- Google Translate container -->
+    <div id="google_translate_element"></div>
+
+    <!-- Navbar start -->
+
+    <nav
+      id="navbar"
+      class="w-full py-6 relative z-[1000] transition-all duration-300 dark:bg-[#070622] bg-[#F9F9F9] shadow-[0px_25px_60px_-15px_rgba(180,195,229,0.20)]"
+      style="
+        background-image: url('./assets/images/Stars.png');
+        background-size: cover;
+      "
+    >
+      <div
+        class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#7A43A4] to-[#6049BC]"
+      ></div>
+      <div class="container mx-auto flex items-center justify-between px-4">
+        <a href="/" class="flex items-center space-x-2">
+          <img
+            id="logo-dark"
+            src="./assets/images/logo.png"
+            alt="Logo Dark"
+            class="h-10"
+          />
+          <img
+            id="logo-light"
+            src="./assets/images/white-mode-logo.png"
+            alt="Logo Light"
+            class="h-10 hidden"
+          />
+        </a>
+        <ul
+          id="desktop-nav-links"
+          class="hidden lg:flex gap-8 text-lg font-semibold"
+        >
+          <li>
+            <a
+              href="#home"
+              data-section="home"
+              class="nav-link relative pb-2 transition-colors"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#features"
+              data-section="features"
+              class="nav-link relative pb-2 transition-colors"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a
+              href="#pricing"
+              data-section="pricing"
+              class="nav-link relative pb-2 transition-colors"
+              >Pricing</a
+            >
+          </li>
+          <li>
+            <a
+              href="#faq"
+              data-section="faq"
+              class="nav-link relative pb-2 transition-colors"
+              >FAQs</a
+            >
+          </li>
+          <li>
+            <a
+              href="#blogs"
+              data-section="blogs"
+              class="nav-link relative pb-2 transition-colors"
+              >Blogs</a
+            >
+          </li>
+        </ul>
+        <div class="hidden md:flex items-center gap-4">
+          <a href="#"
+            ><button
+              class="rounded-[12px] cursor-pointer bg-transparent text-[16px] font-normal text-[#6049bc] dark:text-white border border-[#6049bc] px-5 py-2 hover:bg-[#6049bc]/10 transition-all duration-300"
+              style="box-shadow: 0px 20px 30px -10px rgba(96, 73, 188, 0.6)"
+            >
+              Signin
+            </button></a
+          >
+
+          <!-- Language Switcher -->
+          <div class="relative inline-block text-left">
+            <button
+              id="langBtn"
+              class="flex items-center gap-2 px-3 py-2 border border-purple-600 rounded-lg text-sm hover:bg-purple-600 hover:text-white dark:text-white transition"
+            >
+              <img
+                id="langIcon"
+                src="https://flagcdn.com/w20/gb.png"
+                alt="English Flag"
+                class="w-5 h-5 rounded-sm"
+              />
+              <span id="langName">English</span>
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            <!-- Dropdown -->
+            <div
+              id="langMenu"
+              class="hidden absolute mt-2 w-40 bg-white dark:bg-[#1e1b4b] text-gray-800 dark:text-white rounded-lg shadow-lg"
+            >
+              <button
+                onclick="setLanguage('en', 'https://flagcdn.com/w20/gb.png', 'English')"
+                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]"
+              >
+                <img
+                  src="https://flagcdn.com/w20/gb.png"
+                  class="w-5 h-5 rounded-sm"
+                  alt="English"
+                />
+                English
+              </button>
+              <button
+                onclick="setLanguage('fr', 'https://flagcdn.com/w20/fr.png', 'Français')"
+                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]"
+              >
+                <img
+                  src="https://flagcdn.com/w20/fr.png"
+                  class="w-5 h-5 rounded-sm"
+                  alt="Français"
+                />
+                Français
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-[12px] border border-[#6049bc] dark:text-white text-[#070622] hover:bg-[#6049bc] hover:text-white transition-all duration-300"
+            >
+              <svg
+                id="theme-icon-sun"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="hidden"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
+              </svg>
+              <svg
+                id="theme-icon-moon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button
+            id="mobile-menu-trigger"
+            class="p-2 text-gray-800 dark:text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu-sheet"
+        class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 p-4 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden z-[1001]"
+        style="margin-top: 5.5rem"
+      >
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="#home"
+              class="mobile-nav-link block text-gray-800 dark:text-white"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#features"
+              class="mobile-nav-link block text-gray-800 dark:text-white"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a
+              href="#pricing"
+              class="mobile-nav-link block text-gray-800 dark:text-white"
+              >Pricing</a
+            >
+          </li>
+          <li>
+            <a
+              href="#faq"
+              class="mobile-nav-link block text-gray-800 dark:text-white"
+              >FAQs</a
+            >
+          </li>
+          <li>
+            <a
+              href="#blogs"
+              class="mobile-nav-link block text-gray-800 dark:text-white"
+              >Blogs</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        id="mobile-menu-overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[1000] hidden md:hidden"
+      ></div>
+    </nav>
+
+    <!-- Navbar End -->
+
+    <!-- Main Start -->
+
+    <main>
+ <!-- Container -->
+  <div class="container mx-auto px-6 py-12">
+
+    <!-- Breadcrumb -->
+    <p class="text-[#1C202B] font-[Inter] text-[15px] md:text-[16px] not-italic font-semibold leading-[160%] dark:text-[#EDEDF2] mb-4">
+      Blog  <span class="text-[#7245ac] ">/ Blog Detail</span> 
+    </p>
+
+    <!-- Title -->
+    <h1 class="text-[#1C202B] dark:text-[#FFF] font-[Space_Grotesk] text-[28px] sm:text-[34px] md:text-[54px] lg:text-[64px] not-italic font-bold leading-[44.48px] sm:leading-[54.48px] md:leading-[84.48px] mb-3 max-w-[827px]">
+      How Our AI Startup is Transforming Industries
+    </h1>
+
+    <!-- Meta -->
+    <div class="flex items-center gap-3 mb-6">
+      <p class="rounded-[8px] border border-[#191932] bg:[#191932] dark:bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.12)_0%,_rgba(255,_255,_255,_0.00)_100%)] px-[12px] py-[4px] text-[#262630] dark:text-[#EDEDF2] font-[Inter] text-[14px] not-italic font-normal leading-[160%]">Technology</p> 
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+          <circle cx="4" cy="4" r="4" fill="#555177"/>
+         </svg>
+      </span> 
+      <p class="text-[#7244aa] font-[Inter] text-[14px] not-italic font-normal leading-[160%]">Jun 7, 2025</p> 
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <circle cx="4" cy="4" r="4" fill="#555177"/>
+</svg>
+      </span>
+      <p class="text-[#1C202B] dark:text-[#EDEDF2] font-[Inter] text-[14px] italic font-semibold leading-[160%]"> <span class="text-[#7244aa] not-italic font-normal">Written by </span> Michael Atkin</p> 
+    </div>
+
+    <!-- Image -->
+     <div class="rounded-xl shadow-lg mb-6 overflow-hidden max-h-[640px]">
+         <img 
+      src="./assets/images/blog-details.jpg" 
+      alt="Blog Image"
+      class="h-full w-full object-cover"
+    >
+     </div>
+   
+
+    <!-- Intro Paragraph -->
+    <p class="text-lg text-gray-700 dark:text-[#FFF] font-[Inter] text-[16px] sm:text-[17px] md:text-[18px] not-italic font-normal leading-[160%] border-l-[2px] border-l-[#7A43A4] p-4 md:p-8  mb-6 relative overflow-hidden">
+      Shopify is a great platform for hosting your e-commerce store, but it’s missing some important email marketing features. 
+      To really accelerate growth, you need a more powerful tool. Check out our list of the top email marketing apps for Shopify 
+      to find one that suits your business.
+
+      <span class="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="92" height="161" viewBox="0 0 92 161" fill="none">
+  <g opacity="0.16" filter="url(#filter0_f_1396_15539)">
+    <circle cy="79.7881" r="52" fill="url(#paint0_linear_1396_15539)"/>
+  </g>
+  <defs>
+    <filter id="filter0_f_1396_15539" x="-92" y="-12.2119" width="184" height="184" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_1396_15539"/>
+    </filter>
+    <linearGradient id="paint0_linear_1396_15539" x1="0" y1="27.7881" x2="0" y2="131.788" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7A43A4"/>
+      <stop offset="1" stop-color="#6049BC"/>
+    </linearGradient>
+  </defs>
+</svg>
+      </span>
+    </p>
+
+    <!-- Section -->
+    <h2 class="text-[#222] dark:text-[#EDEDF2] text-[24px] sm:text-[28px] md:text-[38px] lg:text-[44px] not-italic font-medium leading-[132%] mb-2 max-w-[1168px]">
+      How we evaluated the Shopify email marketing platforms on this list
+    </h2>
+    <p class="text-gray-700 dark:text-[#FFF] font-[Inter] text-[16px] sm:text-[17px] md:text-[18px] not-italic font-normal leading-[160%] mb-6">
+      We spent days using the products on the list to get a real feel for what they offered and to examine their pros and cons. 
+      We also looked at Shopify’s app store to see what other people think about each one. <br><br>
+      This evaluation considered ease of use, deliverability, service quality, and price. Only the most useful apps were highlighted in this listing.
+    </p>
+
+    <!-- Section -->
+    <h2 class="text-[#222] dark:text-[#EDEDF2] text-[24px] sm:text-[28px] md:text-[38px] lg:text-[44px] not-italic font-medium leading-[132%] mb-2 max-w-[1168px]">
+      What to look for in a Shopify email marketing app
+    </h2>
+    <p class="text-gray-700 dark:text-[#FFF] font-[Inter] text-[16px] sm:text-[17px] md:text-[18px] not-italic font-normal leading-[160%] mb-6">
+      Almost all Shopify businesses will benefit from the features listed below. All the tools on our list have one or more of them, 
+      but we found that the apps that have the features in different strengths, so we highlighted some of the top apps for each feature set.
+    </p>
+
+    <!-- Section -->
+    <h2 class="text-[#222] dark:text-[#EDEDF2] text-[24px] sm:text-[28px] md:text-[38px] lg:text-[44px] not-italic font-medium leading-[132%] mb-2 max-w-[1168px]">
+      Email automation
+    </h2>
+    <p class="text-gray-700 dark:text-[#FFF] font-[Inter] text-[16px] sm:text-[17px] md:text-[18px] not-italic font-normal leading-[160%] mb-6">
+      Automation boosts sales and productivity by sending emails proven to generate sales at optimal customer touchpoints. 
+      For example, welcome emails persuade customers to purchase your product or online store, and abandoned cart emails push people 
+      who were already ready to buy to complete their orders.
+    </p>
+
+    <!-- Highlighted Box -->
+    <div class="bg-inherit rounded-[16px] border-[1px] border-[#A77FB3]  p-6 ">
+      <h3 class="text-[#222] dark:text-[#FFF] font-[Inter] text-[17px] sm:text-[18px] md:text-[20px] lg:text-[24px] not-italic font-semibold leading-[110%] mb-4">
+        How we evaluated the Shopify email marketing platforms on this list
+      </h3>
+      <ul class="space-y-3">
+  <li class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+    <svg class="w-5 h-5 text-[#7A43A4] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>
+    <span>E-commerce-specific triggers like abandoned cart or product purchases</span>
+  </li>
+
+  <li class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+    <svg class="w-5 h-5 text-[#7A43A4] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>
+    <span>Automation workflows with easy drag-and-drop builder</span>
+  </li>
+
+  <li class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+    <svg class="w-5 h-5 text-[#7A43A4] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>
+    <span>Pre-built templates for common use cases and customer behavior</span>
+  </li>
+
+  <li class="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+    <svg class="w-5 h-5 text-[#7A43A4] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>
+    <span>The ability to set up an automation with multiple triggers</span>
+  </li>
+</ul>
+
+    </div>
+
+  </div>
+
+
+    </main>
+
+    <div class="bg-[#070622]">
+      <footer
+        class="text-white rounded-t-[40px] border-t-4 border-t-[#7A43A4] py-36 px-6 md:px-16"
+        style="
+          background: linear-gradient(
+            180deg,
+            rgba(122, 67, 164, 0.3) 0%,
+            rgba(96, 73, 188, 0.17) 100%
+          );
+        "
+      >
+        <div
+          class="container mx-auto flex flex-col md:flex-row justify-between gap-10"
+        >
+          <div class="mb-10 md:mb-0">
+            <h3 class="text-[32px] font-semibold mb-2 max-w-xl">
+              Start writing clearly and confidently with
+              <span class="text-[#7b2cbf]">Student IA</span>
+            </h3>
+            <p class="text-xl my-6 max-w-xl text-[#BCBCBC]">
+              By enhancing your communication and giving your writing greater
+              impact. We can help you reach your personal and professional
+              goals.
+            </p>
+            <div class="flex gap-5 mt-6">
+              <a href="#" aria-label="Facebook">
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="33"
+                    viewBox="0 0 32 33"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_680_3351)">
+                      <path
+                        d="M32 16.7881C32 7.95159 24.8365 0.788086 16 0.788086C7.1635 0.788086 0 7.95159 0 16.7881C0 24.7741 5.851 31.3935 13.5 32.5937V21.4131H9.4375V16.7881H13.5V13.2631C13.5 9.25309 15.8888 7.03809 19.5435 7.03809C21.294 7.03809 23.125 7.35059 23.125 7.35059V11.2881H21.1075C19.1199 11.2881 18.5 12.5215 18.5 13.7868V16.7881H22.9375L22.2281 21.4131H18.5V32.5937C26.149 31.3935 32 24.7742 32 16.7881Z"
+                        fill="#F9F9F9"
+                      />
+                      <path
+                        d="M22.2281 21.4131L22.9375 16.7881H18.5V13.7868C18.5 12.5213 19.1199 11.2881 21.1075 11.2881H23.125V7.35059C23.125 7.35059 21.294 7.03809 19.5434 7.03809C15.8888 7.03809 13.5 9.25309 13.5 13.2631V16.7881H9.4375V21.4131H13.5V32.5937C14.327 32.7233 15.1629 32.7883 16 32.7881C16.8371 32.7883 17.673 32.7233 18.5 32.5937V21.4131H22.2281Z"
+                        fill="#070622"
+                      />
+                    </g>
+                    <defs>
+                      <clippath id="clip0_680_3351">
+                        <rect
+                          width="32"
+                          height="32"
+                          fill="white"
+                          transform="translate(0 0.788086)"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </span>
+              </a>
+              <a href="#" aria-label="X">
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="33"
+                    viewBox="0 0 32 33"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_680_3354)">
+                      <path
+                        d="M16 0.788086C7.16375 0.788086 0 7.95183 0 16.7881C0 25.6243 7.16375 32.7881 16 32.7881C24.8363 32.7881 32 25.6243 32 16.7881C32 7.95183 24.8363 0.788086 16 0.788086Z"
+                        fill="#F9F9F9"
+                      />
+                      <path
+                        d="M17.7506 15.3398L24.6 7.37793H22.9769L17.0296 14.2911L12.2795 7.37793H6.80078L13.9839 17.8319L6.80078 26.1811H8.42397L14.7045 18.8806L19.721 26.1811H25.1997L17.7502 15.3398H17.7506ZM9.00881 8.59985H11.5019L22.9777 25.0148H20.4846L9.00881 8.59985Z"
+                        fill="#070622"
+                      />
+                    </g>
+                    <defs>
+                      <clippath id="clip0_680_3354">
+                        <rect
+                          width="32"
+                          height="32"
+                          fill="white"
+                          transform="translate(0 0.788086)"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                </span>
+              </a>
+              <a href="#" aria-label="YouTube">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="33"
+                  viewBox="0 0 32 33"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_680_3359)">
+                    <path
+                      d="M16 32.7881C24.8366 32.7881 32 25.6246 32 16.7881C32 7.95153 24.8366 0.788086 16 0.788086C7.16344 0.788086 0 7.95153 0 16.7881C0 25.6246 7.16344 32.7881 16 32.7881Z"
+                      fill="#F9F9F9"
+                    />
+                    <path
+                      d="M23.6253 12.9398C23.3053 11.9461 22.2464 11.3587 21.2632 11.2219C17.7587 10.8492 14.2246 10.8492 10.7201 11.2219C9.74533 11.3587 8.68639 11.9545 8.36639 12.9398C7.86745 15.4818 7.86745 18.0966 8.36639 20.6387C8.69481 21.6303 9.75375 22.2198 10.7369 22.3566C14.2415 22.7271 17.7755 22.7271 21.2801 22.3566C22.2548 22.2198 23.3138 21.6219 23.6338 20.6387C24.1299 18.0961 24.127 15.4813 23.6253 12.9398ZM14.0864 19.8534V13.7229L19.078 16.7882C17.3959 17.8219 15.7622 18.8282 14.0864 19.8534Z"
+                      fill="#070622"
+                    />
+                  </g>
+                  <defs>
+                    <clippath id="clip0_680_3359">
+                      <rect
+                        width="32"
+                        height="32"
+                        fill="white"
+                        transform="translate(0 0.788086)"
+                      />
+                    </clippath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2 space-y-3">
+            <h4 class="text-2xl text-[#6049BC] font-medium">Links</h4>
+            <a href="#" class="text-lg hover:underline text-[#D4D4D4]"
+              >About Us</a
+            >
+            <a href="#" class="text-lg hover:underline text-[#D4D4D4]"
+              >Specified Commercial Transactions Law</a
+            >
+            <a href="#" class="text-lg hover:underline text-[#D4D4D4]"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-lg hover:underline text-[#D4D4D4]"
+              >Terms of Service</a
+            >
+            <a href="#" class="text-lg hover:underline text-[#D4D4D4]">
+              Contact Us</a
+            >
+          </div>
+          <div class="flex flex-col gap-4 items-start md:items-end">
+            <a href="/"
+              ><img
+                id="footer-logo-dark"
+                src="./assets/images/logo.png"
+                alt="Logo Dark"
+                class="h-10" /><img
+                id="footer-logo-light"
+                src="./assets/images/logo.png"
+                alt="Logo Light"
+                class="h-10 hidden"
+            /></a>
+            <div class="relative w-full md:w-80 mt-4">
+              <input
+                placeholder="Your email here"
+                class="w-full !bg-[#070622] text-white placeholder:text-white/60 border-none pr-28 pl-8 py-5 rounded-lg"
+              />
+              <button
+                class="absolute right-1 top-1/2 -translate-y-1/2 px-6 bg-[#7b2cbf] hover:bg-[#9d4edd] text-white h-[85%] text-sm cursor-pointer rounded-[8px]"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div
+      id="video-modal"
+      class="fixed inset-0 bg-black bg-opacity-80 z-[2000] hidden items-center justify-center"
+    >
+      <div class="relative w-full max-w-4xl p-4">
+        <button
+          id="close-modal-btn"
+          class="absolute -top-2 -right-2 text-white bg-black rounded-full p-2 z-10"
+        >
+          &times;
+        </button>
+        <video id="banner-video" class="w-full rounded-lg" controls>
+          <source
+            src="https://raw.githubusercontent.com/user-attachments/assets/b6d63d80-8774-4b47-a442-70b922a9f24e/dashboard.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./assets/js/main.js"></script>
+
+    <!-- Google Translate script -->
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+  </body>
+</html>
