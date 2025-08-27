@@ -178,3 +178,12 @@
        border-radius: 5.919px;
        border: 0.986px solid rgba(210, 74, 201, 0.40);
    }
+
+
+
+   /* account */
+
+   .tm-bg-account {
+       background: url("./assets/images/tmAccountCommonbg.png") lightgray 0% 0% / 100px 100px repeat, linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);
+
+   }
