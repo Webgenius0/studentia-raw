@@ -52,17 +52,19 @@
    }
 
    .dark .bg-sidebar {
-       background-color: #1C202B;
-       background-image: linear-gradient(to top, rgba(96, 73, 188, 0.17), rgba(122, 67, 164, 0.3));
+       background: #1C202B;
+       box-shadow: 2px 0 20px 0 rgba(122, 67, 164, 0.30);
+
    }
 
    .light .bg-sidebar {
-       background-color: #FFFFFF;
+       background-color: #65a5ca;
        background-image: linear-gradient(to top, rgba(96, 73, 188, 0.05), rgba(122, 67, 164, 0.1));
    }
 
    .dark .bg-card-dark {
        background: linear-gradient(to top, rgba(122, 67, 164, 0.3), rgba(96, 73, 188, 0.17));
+
    }
 
    .light .bg-card-light {
@@ -172,3 +174,7 @@
        font-weight: 500;
    }
 
+   .sidebar-main-menu {
+       border-radius: 5.919px;
+       border: 0.986px solid rgba(210, 74, 201, 0.40);
+   }

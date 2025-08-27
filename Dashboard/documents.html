@@ -15,10 +15,8 @@
   <div id="google_translate_element"></div>
 
   <div class="flex">
- 
-     <!-- Sidebar (same as dashboard.html) -->
-      <div id="sidebar"
-        class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
+  <!-- Sidebar (same as dashboard.html) -->
+         <div id="sidebar" class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
         <div class="flex flex-col min-h-screen bg-sidebar">
           <div class="h-[80px] p-[10px] bg-sidebar">
             <img id="logo" src="./assets/images/logo.png" alt="logo" />
@@ -43,7 +41,7 @@
                   <a
                     href="./writing-tools.html"
                     id="sidebar-writing-tools-trigger"
-                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] "
+                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px]  border-transparent"
                     data-route="writing-tools">
                     <div class="flex items-center gap-2">
                       <img src="./assets/images/icons/writing-tools-icon.svg"
@@ -87,7 +85,7 @@
                   <a
                     href="./revision-tools.html"
                     id="sidebar-revision-tools-trigger"
-                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] "
+                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] sidebar-main-menu "
                     data-route="revision-tools">
                     <div class="flex items-center gap-2">
                       <img src="./assets/images/icons/writing-tools-icon.svg"
@@ -132,8 +130,8 @@
                   <a
                     href="./documents.html"
                     id="sidebar-documents-tools-trigger"
-                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] "
-                    data-route="documents-tools">
+                    class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] sidebar-main-menu sidebar-main-menu sidebar-main-menu bg-[linear-gradient(180deg,#7A43A4_0%,#6049BC_100%)] transition-all duration-300 border-transparent"
+                    data-r gap-2oute="documents-tools">
                     <div class="flex items-center gap-2">
                       <img src="./assets/images/icons/documents-icon.svg"
                         alt="icon" />
@@ -175,19 +173,19 @@
 
                
                 <a href="subscription.html"
-                  class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                  class="sidebar-link flex items-center gap-2 rounded-[6px] px-4 py-[10px] sidebar-main-menu">
                   <img src="./assets/images/icons/subscription-panel-icon.svg"
                     alt="icon" />
                   <p class="text-base font-medium">Subscription Panel</p>
                 </a>
                 <a href="account.html"
-                  class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                  class="sidebar-link flex items-center gap-2 rounded-[6px] px-4 py-[10px] sidebar-main-menu">
                   <img src="./assets/images/icons/account-icon.svg"
                     alt="icon" />
                   <p class="text-base font-medium">Account</p>
                 </a>
                 <a href="admin.html"
-                  class="sidebar-link flex items-center rounded-[6px] px-4 py-[10px]">
+                  class="sidebar-link flex items-center gap-2 rounded-[6px] px-4 py-[10px] sidebar-main-menu">
                   <img src="./assets/images/icons/admin-panel-icon.svg"
                     alt="icon" />
                   <p class="text-base font-medium">Admin Panel</p>
@@ -303,222 +301,133 @@
         </nav>
       </div>
       <div class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
-         <div id="dashboard-content">
-    <div class="flex ml-16 mt-4">
-      <div class="bg-[#10122e] px-4 py-7 border border-[#D24AC966] rounded-full flex gap-2 mb-5">
-        <button id="statistic-tab" class="cursor-pointer bg-gradient-to-b from-primary to-secondary text-white px-6 py-4 border border-[#D24AC966] rounded-[12px]">
-          Statistic
-        </button>
-        <button id="ai-tools-tab" class="cursor-pointer text-primary px-6 py-4 border border-[#D24AC966] rounded-[12px]">
-          All AI Tools
-        </button>
-      </div>
-    </div>
-
-    <div id="tabs-content" class="w-full">
-      <!-- Statistic Content -->
-      <div id="statistic-content">
-        <div class="flex flex-col gap-8">
-          <!-- Top Cards -->
-          <div class="grid xl:grid-cols-2 gap-6">
-            <!-- Welcome Card -->
-            <div class="px-8 py-6 flex justify-between rounded-[15.784px] bg-gradient-to-t from-[rgba(96,73,188,0.17)] to-[rgba(122,67,164,0.30)]">
-              <div class="flex flex-col gap-2">
-                <div class="flex items-center gap-2 p-[10px]">
-                  <img src="./assets/images/icons/calender-icon.svg" alt="icon" />
-                  <p class="text-base leading-[164%]">Apr 15, 2025 19:55 PM</p>
-                </div>
-                <h1 class="text-[32px] font-bold">Welcome, Admin!</h1>
-                <div class="flex items-center justify-center border border-[#F9F9F9] rounded-[12px] w-max">
-                  <p class="text-base font-medium px-4 py-2">Current Plan</p>
-                </div>
-                <h1 class="text-[32px] font-bold">No Active Plan</h1>
-                <p class="text-base">You do not have any active subscription</p>
+        <!-- PAGE SPECIFIC CONTENT wii be here -->
+         <div id="documents-tools-container">
+            <div class="flex ml-4 sm:ml-16 mt-4">
+              <div
+                id="documents-main-tabs-list"
+                class="bg-[#10122e] p-2 sm:px-6 sm:py-9 border border-[#D24AC966] rounded-[16px] flex flex-col sm:flex-row gap-2">
+                <button
+                  data-tab="all-documents"
+                  class="documents-main-tab-trigger cursor-pointer px-5 py-6 text-[#F9F9F9] border border-[#D24AC966] rounded-[12px] flex items-center justify-center sm:justify-start gap-2 bg-gradient-to-b from-[#6049BC] to-[#D24AC9]">
+                  <img src="./assets/images/icons/ai-writer.svg" alt="icon" />
+                  <p
+                    class="text-lg sm:text-xl font-medium leading-[164%] capitalize hidden sm:block">
+                    All documents
+                  </p>
+                </button>
+                <button
+                  data-tab="all-codes"
+                  class="documents-main-tab-trigger cursor-pointer px-5 py-6 text-white border border-[#D24AC966] rounded-[12px] flex items-center justify-center sm:justify-start gap-2">
+                  <img src="./assets/images/icons/article.svg" alt="icon" />
+                  <p
+                    class="text-lg sm:text-xl font-medium leading-[164%] capitalize text-[#F9F9F9] hidden sm:block">
+                    All Codes
+                  </p>
+                </button>
+                <button
+                  data-tab="workbooks"
+                  class="documents-main-tab-trigger cursor-pointer px-5 py-6 text-white border border-[#D24AC966] rounded-[12px] flex items-center justify-center sm:justify-start gap-2">
+                  <img src="./assets/images/icons/ai-code.svg" alt="icon" />
+                  <p
+                    class="text-lg sm:text-xl font-medium leading-[164%] capitalize text-[#F9F9F9] hidden sm:block">
+                    Workbooks
+                  </p>
+                </button>
               </div>
-              <img src="./assets/images/icons/admin-icon.svg" alt="icon" />
             </div>
 
-            <!-- Time Saved Card -->
-            <div class="pl-8 flex flex-col justify-end rounded-[15.784px] bg-gradient-to-t from-[rgba(96,73,188,0.17)] to-[rgba(122,67,164,0.30)] overflow-hidden">
-              <div class="flex items-center gap-2 p-[10px]">
-                <img src="./assets/images/icons/time-save-icon.svg" alt="icon" />
-                <p class="text-3xl font-bold">Time Saved</p>
+            <div id="documents-main-tabs-content" class="mt-4 px-2 sm:px-[22px]">
+              <div id="all-documents-content"
+                class="documents-main-tab-content flex flex-col gap-6">
+                <h1>All document Content will be here</h1>
               </div>
-              <div class="flex">
-                <div class="flex flex-col">
-                  <h1 class="text-[48px] font-bold">161</h1>
-                  <p class="text-[#BCBCBC] text-lg">Total hours you have saved</p>
-                </div>
-                <img src="./assets/images/icons/charts.svg" alt="dashboard-time-saved-bg" srcset="" class="ml-auto">
-               
+
+              <div id="all-codes-content" class="documents-main-tab-content hidden">
+                <h1>All codes Content will be here</h1>
+              </div>
+
+              <div id="workbooks-content" class="documents-main-tab-content hidden">
+              <h1>Workbooks content Content will be here</h1>
               </div>
             </div>
           </div>
-
-          <!-- Count Limit Cards -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div class="flex flex-col items-center gap-2 py-4 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
-              <h1 class="text-[48px] font-bold text-gradient-purple">10812</h1>
-              <p class="text-3xl font-medium text-[#F9F9F9]">Words Left</p>
-            </div>
-            <div class="flex flex-col items-center gap-2 py-4 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
-              <h1 class="text-[48px] font-bold text-gradient-purple">1920</h1>
-              <p class="text-3xl font-medium text-[#F9F9F9]">Images Left</p>
-            </div>
-            <div class="flex flex-col items-center gap-2 py-4 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
-              <h1 class="text-[48px] font-bold text-gradient-purple">73821</h1>
-              <p class="text-3xl font-medium text-[#F9F9F9]">Humanize Left</p>
-            </div>
-          </div>
-
-          <!-- Generated Docs -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
-            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
-              <div><p class="text-[#FFF]/70 text-xl font-medium">Words Generated</p><p class="text-[#BCBCBC] text-base">40,689 words</p></div>
-              <img src="./assets/images/icons/word-generator.svg" />
-            </div>
-            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
-              <div><p class="text-[#FFF]/70 text-xl font-medium">Documents Saved</p><p class="text-[#BCBCBC] text-base">86 documents</p></div>
-              <img src="./assets/images/icons/document-saved-icon.svg" />
-            </div>
-            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
-              <div><p class="text-[#FFF]/70 text-xl font-medium">Images Created</p><p class="text-[#BCBCBC] text-base">13 images</p></div>
-              <img src="./assets/images/icons/image-created-icon.svg" />
-            </div>
-            <div class="flex justify-between items-center py-5 px-6 rounded-[15.784px] border border-dashed border-[rgba(210,74,201,0.40)] bg-gradient-to-t from-[rgba(122,67,164,0.30)] to-[rgba(96,73,188,0.17)]">
-              <div><p class="text-[#FFF]/70 text-xl font-medium">Humanize Generated</p><p class="text-[#BCBCBC] text-base">40,689 words</p></div>
-              <img src="./assets/images/icons/word-generator.svg" />
-            </div>
-          </div>
-
-          <!-- Table & Templates -->
-          <div class="flex flex-col xl:flex-row gap-5">
-            <!-- Table -->
-            <div class="flex-1 p-6 bg-[#070622] border border-[#7A43A4] rounded-[16px]">
-              <div class="overflow-x-auto">
-                <table class="min-w-full">
-                  <thead class="bg-[#1C202B] text-white">
-                    <tr>
-                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Name</th>
-                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Words</th>
-                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Category</th>
-                      <th class="px-6 py-3 text-left text-xs font-bold text-[#E6A0E2] uppercase">Date</th>
-                    </tr>
-                  </thead>
-                  <tbody class="bg-[#1C202B] divide-y divide-gray-700">
-                    <tr class="hover:bg-[#2D3240]">
-                      <td class="px-6 py-4">Document 1</td>
-                      <td class="px-6 py-4">1200</td>
-                      <td class="px-6 py-4">Academic</td>
-                      <td class="px-6 py-4">2025-08-20</td>
-                    </tr>
-                    <tr class="hover:bg-[#2D3240]">
-                      <td class="px-6 py-4">Document 2</td>
-                      <td class="px-6 py-4">500</td>
-                      <td class="px-6 py-4">Blog Post</td>
-                      <td class="px-6 py-4">2025-08-19</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <!-- Templates -->
-            <div class="p-6 bg-[#070622] border border-[#7A43A4] rounded-[16px] w-full xl:w-2/5">
-              <div class="flex flex-col gap-4 mb-8">
-                <img src="./assets/images/icons/fill-star-icon.svg" class="w-6 h-6" />
-                <p class="text-3xl font-bold">Favorite Ai writer Templates</p>
-              </div>
-              <div class="flex flex-col gap-6 mb-[60px]">
-                <div class="p-3 flex flex-col gap-4 rounded-[13.811px] bg-gradient-to-t from-[rgba(122,67,164,0.3)] to-[rgba(96,73,188,0.17)]">
-                  <img src="./assets/images/icons/document-icon.svg" class="w-10 h-10" />
-                  <p class="text-xl font-medium text-[#FFF]/70">Academic Essay</p>
-                  <p class="text-[#BCBCBC] text-base">Create Creative academic essays for various subject just in a second</p>
-                </div>
-                <div class="p-3 flex flex-col gap-4 rounded-[13.811px] bg-gradient-to-t from-[rgba(122,67,164,0.3)] to-[rgba(96,73,188,0.17)]">
-                  <img src="./assets/images/icons/document-icon.svg" class="w-10 h-10" />
-                  <p class="text-xl font-medium text-[#FFF]/70">Academic Essay</p>
-                  <p class="text-[#BCBCBC] text-base">Create Creative academic essays for various subject just in a second</p>
-                </div>
-              </div>
-              <button class="rounded-[12px] py-3 px-5 border border-[#7A43A4] hover:bg-gradient-purple text-white w-full">Show more</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- AI Tools Content -->
-      <div id="ai-tools-content" class="hidden">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/writing-tools.svg" />
-            <div><h1 class="text-2xl font-bold">Ai Writing Tools</h1><p class="text-base text-[#BCBCBC]">crerate quality conten effortlessly with AI</p></div>
-          </a>
-          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/article-writer.svg" />
-            <div><h1 class="text-2xl font-bold">Article writer</h1><p class="text-base text-[#BCBCBC]">Generate Comprehensive articales in minutes</p></div>
-          </a>
-          <a href="#humanizer" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/humanizer-icon.svg" />
-            <div><h1 class="text-2xl font-bold">Humanizer</h1><p class="text-base text-[#BCBCBC]">make content sound more natural and relatable</p></div>
-          </a>
-          <a href="#image-generator" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/image-generator.svg" />
-            <div><h1 class="text-2xl font-bold">Images Generator</h1><p class="text-base text-[#BCBCBC]">Create visually appealling images with AI</p></div>
-          </a>
-          <a href="#ai-assistant" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/ai-assistant-icon.svg" />
-            <div><h1 class="text-2xl font-bold">Ai Assistant</h1><p class="text-base text-[#BCBCBC]">Get instant answers and guidence from Ai</p></div>
-          </a>
-          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/ai-tutor-icon.svg" />
-            <div><h1 class="text-2xl font-bold">Ai tutor</h1><p class="text-base text-[#BCBCBC]">Learn Interactively with AI-powered guidance</p></div>
-          </a>
-          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/learn-code-icon.svg" />
-            <div><h1 class="text-2xl font-bold">Learn Code</h1><p class="text-base text-[#BCBCBC]">Master Coding With AI-powered examples and tips</p></div>
-          </a>
-          <a href="#" class="flex gap-4 items-center rounded-[18px] border border-[#D24AC966] px-6 py-8">
-            <img src="./assets/images/icons/padcast-ia-icon.svg" />
-            <div><h1 class="text-2xl font-bold">Podcast IA</h1><p class="text-base text-[#BCBCBC]">crerate quality conten effortlessly with AI</p></div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
       </div>
     </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="./assets/js/dashboard.js"></script>
 
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const statisticTab = document.getElementById('statistic-tab');
-  const aiToolsTab = document.getElementById('ai-tools-tab');
-  const statisticContent = document.getElementById('statistic-content');
-  const aiToolsContent = document.getElementById('ai-tools-content');
+      <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Element Selections ---
+  const sidebarDocumentsToolsTrigger = document.getElementById("sidebar-documents-tools-trigger");
+  const documentsToolsSubmenu = document.getElementById("documents-tools-submenu");
+  const documentsMainTabsList = document.getElementById("documents-main-tabs-list");
+  const documentsMainTabTriggers = document.querySelectorAll(".documents-main-tab-trigger");
+  const documentsMainTabContents = document.querySelectorAll(".documents-main-tab-content");
 
-  statisticTab.addEventListener('click', () => {
-    statisticContent.classList.remove('hidden');
-    aiToolsContent.classList.add('hidden');
-    statisticTab.classList.add('bg-gradient-to-b','from-primary','to-secondary','text-white');
-    aiToolsTab.classList.remove('bg-gradient-to-b','from-primary','to-secondary','text-white');
-    aiToolsTab.classList.add('text-primary');
-  });
+  // --- Main Function to Activate a Tab ---
+  const activateTab = (tabId) => {
+    // 1. Highlight active main tab button
+    documentsMainTabTriggers.forEach((trigger) => {
+      trigger.classList.remove("bg-gradient-to-b", "from-[#6049BC]", "to-[#D24AC9]");
+      if (trigger.dataset.tab === tabId) {
+        trigger.classList.add("bg-gradient-to-b", "from-[#6049BC]", "to-[#D24AC9]");
+      }
+    });
 
-  aiToolsTab.addEventListener('click', () => {
-    aiToolsContent.classList.remove('hidden');
-    statisticContent.classList.add('hidden');
-    aiToolsTab.classList.add('bg-gradient-to-b','from-primary','to-secondary','text-white');
-    statisticTab.classList.remove('bg-gradient-to-b','from-primary','to-secondary','text-white');
-    statisticTab.classList.add('text-primary');
-  });
+    // 2. Show only the matching content panel
+    documentsMainTabContents.forEach((content) => {
+      content.classList.toggle("hidden", content.id !== `${tabId}-content`);
+    });
+
+    // 3. Sync active state in sidebar submenu
+    documentsToolsSubmenu.querySelectorAll(".sidebar-submenu-item").forEach((item) => {
+      item.classList.toggle("sidebar-submenu-active", item.dataset.sidebarTab === tabId);
+    });
+  };
+
+  // --- Toggle Sidebar Dropdown ---
+  if (sidebarDocumentsToolsTrigger) {
+    sidebarDocumentsToolsTrigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      documentsToolsSubmenu.classList.toggle("hidden");
+
+      // rotate arrow icon
+      const arrowIcon = sidebarDocumentsToolsTrigger.querySelector("img[alt='icon']:last-child");
+      if (arrowIcon) {
+        arrowIcon.classList.toggle("rotate-180");
+      }
+    });
+  }
+
+  // --- Sidebar submenu click -> activate tab ---
+  if (documentsToolsSubmenu) {
+    documentsToolsSubmenu.addEventListener("click", (e) => {
+      const subItem = e.target.closest(".sidebar-submenu-item");
+      if (!subItem) return;
+      e.preventDefault();
+      activateTab(subItem.dataset.sidebarTab);
+    });
+  }
+
+  // --- Main tab button click -> activate tab ---
+  if (documentsMainTabsList) {
+    documentsMainTabsList.addEventListener("click", (e) => {
+      const trigger = e.target.closest(".documents-main-tab-trigger");
+      if (!trigger) return;
+      activateTab(trigger.dataset.tab);
+    });
+  }
 });
 </script>
 
 
- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
