@@ -187,3 +187,46 @@
        background: url("./assets/images/tmAccountCommonbg.png") lightgray 0% 0% / 100px 100px repeat, linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);
 
    }
+
+   .progress-bar-inner {
+       height: 100%;
+       border-radius: 100px 0 0 100px;
+       background: rgba(210, 74, 201, 0.40);
+       transition: width 0.4s ease;
+   }
+
+   .toggle-btn {
+       padding: 0.5rem 1rem;
+       border-radius: 9999px;
+       font-weight: 500;
+       cursor: pointer;
+       transition: all 0.2s ease-in-out;
+       background-color: #313d4f;
+       color: #ccc;
+   }
+
+   .toggle-btn.active {
+       background-color: #00c2c2;
+       color: white;
+   }
+    /* Custom styles for background images and gradients */
+        .bg-personal-details-card,
+         .bg-edit-profile-card {
+            position: relative;
+        }
+        .bg-personal-details-card::before,
+        .bg-edit-profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           border-radius: 42px;
+    border: 1px solid rgba(210, 74, 201, 0.40); /* optional */
+    background: 
+        url('../../assets/images/details&profilebg.png') center/cover no-repeat,
+        linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);
+    z-index: -1;
+        }
+    

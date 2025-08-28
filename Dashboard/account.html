@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Account - Dashboard</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+            rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="./assets/css/dashboard.css" />
+        
+
+    </head>
+    <body class="bg-[#1C202B] text-white transition-colors duration-300">
+        <!-- Google Translate -->
+        <div id="google_translate_element"></div>
+
+        <div class="flex">
+            <!-- Sidebar (same as dashboard.html) -->
+            <div id="sidebar"
+                class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
+                <div class="flex flex-col min-h-screen bg-sidebar">
+                    <div class="h-[80px] p-[10px] bg-sidebar">
+                        <img id="logo" src="./assets/images/logo.png"
+                            alt="logo" />
+                    </div>
+                    <div
+                        class="h-[calc(100vh-80px)] flex flex-col font-['Space_Grotesk'] px-8 overflow-y-auto scrollbar-hide">
+                        <!-- Sidebar links (same as dashboard.html) -->
+                        <a href="dashboard.html"
+                            class="sidebar-link flex items-center gap-1 p-[10px] rounded-[6px] text-[#E6A0E2] transition-all duration-200">
+                            <img src="./assets/images/icons/dashboard-icon.svg"
+                                alt="dashboard-icon" />
+                            <p
+                                class="text-3xl font-bold leading-[132%] tracking-[-0.237px] text-light-dark">Dashboards</p>
+                        </a>
+                        <!-- Ai Panel Section -->
+                        <div class="text-light-dark">
+                            <h2
+                                class="text-base leading-[132%] tracking-[-0.158px] px-8 py-[10px] font-bold">Ai
+                                Panel</h2>
+                            <div id="sidebar-menu"
+                                class="flex flex-col gap-3 px-4">
+                                <div>
+                                    <a
+                                        href="./writing-tools.html"
+                                        id="sidebar-writing-tools-trigger"
+                                        class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] sidebar-main-menu "
+                                        data-route="writing-tools">
+                                        <div class="flex items-center gap-2">
+                                            <img
+                                                src="./assets/images/icons/writing-tools-icon.svg"
+                                                alt="icon" />
+                                            <p
+                                                class="text-base font-medium">Writing
+                                                tools</p>
+                                        </div>
+                                        <img
+                                            src="./assets/images/icons/lower-arrow-icon.svg"
+                                            alt="icon"
+                                            class="transition-transform duration-300" />
+                                    </a>
+                                    <div
+                                        id="writing-tools-submenu"
+                                        class="hidden mt-2 flex flex-col gap-1 pl-10">
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="ai-writers"
+                                            class="sidebar-submenu-item sidebar-submenu-active flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>Ai Writer</span>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="article"
+                                            class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>Article Writer</span>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="ai-code"
+                                            class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>Ai Code</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- revision tools -->
+                                <div>
+                                    <a
+                                        href="./revision-tools.html"
+                                        id="sidebar-revision-tools-trigger"
+                                        class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] sidebar-main-menu "
+                                        data-route="revision-tools">
+                                        <div class="flex items-center gap-2">
+                                            <img
+                                                src="./assets/images/icons/writing-tools-icon.svg"
+                                                alt="icon" />
+                                            <p
+                                                class="text-base font-medium">Revision
+                                                tools</p>
+                                        </div>
+                                        <img
+                                            src="./assets/images/icons/lower-arrow-icon.svg"
+                                            alt="icon"
+                                            class="transition-transform duration-300" />
+                                    </a>
+                                    <div
+                                        id="revision-tools-submenu"
+                                        class="hidden mt-2 flex flex-col gap-1 pl-10">
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="ai-pdf-scan"
+                                            class="sidebar-submenu-item sidebar-submenu-active flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>AI PDF Scan</span>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="ai-quiz"
+                                            class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>AI Quiz</span>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="ai-podcast"
+                                            class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>AI Podcast</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Document tools -->
+                                <div>
+                                    <a
+                                        href="./documents.html"
+                                        id="sidebar-documents-tools-trigger"
+                                        class="sidebar-link flex items-center justify-between rounded-[6px] px-4 py-[10px] sidebar-main-menu "
+                                        data-r gap-2oute="documents-tools">
+                                        <div class="flex items-center gap-2">
+                                            <img
+                                                src="./assets/images/icons/documents-icon.svg"
+                                                alt="icon" />
+                                            <p
+                                                class="text-base font-medium">Documents</p>
+                                        </div>
+                                        <img
+                                            src="./assets/images/icons/lower-arrow-icon.svg"
+                                            alt="icon"
+                                            class="transition-transform duration-300" />
+                                    </a>
+                                    <div
+                                        id="documents-tools-submenu"
+                                        class="hidden mt-2 flex flex-col gap-1 pl-10">
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="all-documents"
+                                            class="sidebar-submenu-item sidebar-submenu-active flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>All documents</span>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="all-codes"
+                                            class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>All Codes</span>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            data-sidebar-tab="workbooks"
+                                            class="sidebar-submenu-item flex items-center gap-3 p-2 rounded-md">
+                                            <span class="indicator"></span>
+                                            <span>Workbooks</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <a href="subscription.html"
+                                    class="sidebar-link flex items-center gap-2 rounded-[6px] px-4 py-[10px] sidebar-main-menu">
+                                    <img
+                                        src="./assets/images/icons/subscription-panel-icon.svg"
+                                        alt="icon" />
+                                    <p
+                                        class="text-base font-medium">Subscription
+                                        Panel</p>
+                                </a>
+                                <a href="./account.html"
+                                    class="sidebar-link flex items-center gap-2 rounded-[6px] px-4 py-[10px] sidebar-main-menu bg-[linear-gradient(180deg,#7A43A4_0%,#6049BC_100%)] transition-all duration-300 border-transparent">
+                                    <img
+                                        src="./assets/images/icons/account-icon.svg"
+                                        alt="icon" />
+                                    <p class="text-base font-medium">Account</p>
+                                </a>
+                                <a href="./admin.html"
+                                    class="sidebar-link flex items-center gap-2 rounded-[6px] px-4 py-[10px] sidebar-main-menu">
+                                    <img
+                                        src="./assets/images/icons/admin-panel-icon.svg"
+                                        alt="icon" />
+                                    <p class="text-base font-medium">Admin
+                                        Panel</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div
+                class="w-full h-full lg:w-[calc(100dvw-320px)] ml-0 lg:ml-[320px] flex flex-col transition-all duration-300">
+                <div class="h-[80px] sticky top-0 z-[450] w-full">
+                    <nav
+                        class="h-full flex items-center justify-between px-4 sm:px-6 py-2 bg-sidebar text-light-dark">
+                        <div class="flex items-center gap-4">
+                            <button id="sidebar-toggle"
+                                class="lg:hidden p-2 rounded-full border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-6 h-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M4 6h16M4 12h16m-7 6h7" />
+                                </svg>
+                            </button>
+                            <div
+                                class="flex-1 flex items-center gap-3 w-full placeholder-white focus:outline-none max-w-md rounded-[19px] border dark:border-[rgba(207,207,207,0.11)] light:border-[#E6A0E2] bg-card-dark bg-card-light px-4 py-1 cursor-pointer">
+                                <img id="search-icon"
+                                    src="./assets/images/icons/search-icon.svg"
+                                    alt="search-icon" />
+                                <input type="text" placeholder="Search"
+                                    class="w-full text-sm dark:text-white light:text-[#1C202B] border-none outline-none focus-visible:ring-0 bg-transparent" />
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 sm:gap-6 ml-4">
+                            <!-- Language Switcher -->
+                            <div class="relative inline-block text-left">
+                                <button
+                                    id="langBtn"
+                                    class="flex items-center gap-2 px-3 py-2 border border-purple-600 rounded-lg text-sm hover:bg-purple-600 hover:text-white dark:text-white transition">
+                                    <img
+                                        id="langIcon"
+                                        src="https://flagcdn.com/w20/gb.png"
+                                        alt="English Flag"
+                                        class="w-5 h-5 rounded-sm" />
+                                    <span id="langName">English</span>
+                                    <svg
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+
+                                <!-- Dropdown -->
+                                <div
+                                    id="langMenu"
+                                    class="hidden absolute mt-2 w-40 bg-white dark:bg-[#1e1b4b] text-gray-800 dark:text-white rounded-lg shadow-lg">
+                                    <button
+                                        onclick="setLanguage('en', 'https://flagcdn.com/w20/gb.png', 'English')"
+                                        class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                                        <img
+                                            src="https://flagcdn.com/w20/gb.png"
+                                            class="w-5 h-5 rounded-sm"
+                                            alt="English" />
+                                        English
+                                    </button>
+                                    <button
+                                        onclick="setLanguage('fr', 'https://flagcdn.com/w20/fr.png', 'Français')"
+                                        class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                                        <img
+                                            src="https://flagcdn.com/w20/fr.png"
+                                            class="w-5 h-5 rounded-sm"
+                                            alt="Français" />
+                                        Français
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button id="theme-toggle"
+                                class="p-2 rounded-[12px] border border-[#6049bc] text-light-dark hover:bg-[#6049bc] hover:text-white transition-all duration-300">
+                                <svg id="theme-icon-sun"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="hidden">
+                                    <circle cx="12" cy="12" r="4" /><path
+                                        d="M12 2v2M12 20v2m-7.07-15.07l1.41 1.41m10.61 10.61l1.41 1.41M2 12h2m16 0h2m-15.07 6.07l1.41-1.41m10.61-10.61l1.41-1.41" />
+                                </svg>
+                                <svg id="theme-icon-moon"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                                </svg>
+                            </button>
+
+                            <div class="relative">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 dark:text-white light:text-[#1C202B]"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0m6 0v2a3 3 0 00-6 0v-2" />
+                                </svg>
+                                <span id="notification-count"
+                                    class="absolute -top-2 -right-2 bg-red-600 text-xs w-5 h-5 flex items-center justify-center rounded-full">6</span>
+                            </div>
+
+                            <div class="flex items-center gap-2 cursor-pointer">
+                                <img src="./assets/images/profile.png"
+                                    alt="profile-icon"
+                                    class="rounded-full w-12 h-12" />
+                                <div class="text-sm text-left hidden sm:block">
+                                    <div
+                                        class="font-medium leading-none text-light-dark">Jane
+                                        Cooper</div>
+                                    <div
+                                        class="text-xs dark:text-gray-400 light:text-gray-600">Admin</div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-4 h-4 hidden sm:block dark:text-white light:text-[#1C202B]"
+                                    fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div
+                    class="flex-1 overflow-y-auto  text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
+                    <div class="flex flex-col gap-5 max-h-fit">
+                        <div class="text-white p-6 space-y-6">
+                            <div>
+                                <h1 class="text-2xl font-bold">Good Morning,
+                                    Khadim</h1>
+                                <p class="text-sm text-gray-400">Today Apr 28,
+                                    2025 | 7:29 PM</p>
+                            </div>
+                            <div
+                                class="rounded-2xl p-6 flex flex-col flex-wrap gap-6 shadow-lg"
+                                style="border-radius: 32px; border: 1px solid rgba(210, 74, 201, 0.4); background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                                <div
+                                    class="flex items-center justify-between gap-4">
+                                    <div class="w-1/2 flex items-center gap-4">
+                                        <img src="./assets/images/profile.png"
+                                            alt="Profile" width="60" height="60"
+                                            class="rounded-full" />
+                                        <div class="flex-1">
+                                            <p
+                                                class="text-sm text-center text-gray-300">Join
+                                                Apr 2024</p>
+                                            <div
+                                                class="w-[80%] shrink-0 mt-1 h-2 bg-gray-600 rounded-full overflow-hidden">
+                                                <div id="words-progress"
+                                                    class="progress-bar-inner"
+                                                    style="width: 48.57%;"></div>
+                                            </div>
+                                            <div
+                                                class="w-[80%] shrink-0 flex items-center justify-between">
+                                                <p
+                                                    class="text-sm leading-[164%]">3.4K
+                                                    Words Available</p>
+                                                <p
+                                                    class="text-sm leading-[164%]">7k</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-1/2">
+                                        <div
+                                            class="w-[80%] shrink-0 mt-1 h-2 bg-gray-600 rounded-full overflow-hidden">
+                                            <div id="images-progress"
+                                                class="progress-bar-inner"
+                                                style="width: 13.11%;"></div>
+                                        </div>
+                                        <div
+                                            class="w-[80%] shrink-0 flex items-center justify-between">
+                                            <p
+                                                class="text-sm leading-[164%]">918
+                                                Images Left</p>
+                                            <p
+                                                class="text-sm leading-[164%]">7k</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="grid sm:grid-cols-2 md:grid-cols-3   xl:grid-cols-5 gap-4 w-full">
+                                    <div
+                                        class="relative overflow-hidden shadow-lg rounded-[32px] text-[#FFF] border border-[#313D4F] py-0"
+                                        style="background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                                        <img src="./assets/images/tmCardBg.png"
+                                            alt="background"
+                                            class="w-full h-full" />
+                                        <div
+                                            class="absolute text-center py-6 top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+                                            <p
+                                                class="text-[#F9F9F9] font-medium text-base leading-[164%] capitalize flex justify-center items-center gap-2 mb-2">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="18" height="23"
+                                                    viewBox="0 0 18 23"
+                                                    fill="none">
+                                                    <path opacity="0.4"
+                                                        d="M0.253741 8C0.249991 8.46245 0.249991 8.9534 0.250001 9.47384V14.0474C0.249981 15.5811 0.249971 16.8176 0.364251 17.8014C0.482481 18.8194 0.734181 19.6916 1.32681 20.4305C1.54435 20.7017 1.79012 20.9487 2.05993 21.1674C2.79495 21.7631 3.66266 22.0161 4.67534 22.135C5.6541 22.2498 7.0617 22.2499 8.5874 22.2499C9.1574 22.2507 9.6619 22.2513 10.1373 22.0827C10.2353 22.0479 10.3314 22.0079 10.4251 21.9629C10.8799 21.7442 11.2362 21.3851 11.6387 20.9795L16.4215 16.1718C16.8889 15.7035 17.3037 15.2878 17.5277 14.744C17.7518 14.2003 17.7509 13.6115 17.7499 12.9482L17.7497 9.4739C17.7498 7.69189 17.7498 6.25554 17.5987 5.12586C17.4418 3.953 17.1062 2.96548 16.326 2.18117C15.5457 1.39686 14.5633 1.05952 13.3965 0.901831C12.2727 0.749951 10.8438 0.749971 9.071 0.750001C8.5259 0.749991 7.9998 0.749981 7.5 0.754391V3.5H9.25C10.4926 3.5 11.5 4.50736 11.5 5.75C11.5 6.99264 10.4926 8 9.25 8H7.5V9.75C7.5 10.9926 6.49264 12 5.25 12C4.00736 12 3 10.9926 3 9.75V8H0.253741Z"
+                                                        fill="currentColor" />
+                                                </svg>
+                                                Documents Created
+                                            </p>
+                                            <p class="text-2xl font-bold">90</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden shadow-lg rounded-[32px] text-[#FFF] border border-[#313D4F] py-0"
+                                        style="background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                                        <img src="./assets/images/tmCardBg.png"
+                                            alt="background"
+                                            class="w-full h-full" />
+                                        <div
+                                            class="absolute text-center py-6 top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+                                            <p
+                                                class="text-[#F9F9F9] font-medium text-base leading-[164%] capitalize flex justify-center items-center gap-2 mb-2">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="25"
+                                                    viewBox="0 0 24 25"
+                                                    fill="none">
+                                                    <path opacity="0.4"
+                                                        d="M13.5143 2.25C15.0663 2.24998 16.3176 2.24996 17.3123 2.36724C18.3418 2.48862 19.2227 2.74708 19.9655 3.35508C20.2126 3.55739 20.4393 3.78342 20.6421 4.02993C21.2516 4.77078 21.5108 5.64945 21.6325 6.67627C21.75 7.66842 21.75 8.62312 21.75 10.1711C21.75 10.7088 21.3129 11.1449 20.7738 11.1449C20.2347 11.1449 19.7976 10.7089 19.7976 10.1712C19.7976 9.6331 19.7974 9.50409 19.7935 9.06579H3.21107C3.2027 9.63801 3.20238 10.2822 3.20238 11.0132V11.9868C3.20238 13.8504 3.20446 15.1501 3.33664 16.1307C3.46504 17.0833 3.69991 17.5878 4.06014 17.9471C4.42037 18.3064 4.92613 18.5406 5.88121 18.6687C6.86436 18.8006 8.1674 18.8026 10.0357 18.8026C10.5749 18.8026 11.0119 19.2386 11.0119 19.7763C11.0119 20.3141 10.5749 20.75 10.0357 20.75C8.25567 20.75 6.74949 20.75 5.62106 20.5987C4.44949 20.4416 3.46305 20.1055 2.6796 19.3241C1.89615 18.5426 1.55918 17.5587 1.40167 16.3902C1.24995 15.2646 1.24997 13.8336 1.25 12.0581V10.9419C1.24997 9.16644 1.24995 7.73536 1.40167 6.60983C1.55918 5.44127 1.89615 4.45736 2.6796 3.67593C3.46305 2.89449 4.44949 2.55839 5.62106 2.40128C6.74949 2.24995 8.18424 2.24997 9.96427 2.25H13.5143Z"
+                                                        fill="currentColor" />
+                                                    <path fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M4.5 5.65625C4.5 5.10397 4.94772 4.65625 5.5 4.65625H5.50998C6.06226 4.65625 6.50997 5.10397 6.50997 5.65625C6.50997 6.20853 6.06226 6.65625 5.50998 6.65625H5.5C4.94772 6.65625 4.5 6.20853 4.5 5.65625ZM8.49002 5.65625C8.49002 5.10397 8.93774 4.65625 9.49002 4.65625H9.5C10.0523 4.65625 10.5 5.10397 10.5 5.65625C10.5 6.20853 10.0523 6.65625 9.5 6.65625H9.49002C8.93774 6.65625 8.49002 6.20853 8.49002 5.65625Z"
+                                                        fill="currentColor" />
+                                                    <path
+                                                        d="M18.5313 12.909C19.41 12.0303 20.8346 12.0303 21.7133 12.909L22.092 13.2877C22.9706 14.1664 22.9706 15.591 22.092 16.4697L16.6161 21.9445C16.1004 22.4602 15.4009 22.75 14.6716 22.75H13C12.5858 22.75 12.25 22.4142 12.25 22V20.3284C12.25 19.5991 12.5397 18.8996 13.0555 18.3839L18.5313 12.909Z"
+                                                        fill="currentColor" />
+                                                </svg>
+                                                Words Generated
+                                            </p>
+                                            <p
+                                                class="text-2xl font-bold">53,553</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden shadow-lg rounded-[32px] text-[#FFF] border border-[#313D4F] py-0"
+                                        style="background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                                        <img src="./assets/images/tmCardBg.png"
+                                            alt="background"
+                                            class="w-full h-full" />
+                                        <div
+                                            class="absolute text-center py-6 top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+                                            <p
+                                                class="text-[#F9F9F9] font-medium text-base leading-[164%] capitalize flex justify-center items-center gap-2 mb-2">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="25"
+                                                    viewBox="0 0 24 25"
+                                                    fill="none">
+                                                    <path opacity="0.4"
+                                                        d="M12.0652 2.25C14.0744 2.24998 15.6717 2.24997 16.934 2.40331C18.2327 2.56106 19.3071 2.89345 20.1968 3.65334C20.4301 3.85261 20.6474 4.06991 20.8467 4.30323C21.6065 5.19294 21.9389 6.26729 22.0967 7.56598C22.25 8.82829 22.25 10.5561 22.25 12.5653C22.25 14.5744 22.25 16.1717 22.0967 17.434C21.9389 18.7327 21.6065 19.8071 20.8467 20.6968C20.6474 20.9301 20.4301 21.1474 20.1968 21.3467C19.3071 22.1065 18.2327 22.4389 16.934 22.5967C15.6717 22.75 13.9439 22.75 11.9347 22.75C9.92558 22.75 8.32829 22.75 7.06598 22.5967C5.76729 22.4389 4.69294 22.1065 3.80323 21.3467C3.56991 21.1474 3.35261 20.9301 3.15334 20.6968C2.39345 19.8071 2.06106 18.7327 1.90331 17.434C1.74997 16.1717 1.74998 14.5744 1.75 12.5652C1.74998 10.5561 1.74997 8.8283 1.90331 7.56598C2.06106 6.26729 2.39345 5.19294 3.15334 4.30323C3.35261 4.06991 3.56991 3.85261 3.80323 3.65334C4.69294 2.89345 5.76729 2.56106 7.06598 2.40331C8.3283 2.24997 10.0561 2.24998 12.0652 2.25Z"
+                                                        fill="currentColor" />
+                                                    <path
+                                                        d="M3.84275 17.1986C3.97736 18.3067 4.22969 18.9493 4.63925 19.4288C4.7721 19.5843 4.91697 19.7292 5.07252 19.8621C5.55205 20.2716 6.19459 20.524 7.30272 20.6586C8.43359 20.7959 9.91216 20.7976 12.0013 20.7976C14.0904 20.7976 15.569 20.7959 16.6999 20.6586C17.808 20.524 18.4505 20.2716 18.9301 19.8621C19.0856 19.7292 19.2305 19.5843 19.3634 19.4288C19.7729 18.9493 20.0252 18.3067 20.1599 17.1986C20.2115 16.7738 20.2439 16.2999 20.2643 15.763L18.5316 14.0303C18.1921 13.6908 17.7315 13.5 17.2513 13.5C16.7711 13.5 16.3105 13.6908 15.971 14.0303L14.0013 16L10.0316 12.0303C9.69208 11.6908 9.23153 11.5 8.75131 11.5C8.2711 11.5 7.81055 11.6908 7.47098 12.0303L3.73828 15.763C3.75869 16.2999 3.79115 16.7738 3.84275 17.1986Z"
+                                                        fill="#BCBCBC" />
+                                                    <path fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M14.25 8C14.25 7.30964 14.8096 6.75 15.5 6.75C16.1904 6.75 16.75 7.30964 16.75 8C16.75 8.69036 16.1904 9.25 15.5 9.25C14.8096 9.25 14.25 8.69036 14.25 8Z"
+                                                        fill="currentColor" /></svg>
+                                                Image Created
+                                            </p>
+                                            <p
+                                                class="text-2xl font-bold">224</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden shadow-lg rounded-[32px] text-[#FFF] border border-[#313D4F] py-0"
+                                        style="background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                                        <img src="./assets/images/tmCardBg.png"
+                                            alt="background"
+                                            class="w-full h-full" />
+                                        <div
+                                            class="absolute text-center py-6 top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+                                            <p
+                                                class="text-[#F9F9F9] font-medium text-base leading-[164%] capitalize flex justify-center items-center gap-2 mb-2">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="25"
+                                                    viewBox="0 0 24 25"
+                                                    fill="none">
+                                                    <path opacity="0.4"
+                                                        d="M12.0572 2.25C14.2479 2.24999 15.9686 2.24998 17.312 2.43059C18.6886 2.61568 19.7809 3.00272 20.6391 3.86091C21.4973 4.71911 21.8843 5.81137 22.0694 7.18802C22.25 8.53144 22.25 10.2521 22.25 12.4428V12.5572C22.25 14.7479 22.25 16.4686 22.0694 17.812C21.8843 19.1886 21.4973 20.2809 20.6391 21.1391C19.7809 21.9973 18.6886 22.3843 17.312 22.5694C15.9686 22.75 14.2479 22.75 12.0572 22.75H11.9428C9.7521 22.75 8.03144 22.75 6.68802 22.5694C5.31137 22.3843 4.21911 21.9973 3.36091 21.1391C2.50272 20.2809 2.11568 19.1886 1.93059 17.812C1.74998 16.4686 1.74999 14.7479 1.75 12.5572V12.4428C1.74999 10.2521 1.74998 8.53144 1.93059 7.18802C2.11568 5.81137 2.50272 4.71911 3.36091 3.86091C4.21911 3.00272 5.31137 2.61568 6.68802 2.43059C8.03144 2.24998 9.75212 2.24999 11.9428 2.25H12.0572Z"
+                                                        fill="currentColor" />
+                                                    <path fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M15.2425 9.84714C14.882 10.2655 14.9288 10.8969 15.3471 11.2575L16.5737 12.3147C16.6552 12.385 16.7256 12.4456 16.7876 12.5C16.7256 12.5544 16.6552 12.6151 16.5737 12.6854L15.3471 13.7426C14.9288 14.1031 14.882 14.7346 15.2425 15.1529C15.6031 15.5712 16.2345 15.6181 16.6529 15.2575L17.8794 14.2003C17.8917 14.1897 17.9041 14.179 17.9165 14.1684C18.1415 13.9746 18.3806 13.7686 18.5554 13.5711C18.7531 13.3478 19 12.9934 19 12.5C19 12.0066 18.7531 11.6522 18.5554 11.4289C18.3806 11.2314 18.1415 11.0255 17.9165 10.8317C17.9041 10.821 17.8917 10.8103 17.8794 10.7997L16.6529 9.74255C16.2345 9.38198 15.6031 9.4288 15.2425 9.84714Z"
+                                                        fill="currentColor" />
+                                                    <path fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M8.75746 9.84714C9.11804 10.2655 9.07121 10.8969 8.65288 11.2575L7.42634 12.3147C7.34477 12.385 7.27445 12.4456 7.21242 12.5C7.27445 12.5544 7.34477 12.6151 7.42634 12.6854L8.65288 13.7426C9.07121 14.1031 9.11804 14.7346 8.75746 15.1529C8.39689 15.5712 7.76546 15.6181 7.34712 15.2575L6.12058 14.2003C6.10828 14.1897 6.09593 14.179 6.08353 14.1684C5.8585 13.9746 5.61941 13.7686 5.44458 13.5711C5.24691 13.3478 5 12.9934 5 12.5C5 12.0066 5.24691 11.6522 5.44458 11.4289C5.61941 11.2314 5.85851 11.0255 6.08354 10.8317C6.09593 10.821 6.10828 10.8103 6.12058 10.7997L7.34712 9.74255C7.76546 9.38198 8.39689 9.4288 8.75746 9.84714Z"
+                                                        fill="currentColor" />
+                                                    <path fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M13.3165 8.55159C13.8404 8.72624 14.1236 9.29256 13.949 9.8165L11.949 15.8165C11.7743 16.3404 11.208 16.6236 10.684 16.449C10.1601 16.2743 9.87693 15.708 10.0516 15.184L12.0516 9.18404C12.2262 8.6601 12.7926 8.37694 13.3165 8.55159Z"
+                                                        fill="currentColor" /></svg>
+                                                Codes Generated
+                                            </p>
+                                            <p class="text-2xl font-bold">65</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden shadow-lg rounded-[32px] text-[#FFF] border border-[#313D4F] py-0"
+                                        style="background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                                        <img src="./assets/images/tmCardBg.png"
+                                            alt="background"
+                                            class="w-full h-full" />
+                                        <div
+                                            class="absolute text-center py-6 top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+                                            <p
+                                                class="text-[#F9F9F9] font-medium text-base leading-[164%] capitalize flex justify-center items-center gap-2 mb-2">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="25"
+                                                    viewBox="0 0 24 25"
+                                                    fill="none">
+                                                    <path opacity="0.4"
+                                                        d="M7.948 12.75H8C8.29639 12.75 8.56499 12.9246 8.68536 13.1954L12 20.6533L15.3146 13.1954C15.435 12.9246 15.7036 12.75 16 12.75H16.052C16.9505 12.75 17.6997 12.7499 18.2945 12.8299C18.9223 12.9143 19.4891 13.1 19.9445 13.5555C20.4 14.0109 20.5857 14.5777 20.6701 15.2055C20.7501 15.8003 20.75 16.5495 20.75 17.448V19.2505C20.75 21.1361 20.75 22.0789 20.1642 22.6647C19.5784 23.2505 18.6356 23.2505 16.75 23.2505H7.25C5.36438 23.2505 4.42158 23.2505 3.83579 22.6647C3.25 22.0789 3.25 21.1361 3.25 19.2505V17.448C3.24997 16.5495 3.24995 15.8003 3.32991 15.2055C3.41432 14.5777 3.59999 14.0109 4.05546 13.5555C4.51093 13.1 5.07773 12.9143 5.70552 12.8299C6.3003 12.7499 7.04954 12.75 7.948 12.75Z"
+                                                        fill="currentColor" />
+                                                    <path opacity="0.4"
+                                                        d="M7.75 6C7.75 3.65279 9.65279 1.75 12 1.75C14.3472 1.75 16.25 3.65279 16.25 6V7C16.25 9.34721 14.3472 11.25 12 11.25C9.65279 11.25 7.75 9.34721 7.75 7V6Z"
+                                                        fill="#BCBCBC" />
+                                                    <path
+                                                        d="M10.9071 18.1963L12 20.6553L13.0929 18.1963L12.7724 15.6323L13.6708 13.8354C13.7871 13.6029 13.7746 13.3268 13.638 13.1057C13.5013 12.8846 13.2599 12.75 13 12.75H11C10.7401 12.75 10.4987 12.8846 10.362 13.1057C10.2254 13.3268 10.2129 13.6029 10.3292 13.8354L11.2276 15.6323L10.9071 18.1963Z"
+                                                        fill="currentColor" /></svg>
+                                                Humanize Generated
+                                            </p>
+                                            <p
+                                                class="text-2xl font-bold">13,735</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid xl:grid-cols-2 gap-8  w-full px-6">
+                            <div class="flex flex-col md:flex-row gap-8 ">
+                                <div class="w-full  flex flex-col gap-5 ">
+                                    <div
+                                        class="bg-personal-details-card shadow-md overflow-hidden relative">
+                                        <div
+                                            class="w-full h-full flex flex-col items-center">
+                                            <div
+                                                class="p-4 border-b border-[#BCBCBC] w-full text-center">
+                                                <h2
+                                                    class="text-lg font-semibold text-[#BCBCBC]">Personal
+                                                    Details</h2>
+                                            </div>
+                                            <div class="p-6 text-[#FFF]">
+                                                <div class="space-y-4">
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Name</span>
+                                                        <span>Khadim
+                                                            Diongue</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Email</span>
+                                                        <span>Khadim@gmail.com</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Referral
+                                                            Id</span>
+                                                        <span>JHVVBVKVGVBUK</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Referral
+                                                            Link</span>
+                                                        <span>Link here</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Job
+                                                            Role</span>
+                                                        <span>Administrator</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Company</span>
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Website</span>
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">City</span>
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Country</span>
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center">
+                                                        <span
+                                                            class="w-32 font-medium">Phone</span>
+                                                        <span>-</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="md:min-w-[284px] xl:min-w-[254px] xxl:min-w-[284px] w-full md:w-fit flex flex-col gap-5">
+                                    <div
+                                        class="bg-edit-profile-card shadow-md w-full relative overflow-hidden p-4">
+                                        <div
+                                            class="flex flex-col items-center justify-center w-full h-full">
+                                            <div
+                                                class="p-4 border-b border-[#BCBCBC] w-fit text-center mb-4">
+                                                <h2
+                                                    class="text-base font-medium leading-[164%] capitalize text-[#BCBCBC]">Edit
+                                                    Profile</h2>
+                                            </div>
+                                            <div
+                                                class="flex flex-col gap-2 h-full">
+                                                <div
+                                                    class="p-4 flex items-center gap-3 cursor-pointer rounded-[6px] border border-[rgba(210,74,201,0.40)]">
+                                                    <img
+                                                        src="./assets/images/icons/documents-icon.svg"
+                                                        alt="icon" />
+                                                    <span
+                                                        class="text-lg leading-[164%]">Update
+                                                        Profile</span>
+                                                </div>
+                                                <div
+                                                    class="p-4 flex items-center gap-3 cursor-pointer rounded-[6px] border border-[rgba(210,74,201,0.40)]">
+                                                    <img
+                                                        src="./assets/images/icons/documents-icon.svg"
+                                                        alt="icon" />
+                                                    <span
+                                                        class="text-lg leading-[164%]">Change
+                                                        Password</span>
+                                                </div>
+                                                <div
+                                                    class="p-4 flex items-center gap-3 cursor-pointer rounded-[6px] border border-[rgba(210,74,201,0.40)]">
+                                                    <img
+                                                        src="./assets/images/icons/documents-icon.svg"
+                                                        alt="icon" />
+                                                    <span
+                                                        class="text-lg leading-[164%]">2FA
+                                                        Authentication</span>
+                                                </div>
+                                                <div
+                                                    class="p-4 flex items-center gap-3 cursor-pointer rounded-[6px] border border-[rgba(210,74,201,0.40)]">
+                                                    <img
+                                                        src="./assets/images/icons/documents-icon.svg"
+                                                        alt="icon" />
+                                                    <span>Delete Account</span>
+                                                </div>
+                                                <div
+                                                    class="p-4 flex items-center gap-3 justify-between cursor-pointer">
+                                                    <input type="checkbox"
+                                                        id="newsletter-checkbox"
+                                                        class="w-4 h-4 text-purple-600 bg-gray-700 border-gray-600 rounded focus:ring-purple-500 focus:ring-2" />
+                                                    <label
+                                                        for="newsletter-checkbox"
+                                                        class="text-sm leading-[164%]">Receive
+                                                        Newsletters via
+                                                        email</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div
+                                    class="relative rounded-[32px] shadow-lg border border-[rgba(210,74,201,0.40)]"
+                                    style="background: linear-gradient(180deg, rgba(122, 67, 164, 0.30) 0%, rgba(96, 73, 188, 0.17) 100%);">
+                                    <img src="./assets/images/tmCardBg.png"
+                                        alt="background"
+                                        class="w-full h-full absolute -z-10" />
+                                    <div class="p-4 w-full z-10">
+                                        <div
+                                            class="flex justify-between items-center mb-4">
+                                            <h2
+                                                class="text-white text-sm font-medium">Word
+                                                And Image generated</h2>
+                                            <div class="flex space-x-2"
+                                                id="chart-toggle-group">
+                                                <button class="toggle-btn"
+                                                    data-value="words">Words</button>
+                                                <button class="toggle-btn"
+                                                    data-value="images">Image</button>
+                                            </div>
+                                        </div>
+                                        <div class="w-full h-72">
+                                            <canvas
+                                                id="generated-chart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script src="./assets/js/dashboard.js"></script>
+            <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartData = [
+                { month: "Jan", words: 4000, images: 0 },
+                { month: "Feb", words: 3000, images: 100 },
+                { month: "Mar", words: 3000, images: 300 },
+                { month: "Apr", words: 5000, images: 500 },
+                { month: "May", words: 4000, images: 700 },
+                { month: "Jun", words: 1000, images: 1000 },
+                { month: "Jul", words: 0, images: 100 },
+                { month: "Aug", words: 500, images: 100 },
+                { month: "Sep", words: 500, images: 100 },
+                { month: "Oct", words: 100, images: 100 },
+                { month: "Nov", words: 1000, images: 500 },
+                { month: "Dec", words: 1000, images: 500 },
+            ];
+
+            const ctx = document.getElementById('generated-chart').getContext('2d');
+            let myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartData.map(d => d.month),
+                    datasets: [
+                        {
+                            label: 'Words',
+                            data: chartData.map(d => d.words),
+                            borderColor: '#00c2c2',
+                            tension: 0.4,
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            hidden: false,
+                        },
+                        {
+                            label: 'Images',
+                            data: chartData.map(d => d.images),
+                            borderColor: '#f5b942',
+                            tension: 0.4,
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            hidden: false,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                color: '#2a2a3b'
+                            },
+                            ticks: {
+                                color: '#aaa'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: '#2a2a3b'
+                            },
+                            ticks: {
+                                color: '#aaa'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    }
+                }
+            });
+
+            const toggleButtons = document.querySelectorAll('.toggle-btn');
+            let activeValues = ['words', 'images'];
+
+            const updateChart = () => {
+                myChart.data.datasets.forEach(dataset => {
+                    dataset.hidden = !activeValues.includes(dataset.label.toLowerCase());
+                });
+                myChart.update();
+                toggleButtons.forEach(btn => {
+                    if (activeValues.includes(btn.dataset.value)) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            };
+
+            toggleButtons.forEach(btn => {
+                btn.classList.add('active'); // Initialize active state
+                btn.addEventListener('click', () => {
+                    const value = btn.dataset.value;
+                    const index = activeValues.indexOf(value);
+                    if (index > -1) {
+                        if (activeValues.length > 1) { // Prevents deselecting the last item
+                            activeValues.splice(index, 1);
+                        }
+                    } else {
+                        activeValues.push(value);
+                    }
+                    updateChart();
+                });
+            });
+
+        });
+    </script>
+
+            <script type="text/javascript"
+                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </body>
+    </html>
