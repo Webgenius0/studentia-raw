@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Writing Tools - Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/dashboard.css" />
-</head>
-<body class="bg-[#1C202B] text-white transition-colors duration-300">
-  <!-- Google Translate -->
-  <div id="google_translate_element"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writing Tools - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/dashboard.css" />
+    <style>
+        :root { --bg-color: #1C202B; --card-color: #070622; --text-color: #F9F9F9; --border-color: #7A43A4; --subtle-text: #a0aec0; --hover-bg: rgba(255, 255, 255, 0.05); }
+        html:not(.dark) { --bg-color: #f3f4f6; --card-color: #ffffff; --text-color: #111827; --border-color: #d1d5db; --subtle-text: #6b7280; --hover-bg: #f9fafb; }
 
-  <div class="flex">
-  <!-- Sidebar (same as dashboard.html) -->
-         <div id="sidebar" class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; }
+        .card-bg { background-color: var(--card-color); }
+        .card-border { border-color: var(--border-color); }
+        .text-subtle { color: var(--subtle-text); }
+        .table-row-hover:hover { background-color: var(--hover-bg); }
+        
+        .gradient-scrollbar::-webkit-scrollbar { width: 8px; }
+        .gradient-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .gradient-scrollbar::-webkit-scrollbar-thumb { background-image: linear-gradient(to bottom, #7A43A4, #6049BC); border-radius: 10px; }
+        
+        thead th { background-color: var(--card-color); }
+        .filter-button.active { color: #c084fc; } /* Purple color for active filter */
+    </style>
+  </head>
+  <body class="bg-[#1C202B] text-white transition-colors duration-300">
+    <!-- Google Translate -->
+    <div id="google_translate_element"></div>
+
+    <div class="flex">
+      <!-- Sidebar (same as dashboard.html) -->
+      <div id="sidebar"
+        class="transition-all duration-300 w-[320px] fixed bottom-0 top-0 left-0 z-[2000] lg:ml-0 ml-[-320px]">
         <div class="flex flex-col min-h-screen bg-sidebar">
           <div class="h-[80px] p-[10px] bg-sidebar">
             <img id="logo" src="./assets/images/logo.png" alt="logo" />
@@ -81,7 +101,7 @@
                 </div>
 
                 <!-- revision tools -->
-              <div>
+                <div>
                   <a
                     href="./revision-tools.html"
                     id="sidebar-revision-tools-trigger"
@@ -122,11 +142,10 @@
                       <span>AI Podcast</span>
                     </a>
                   </div>
-                </div> 
-
+                </div>
 
                 <!-- Document tools -->
-              <div>
+                <div>
                   <a
                     href="./documents.html"
                     id="sidebar-documents-tools-trigger"
@@ -167,11 +186,8 @@
                       <span>Workbooks</span>
                     </a>
                   </div>
-                </div> 
+                </div>
 
-
-
-               
                 <a href="subscription.html"
                   class="sidebar-link flex items-center gap-2 rounded-[6px] px-4 py-[10px] sidebar-main-menu">
                   <img src="./assets/images/icons/subscription-panel-icon.svg"
@@ -196,113 +212,134 @@
         </div>
       </div>
 
-    <!-- Main Content -->
-    <div class="w-full h-full lg:w-[calc(100dvw-320px)] ml-0 lg:ml-[320px] flex flex-col transition-all duration-300">
-      <div class="h-[80px] sticky top-0 z-[450] w-full">
-        <nav class="h-full flex items-center justify-between px-4 sm:px-6 py-2 bg-sidebar text-light-dark">
-          <div class="flex items-center gap-4">
-            <button id="sidebar-toggle" class="lg:hidden p-2 rounded-full border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-200">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            </button>
-            <div class="flex-1 flex items-center gap-3 w-full placeholder-white focus:outline-none max-w-md rounded-[19px] border dark:border-[rgba(207,207,207,0.11)] light:border-[#E6A0E2] bg-card-dark bg-card-light px-4 py-1 cursor-pointer">
-              <img id="search-icon" src="./assets/images/icons/search-icon.svg" alt="search-icon" />
-              <input type="text" placeholder="Search" class="w-full text-sm dark:text-white light:text-[#1C202B] border-none outline-none focus-visible:ring-0 bg-transparent" />
-            </div>
-          </div>
-          
-          <div class="flex items-center gap-4 sm:gap-6 ml-4">
-              <!-- Language Switcher -->
-          <div class="relative inline-block text-left">
-            <button
-              id="langBtn"
-              class="flex items-center gap-2 px-3 py-2 border border-purple-600 rounded-lg text-sm hover:bg-purple-600 hover:text-white dark:text-white transition"
-            >
-              <img
-                id="langIcon"
-                src="https://flagcdn.com/w20/gb.png"
-                alt="English Flag"
-                class="w-5 h-5 rounded-sm"
-              />
-              <span id="langName">English</span>
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-            <!-- Dropdown -->
-            <div
-              id="langMenu"
-              class="hidden absolute mt-2 w-40 bg-white dark:bg-[#1e1b4b] text-gray-800 dark:text-white rounded-lg shadow-lg"
-            >
-              <button
-                onclick="setLanguage('en', 'https://flagcdn.com/w20/gb.png', 'English')"
-                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]"
-              >
-                <img
-                  src="https://flagcdn.com/w20/gb.png"
-                  class="w-5 h-5 rounded-sm"
-                  alt="English"
-                />
-                English
+      <!-- Main Content -->
+      <div
+        class="w-full h-full lg:w-[calc(100dvw-320px)] ml-0 lg:ml-[320px] flex flex-col transition-all duration-300">
+        <div class="h-[80px] sticky top-0 z-[450] w-full">
+          <nav
+            class="h-full flex items-center justify-between px-4 sm:px-6 py-2 bg-sidebar text-light-dark">
+            <div class="flex items-center gap-4">
+              <button id="sidebar-toggle"
+                class="lg:hidden p-2 rounded-full border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
               </button>
-              <button
-                onclick="setLanguage('fr', 'https://flagcdn.com/w20/fr.png', 'Français')"
-                class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]"
-              >
-                <img
-                  src="https://flagcdn.com/w20/fr.png"
-                  class="w-5 h-5 rounded-sm"
-                  alt="Français"
-                />
-                Français
-              </button>
-            </div>
-          </div>
-
-            <button id="theme-toggle" class="p-2 rounded-[12px] border border-[#6049bc] text-light-dark hover:bg-[#6049bc] hover:text-white transition-all duration-300">
-              <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
-                <circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2m-7.07-15.07l1.41 1.41m10.61 10.61l1.41 1.41M2 12h2m16 0h2m-15.07 6.07l1.41-1.41m10.61-10.61l1.41-1.41" />
-              </svg>
-              <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-              </svg>
-            </button>
-
-            <div class="relative">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 dark:text-white light:text-[#1C202B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0m6 0v2a3 3 0 00-6 0v-2" />
-              </svg>
-              <span id="notification-count" class="absolute -top-2 -right-2 bg-red-600 text-xs w-5 h-5 flex items-center justify-center rounded-full">6</span>
-            </div>
-
-            <div class="flex items-center gap-2 cursor-pointer">
-              <img src="./assets/images/profile.png" alt="profile-icon" class="rounded-full w-12 h-12" />
-              <div class="text-sm text-left hidden sm:block">
-                <div class="font-medium leading-none text-light-dark">Jane Cooper</div>
-                <div class="text-xs dark:text-gray-400 light:text-gray-600">Admin</div>
+              <div
+                class="flex-1 flex items-center gap-3 w-full placeholder-white focus:outline-none max-w-md rounded-[19px] border dark:border-[rgba(207,207,207,0.11)] light:border-[#E6A0E2] bg-card-dark bg-card-light px-4 py-1 cursor-pointer">
+                <img id="search-icon"
+                  src="./assets/images/icons/search-icon.svg"
+                  alt="search-icon" />
+                <input type="text" placeholder="Search"
+                  class="w-full text-sm dark:text-white light:text-[#1C202B] border-none outline-none focus-visible:ring-0 bg-transparent" />
               </div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden sm:block dark:text-white light:text-[#1C202B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
             </div>
-          </div>
-        </nav>
-      </div>
-      <div class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
-        <!-- PAGE SPECIFIC CONTENT wii be here -->
-         <div id="documents-tools-container">
+
+            <div class="flex items-center gap-4 sm:gap-6 ml-4">
+              <!-- Language Switcher -->
+              <div class="relative inline-block text-left">
+                <button
+                  id="langBtn"
+                  class="flex items-center gap-2 px-3 py-2 border border-purple-600 rounded-lg text-sm hover:bg-purple-600 hover:text-white dark:text-white transition">
+                  <img
+                    id="langIcon"
+                    src="https://flagcdn.com/w20/gb.png"
+                    alt="English Flag"
+                    class="w-5 h-5 rounded-sm" />
+                  <span id="langName">English</span>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                <!-- Dropdown -->
+                <div
+                  id="langMenu"
+                  class="hidden absolute mt-2 w-40 bg-white dark:bg-[#1e1b4b] text-gray-800 dark:text-white rounded-lg shadow-lg">
+                  <button
+                    onclick="setLanguage('en', 'https://flagcdn.com/w20/gb.png', 'English')"
+                    class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                    <img
+                      src="https://flagcdn.com/w20/gb.png"
+                      class="w-5 h-5 rounded-sm"
+                      alt="English" />
+                    English
+                  </button>
+                  <button
+                    onclick="setLanguage('fr', 'https://flagcdn.com/w20/fr.png', 'Français')"
+                    class="flex items-center gap-2 px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-[#2a2550]">
+                    <img
+                      src="https://flagcdn.com/w20/fr.png"
+                      class="w-5 h-5 rounded-sm"
+                      alt="Français" />
+                    Français
+                  </button>
+                </div>
+              </div>
+
+              <button id="theme-toggle"
+                class="p-2 rounded-[12px] border border-[#6049bc] text-light-dark hover:bg-[#6049bc] hover:text-white transition-all duration-300">
+                <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg"
+                  width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="hidden">
+                  <circle cx="12" cy="12" r="4" /><path
+                    d="M12 2v2M12 20v2m-7.07-15.07l1.41 1.41m10.61 10.61l1.41 1.41M2 12h2m16 0h2m-15.07 6.07l1.41-1.41m10.61-10.61l1.41-1.41" />
+                </svg>
+                <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg"
+                  width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+              </button>
+
+              <div class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 dark:text-white light:text-[#1C202B]"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0m6 0v2a3 3 0 00-6 0v-2" />
+                </svg>
+                <span id="notification-count"
+                  class="absolute -top-2 -right-2 bg-red-600 text-xs w-5 h-5 flex items-center justify-center rounded-full">6</span>
+              </div>
+
+              <div class="flex items-center gap-2 cursor-pointer">
+                <img src="./assets/images/profile.png" alt="profile-icon"
+                  class="rounded-full w-12 h-12" />
+                <div class="text-sm text-left hidden sm:block">
+                  <div class="font-medium leading-none text-light-dark">Jane
+                    Cooper</div>
+                  <div
+                    class="text-xs dark:text-gray-400 light:text-gray-600">Admin</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 hidden sm:block dark:text-white light:text-[#1C202B]"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div
+          class="flex-1 overflow-y-auto bg-main text-light-dark min-h-[calc(100vh-80px)] px-4 py-5">
+          <!-- PAGE SPECIFIC CONTENT wii be here -->
+          <div id="documents-tools-container">
             <div class="flex ml-4 sm:ml-16 mt-4">
               <div
                 id="documents-main-tabs-list"
@@ -337,26 +374,477 @@
               </div>
             </div>
 
-            <div id="documents-main-tabs-content" class="mt-4 px-2 sm:px-[22px]">
+            <div id="documents-main-tabs-content"
+              class="mt-4 px-2 sm:px-[22px]">
               <div id="all-documents-content"
                 class="documents-main-tab-content flex flex-col gap-6">
-                <h1>All document Content will be here</h1>
+                <div
+                  class="flex-1 flex flex-col bg-white dark:bg-[#070622] border border-gray-200 dark:border-[#7A43A4] rounded-[24px] p-6">
+                  <div
+                    class="flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
+                    <h2 class="text-2xl font-bold">All My Documents</h2>
+                    <div class="flex items-center gap-2">
+                      <div class="relative"><input type="text" id="search-bar"
+                          placeholder="Search..."
+                          class="w-full sm:w-64 bg-gray-100 dark:bg-gray-800 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"><svg
+                          class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                          fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24"><path stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
+                      <button id="main-filter-btn"
+                        class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg font-semibold"><svg
+                          class="w-5 h-5" fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24"><path stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L16 11.414V16a1 1 0 01-.293.707l-2 2A1 1 0 0113 18v-6.586l-3.707-3.707A1 1 0 019 7V4a1 1 0 01-1-1H4a1 1 0 01-1-1z"></path></svg>Filter</button>
+                    </div>
+                  </div>
+
+                  <div class="flex-1 overflow-hidden">
+                    <div
+                      class="overflow-auto max-h-[60vh] w-full gradient-scrollbar">
+                      <table class="w-full text-sm text-left">
+                        <thead class="sticky top-0 z-10 text-subtle uppercase">
+                          <tr
+                            class="border-b border-gray-200 dark:border-gray-700">
+                            <th class="py-3 px-6 min-w-[250px]">Documents
+                              Name</th>
+                            <th class="py-3 px-3 min-w-[150px]">
+                              <div class="relative">
+                                <button
+                                  class="filter-button flex items-center gap-1"
+                                  data-filter-type="wordsBook">Words Book <svg
+                                    class="w-4 h-4" fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                      fill-rule="evenodd"
+                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path></svg></button>
+                                <div
+                                  class="filter-menu hidden absolute top-full left-0 mt-2 w-48 card-bg card-border rounded-md shadow-lg z-20 p-2 space-y-1">
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="wordsBook" value="All"
+                                      class="rounded"> All</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="wordsBook"
+                                      value="Tous" class="rounded"> Tous</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="wordsBook"
+                                      value="Santé" class="rounded">
+                                    Santé</label>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="py-3 px-3 min-w-[120px]">Created</th>
+                            <th class="py-3 px-3 min-w-[150px]">
+                              <div class="relative">
+                                <button
+                                  class="filter-button flex items-center gap-1"
+                                  data-filter-type="categories">Categories <svg
+                                    class="w-4 h-4" fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                      fill-rule="evenodd"
+                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path></svg></button>
+                                <div
+                                  class="filter-menu hidden absolute top-full left-0 mt-2 w-48 card-bg card-border rounded-md shadow-lg z-20 p-2 space-y-1">
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Content" class="rounded">
+                                    Content</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Contenu" class="rounded">
+                                    Contenu</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Technical" class="rounded">
+                                    Technical</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Business" class="rounded">
+                                    Business</label>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="py-3 px-3 min-w-[150px]">
+                              <div class="relative">
+                                <button
+                                  class="filter-button flex items-center gap-1"
+                                  data-filter-type="language">Language <svg
+                                    class="w-4 h-4" fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                      fill-rule="evenodd"
+                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path></svg></button>
+                                <div
+                                  class="filter-menu hidden absolute top-full left-0 mt-2 w-48 card-bg card-border rounded-md shadow-lg z-20 p-2 space-y-1">
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="language"
+                                      value="En-Uk" class="rounded">
+                                    En-Uk</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="language"
+                                      value="French" class="rounded">
+                                    French</label>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="py-3 px-3 min-w-[120px]">Words Used</th>
+                            <th
+                              class="py-3 px-3 min-w-[120px] text-center">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody id="document-table-body"
+                          class="divide-y divide-gray-200 dark:divide-gray-700">
+                          <tr class="table-row-hover" data-wordsbook="All"
+                            data-categories="Content" data-language="En-Uk">
+                            <td
+                              class="px-6 py-4 font-medium flex items-center gap-3">
+                              <div
+                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img
+                                  src="./assets/images/icons/document-icon.svg"
+                                  class="w-5 h-5" /></div>
+                              <div><p class="font-bold">Project Proposal</p><p
+                                  class="text-xs text-subtle">Articles
+                                  Generator</p></div>
+                            </td>
+                            <td class="p-3">All</td><td class="p-3">July 15,
+                              2026</td><td class="p-3">Content</td>
+                            <td class="p-3 flex items-center gap-2"><img
+                                src="./assets/images/icons/uk-flag.svg" />En-Uk</td>
+                            <td class="p-3">634</td>
+                            <td class="p-3 text-center space-x-2">
+                              <button
+                                class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg
+                                  class="w-5 h-5 text-green-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
+                              <button
+                                class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg
+                                  class="w-5 h-5 text-red-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                            </td>
+                          </tr>
+                          <tr class="table-row-hover" data-wordsbook="Tous"
+                            data-categories="Contenu" data-language="French">
+                            <td
+                              class="px-6 py-4 font-medium flex items-center gap-3">
+                              <div
+                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img
+                                  src="./assets/images/icons/document-icon.svg"
+                                  class="w-5 h-5" /></div>
+                              <div><p class="font-bold">Analyse de Marché</p><p
+                                  class="text-xs text-subtle">Générateur
+                                  d'Articles</p></div>
+                            </td>
+                            <td class="p-3">Tous</td><td class="p-3">June 15,
+                              2025</td><td class="p-3">Contenu</td>
+                            <td class="p-3 flex items-center gap-2"><img
+                                src="./assets/images/icons/france-flag.svg" />French</td>
+                            <td class="p-3">720</td>
+                            <td class="p-3 text-center space-x-2">
+                              <button
+                                class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg
+                                  class="w-5 h-5 text-green-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
+                              <button
+                                class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg
+                                  class="w-5 h-5 text-red-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                            </td>
+                          </tr>
+                          <tr class="table-row-hover" data-wordsbook="All"
+                            data-categories="Technical" data-language="En-Uk">
+                          </tr>
+                          <tr class="table-row-hover" data-wordsbook="Santé"
+                            data-categories="Médical" data-language="French">
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-center px-6 py-3 mt-4 text-sm">
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">Previous</a>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">1</a>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border border-purple-500 bg-purple-600 text-white rounded-md">2</a>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">3</a>
+                    <span class="px-3 py-1 mx-1">...</span>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">Next</a>
+                  </div>
+                </div>
               </div>
 
-              <div id="all-codes-content" class="documents-main-tab-content hidden">
+              <div id="all-codes-content"
+                class="documents-main-tab-content hidden">
                 <h1>All codes Content will be here</h1>
               </div>
 
-              <div id="workbooks-content" class="documents-main-tab-content hidden">
-              <h1>Workbooks content Content will be here</h1>
+              <div id="workbooks-content"
+                class="documents-main-tab-content hidden">
+                <div
+                  class="flex-1 flex flex-col bg-white dark:bg-[#070622] border border-gray-200 dark:border-[#7A43A4] rounded-[24px] p-6">
+                  <div
+                    class="flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
+                    <h2 class="text-2xl font-bold">All My Documents</h2>
+                    <div class="flex items-center gap-2">
+                      <div class="relative"><input type="text" id="search-bar"
+                          placeholder="Search..."
+                          class="w-full sm:w-64 bg-gray-100 dark:bg-gray-800 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"><svg
+                          class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                          fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24"><path stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
+                      <button id="main-filter-btn"
+                        class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg font-semibold"><svg
+                          class="w-5 h-5" fill="none" stroke="currentColor"
+                          viewBox="0 0 24 24"><path stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L16 11.414V16a1 1 0 01-.293.707l-2 2A1 1 0 0113 18v-6.586l-3.707-3.707A1 1 0 019 7V4a1 1 0 01-1-1H4a1 1 0 01-1-1z"></path></svg>Filter</button>
+                    </div>
+                  </div>
+
+                  <div class="flex-1 overflow-hidden">
+                    <div
+                      class="overflow-auto max-h-[60vh] w-full gradient-scrollbar">
+                      <table class="w-full text-sm text-left">
+                        <thead class="sticky top-0 z-10 text-subtle uppercase">
+                          <tr
+                            class="border-b border-gray-200 dark:border-gray-700">
+                            <th class="py-3 px-6 min-w-[250px]">Documents
+                              Name</th>
+                            <th class="py-3 px-3 min-w-[150px]">
+                              <div class="relative">
+                                <button
+                                  class="filter-button flex items-center gap-1"
+                                  data-filter-type="wordsBook">Words Book <svg
+                                    class="w-4 h-4" fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                      fill-rule="evenodd"
+                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path></svg></button>
+                                <div
+                                  class="filter-menu hidden absolute top-full left-0 mt-2 w-48 card-bg card-border rounded-md shadow-lg z-20 p-2 space-y-1">
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="wordsBook" value="All"
+                                      class="rounded"> All</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="wordsBook"
+                                      value="Tous" class="rounded"> Tous</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="wordsBook"
+                                      value="Santé" class="rounded">
+                                    Santé</label>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="py-3 px-3 min-w-[120px]">Created</th>
+                            <th class="py-3 px-3 min-w-[150px]">
+                              <div class="relative">
+                                <button
+                                  class="filter-button flex items-center gap-1"
+                                  data-filter-type="categories">Categories <svg
+                                    class="w-4 h-4" fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                      fill-rule="evenodd"
+                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path></svg></button>
+                                <div
+                                  class="filter-menu hidden absolute top-full left-0 mt-2 w-48 card-bg card-border rounded-md shadow-lg z-20 p-2 space-y-1">
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Content" class="rounded">
+                                    Content</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Contenu" class="rounded">
+                                    Contenu</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Technical" class="rounded">
+                                    Technical</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="categories"
+                                      value="Business" class="rounded">
+                                    Business</label>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="py-3 px-3 min-w-[150px]">
+                              <div class="relative">
+                                <button
+                                  class="filter-button flex items-center gap-1"
+                                  data-filter-type="language">Language <svg
+                                    class="w-4 h-4" fill="currentColor"
+                                    viewBox="0 0 20 20"><path
+                                      fill-rule="evenodd"
+                                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path></svg></button>
+                                <div
+                                  class="filter-menu hidden absolute top-full left-0 mt-2 w-48 card-bg card-border rounded-md shadow-lg z-20 p-2 space-y-1">
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="language"
+                                      value="En-Uk" class="rounded">
+                                    En-Uk</label>
+                                  <label class="flex items-center gap-2"><input
+                                      type="checkbox"
+                                      data-filter-column="language"
+                                      value="French" class="rounded">
+                                    French</label>
+                                </div>
+                              </div>
+                            </th>
+                            <th class="py-3 px-3 min-w-[120px]">Words Used</th>
+                            <th
+                              class="py-3 px-3 min-w-[120px] text-center">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody id="document-table-body"
+                          class="divide-y divide-gray-200 dark:divide-gray-700">
+                          <tr class="table-row-hover" data-wordsbook="All"
+                            data-categories="Content" data-language="En-Uk">
+                            <td
+                              class="px-6 py-4 font-medium flex items-center gap-3">
+                              <div
+                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img
+                                  src="./assets/images/icons/document-icon.svg"
+                                  class="w-5 h-5" /></div>
+                              <div><p class="font-bold">Project Proposal</p><p
+                                  class="text-xs text-subtle">Articles
+                                  Generator</p></div>
+                            </td>
+                            <td class="p-3">All</td><td class="p-3">July 15,
+                              2026</td><td class="p-3">Content</td>
+                            <td class="p-3 flex items-center gap-2"><img
+                                src="./assets/images/icons/uk-flag.svg" />En-Uk</td>
+                            <td class="p-3">634</td>
+                            <td class="p-3 text-center space-x-2">
+                              <button
+                                class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg
+                                  class="w-5 h-5 text-green-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
+                              <button
+                                class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg
+                                  class="w-5 h-5 text-red-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                            </td>
+                          </tr>
+                          <tr class="table-row-hover" data-wordsbook="Tous"
+                            data-categories="Contenu" data-language="French">
+                            <td
+                              class="px-6 py-4 font-medium flex items-center gap-3">
+                              <div
+                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img
+                                  src="./assets/images/icons/document-icon.svg"
+                                  class="w-5 h-5" /></div>
+                              <div><p class="font-bold">Analyse de Marché</p><p
+                                  class="text-xs text-subtle">Générateur
+                                  d'Articles</p></div>
+                            </td>
+                            <td class="p-3">Tous</td><td class="p-3">June 15,
+                              2025</td><td class="p-3">Contenu</td>
+                            <td class="p-3 flex items-center gap-2"><img
+                                src="./assets/images/icons/france-flag.svg" />French</td>
+                            <td class="p-3">720</td>
+                            <td class="p-3 text-center space-x-2">
+                              <button
+                                class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg
+                                  class="w-5 h-5 text-green-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
+                              <button
+                                class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg
+                                  class="w-5 h-5 text-red-400" fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+                            </td>
+                          </tr>
+                          <tr class="table-row-hover" data-wordsbook="All"
+                            data-categories="Technical" data-language="En-Uk">
+                          </tr>
+                          <tr class="table-row-hover" data-wordsbook="Santé"
+                            data-categories="Médical" data-language="French">
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-center px-6 py-3 mt-4 text-sm">
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">Previous</a>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">1</a>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border border-purple-500 bg-purple-600 text-white rounded-md">2</a>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">3</a>
+                    <span class="px-3 py-1 mx-1">...</span>
+                    <a href="#"
+                      class="px-3 py-1 mx-1 border card-border rounded-md hover:bg-purple-600 hover:text-white">Next</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
-    </div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="./assets/js/dashboard.js"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script src="./assets/js/dashboard.js"></script>
 
       <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -366,68 +854,268 @@ document.addEventListener("DOMContentLoaded", () => {
   const documentsMainTabsList = document.getElementById("documents-main-tabs-list");
   const documentsMainTabTriggers = document.querySelectorAll(".documents-main-tab-trigger");
   const documentsMainTabContents = document.querySelectorAll(".documents-main-tab-content");
+  const searchBar = document.getElementById('search-bar');
+  const tableBody = document.getElementById('document-table-body');
+  const tableRows = tableBody?.getElementsByTagName('tr');
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIconSun = document.getElementById('theme-icon-sun');
+  const themeIconMoon = document.getElementById('theme-icon-moon');
+  const langBtn = document.getElementById('langBtn');
+  const langMenu = document.getElementById('langMenu');
+  const langIcon = document.getElementById('langIcon');
+  const langName = document.getElementById('langName');
 
-  // --- Main Function to Activate a Tab ---
-  const activateTab = (tabId) => {
-    // 1. Highlight active main tab button
-    documentsMainTabTriggers.forEach((trigger) => {
-      trigger.classList.remove("bg-gradient-to-b", "from-[#6049BC]", "to-[#D24AC9]");
-      if (trigger.dataset.tab === tabId) {
-        trigger.classList.add("bg-gradient-to-b", "from-[#6049BC]", "to-[#D24AC9]");
+  // --- Active Filters State ---
+  const activeFilters = {
+    wordsBook: [],
+    categories: [],
+    language: []
+  };
+
+  // --- Initialize AOS ---
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 600,
+      once: true
+    });
+  }
+
+  // --- Google Translate Initialization ---
+  window.googleTranslateElementInit = () => {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+      'google_translate_element'
+    );
+  };
+
+  // --- Theme Toggle Logic ---
+  if (themeToggle && themeIconSun && themeIconMoon) {
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      themeIconSun.classList.toggle('hidden');
+      themeIconMoon.classList.toggle('hidden');
+      // Update TinyMCE skin if editor is active
+      if (window.tinymce && window.tinymce.activeEditor) {
+        window.tinymce.activeEditor.remove();
+        initializeTinyMCE(); // Re-initialize editor with updated theme
       }
     });
+  }
 
-    // 2. Show only the matching content panel
+  // --- Language Switcher Logic ---
+  window.setLanguage = (langCode, flagUrl, langText) => {
+    if (langIcon && langName) {
+      langIcon.src = flagUrl;
+      langIcon.alt = langText;
+      langName.textContent = langText;
+      langMenu.classList.add('hidden');
+      // Update Google Translate if needed
+      const googleTranslate = document.querySelector('.goog-te-combo');
+      if (googleTranslate) {
+        googleTranslate.value = langCode;
+        googleTranslate.dispatchEvent(new Event('change'));
+      }
+    }
+  };
+
+  if (langBtn && langMenu) {
+    langBtn.addEventListener('click', () => {
+      langMenu.classList.toggle('hidden');
+    });
+  }
+
+  // --- Activate Tab Function ---
+  const activateTab = (tabId) => {
+    if (!tabId) return;
+    // Highlight active main tab button
+    documentsMainTabTriggers.forEach((trigger) => {
+      trigger.classList.toggle('bg-gradient-to-b', trigger.dataset.tab === tabId);
+      trigger.classList.toggle('from-[#6049BC]', trigger.dataset.tab === tabId);
+      trigger.classList.toggle('to-[#D24AC9]', trigger.dataset.tab === tabId);
+    });
+
+    // Show matching content panel
     documentsMainTabContents.forEach((content) => {
-      content.classList.toggle("hidden", content.id !== `${tabId}-content`);
+      content.classList.toggle('hidden', content.id !== `${tabId}-content`);
     });
 
-    // 3. Sync active state in sidebar submenu
-    documentsToolsSubmenu.querySelectorAll(".sidebar-submenu-item").forEach((item) => {
-      item.classList.toggle("sidebar-submenu-active", item.dataset.sidebarTab === tabId);
-    });
+    // Sync sidebar submenu
+    if (documentsToolsSubmenu) {
+      documentsToolsSubmenu.querySelectorAll('.sidebar-submenu-item').forEach((item) => {
+        item.classList.toggle('sidebar-submenu-active', item.dataset.sidebarTab === tabId);
+      });
+    }
   };
 
   // --- Toggle Sidebar Dropdown ---
-  if (sidebarDocumentsToolsTrigger) {
-    sidebarDocumentsToolsTrigger.addEventListener("click", (e) => {
+  if (sidebarDocumentsToolsTrigger && documentsToolsSubmenu) {
+    sidebarDocumentsToolsTrigger.addEventListener('click', (e) => {
       e.preventDefault();
-      documentsToolsSubmenu.classList.toggle("hidden");
-
-      // rotate arrow icon
+      documentsToolsSubmenu.classList.toggle('hidden');
       const arrowIcon = sidebarDocumentsToolsTrigger.querySelector("img[alt='icon']:last-child");
       if (arrowIcon) {
-        arrowIcon.classList.toggle("rotate-180");
+        arrowIcon.classList.toggle('rotate-180');
       }
     });
   }
 
-  // --- Sidebar submenu click -> activate tab ---
+  // --- Sidebar Submenu Click ---
   if (documentsToolsSubmenu) {
-    documentsToolsSubmenu.addEventListener("click", (e) => {
-      const subItem = e.target.closest(".sidebar-submenu-item");
-      if (!subItem) return;
-      e.preventDefault();
-      activateTab(subItem.dataset.sidebarTab);
+    documentsToolsSubmenu.addEventListener('click', (e) => {
+      const subItem = e.target.closest('.sidebar-submenu-item');
+      if (subItem) {
+        e.preventDefault();
+        activateTab(subItem.dataset.sidebarTab);
+      }
     });
   }
 
-  // --- Main tab button click -> activate tab ---
+  // --- Main Tab Button Click ---
   if (documentsMainTabsList) {
-    documentsMainTabsList.addEventListener("click", (e) => {
-      const trigger = e.target.closest(".documents-main-tab-trigger");
-      if (!trigger) return;
-      activateTab(trigger.dataset.tab);
+    documentsMainTabsList.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.documents-main-tab-trigger');
+      if (trigger) {
+        activateTab(trigger.dataset.tab);
+      }
+    });
+  }
+
+  // --- Combined Filter and Search Function ---
+  const applyFiltersAndSearch = () => {
+    if (!searchBar || !tableBody || !tableRows) return;
+    const searchQuery = searchBar.value.toLowerCase();
+
+    Array.from(tableRows).forEach((row) => {
+      const titleText = row.cells[0]?.textContent.toLowerCase() || '';
+      const wordsBook = row.dataset.wordsbook || '';
+      const category = row.dataset.categories || '';
+      const language = row.dataset.language || '';
+
+      const searchMatch = titleText.includes(searchQuery);
+      const wordsBookMatch = activeFilters.wordsBook.length === 0 || activeFilters.wordsBook.includes(wordsBook);
+      const categoryMatch = activeFilters.categories.length === 0 || activeFilters.categories.includes(category);
+      const languageMatch = activeFilters.language.length === 0 || activeFilters.language.includes(language);
+
+      row.style.display = searchMatch && wordsBookMatch && categoryMatch && languageMatch ? '' : 'none';
+    });
+  };
+
+  // --- Search Bar Event Listener ---
+  if (searchBar) {
+    searchBar.addEventListener('keyup', applyFiltersAndSearch);
+  }
+
+  // --- Filter Button and Menu Logic ---
+  document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const menu = button.nextElementSibling;
+      document.querySelectorAll('.filter-menu').forEach(m => {
+        if (m !== menu) m.classList.add('hidden');
+      });
+      menu.classList.toggle('hidden');
+    });
+  });
+
+  // --- Filter Checkbox Logic ---
+  document.querySelectorAll('.filter-menu input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      const column = checkbox.dataset.filterColumn;
+      const value = checkbox.value;
+
+      if (checkbox.checked) {
+        activeFilters[column].push(value);
+      } else {
+        activeFilters[column] = activeFilters[column].filter(item => item !== value);
+      }
+
+      const button = document.querySelector(`.filter-button[data-filter-type="${column}"]`);
+      button.classList.toggle('active', activeFilters[column].length > 0);
+      applyFiltersAndSearch();
+    });
+  });
+
+  // --- Close Filter Menus on Outside Click ---
+  window.addEventListener('click', (e) => {
+    if (!e.target.closest('.filter-button') && !e.target.closest('.filter-menu')) {
+      document.querySelectorAll('.filter-menu').forEach(menu => menu.classList.add('hidden'));
+    }
+  });
+
+  // --- TinyMCE Initialization Function ---
+  const initializeTinyMCE = () => {
+    if (window.tinymce && document.getElementById('doc-editor')) {
+      tinymce.init({
+        selector: '#doc-editor',
+        plugins: 'lists link image charmap preview anchor pagebreak searchreplace wordcount visualblocks code fullscreen insertdatetime media table emoticons',
+        toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | link image | forecolor backcolor removeformat',
+        height: '100%',
+        skin: document.documentElement.classList.contains('dark') ? 'oxide-dark' : 'default',
+        content_css: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+        setup: function(editor) {
+          editor.on('init', function() {
+            editor.setContent('Default content');
+          });
+        }
+      });
+    }
+  };
+
+  // --- Editor Modal Logic (Placeholder until modal HTML is added) ---
+  let activeEditor = null;
+  const editorModal = document.getElementById('editor-modal');
+  const editorTitleInput = document.getElementById('editor-title');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+  const editButtons = document.querySelectorAll('.bg-green-500\\/20'); // Targeting edit buttons based on existing class
+
+  const openEditorModal = (row) => {
+    if (!editorModal || !editorTitleInput) return;
+    const title = row.querySelector('.font-bold')?.textContent || 'Untitled';
+    const content = row.dataset.content || `Content for "${title}" goes here.`;
+
+    editorTitleInput.value = title;
+    editorModal.classList.remove('hidden');
+
+    initializeTinyMCE();
+    if (window.tinymce && window.tinymce.activeEditor) {
+      window.tinymce.activeEditor.setContent(content);
+      activeEditor = window.tinymce.activeEditor;
+    }
+  };
+
+  const closeEditorModal = () => {
+    if (activeEditor) {
+      tinymce.remove(activeEditor);
+      activeEditor = null;
+    }
+    editorModal?.classList.add('hidden');
+  };
+
+  if (editButtons) {
+    editButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const row = e.currentTarget.closest('tr');
+        openEditorModal(row);
+      });
+    });
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeEditorModal);
+  }
+
+  if (editorModal) {
+    editorModal.addEventListener('click', (e) => {
+      if (e.target === editorModal) {
+        closeEditorModal();
+      }
     });
   }
 });
+  
 </script>
 
-
-
-
-
-
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
+      <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </body>
+  </html>
