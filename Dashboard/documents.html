@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Writing Tools - Dashboard</title>
+    <title>Documents - Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/dashboard.css" />
+   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <style>
         :root { --bg-color: #1C202B; --card-color: #070622; --text-color: #F9F9F9; --border-color: #7A43A4; --subtle-text: #a0aec0; --hover-bg: rgba(255, 255, 255, 0.05); }
         html:not(.dark) { --bg-color: #f3f4f6; --card-color: #ffffff; --text-color: #111827; --border-color: #d1d5db; --subtle-text: #6b7280; --hover-bg: #f9fafb; }
@@ -27,6 +28,9 @@
         
         thead th { background-color: var(--card-color); }
         .filter-button.active { color: #c084fc; } /* Purple color for active filter */
+        #editor-modal {
+  z-index: 3000; /* Higher than sidebar */
+}
     </style>
   </head>
   <body class="bg-[#1C202B] text-white transition-colors duration-300">
@@ -504,87 +508,39 @@
                               class="py-3 px-3 min-w-[120px] text-center">Actions</th>
                           </tr>
                         </thead>
-                        <tbody id="document-table-body"
-                          class="divide-y divide-gray-200 dark:divide-gray-700">
-                          <tr class="table-row-hover" data-wordsbook="All"
-                            data-categories="Content" data-language="En-Uk">
-                            <td
-                              class="px-6 py-4 font-medium flex items-center gap-3">
-                              <div
-                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img
-                                  src="./assets/images/icons/document-icon.svg"
-                                  class="w-5 h-5" /></div>
-                              <div><p class="font-bold">Project Proposal</p><p
-                                  class="text-xs text-subtle">Articles
-                                  Generator</p></div>
-                            </td>
-                            <td class="p-3">All</td><td class="p-3">July 15,
-                              2026</td><td class="p-3">Content</td>
-                            <td class="p-3 flex items-center gap-2"><img
-                                src="./assets/images/icons/uk-flag.svg" />En-Uk</td>
-                            <td class="p-3">634</td>
-                            <td class="p-3 text-center space-x-2">
-                              <button
-                                class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg
-                                  class="w-5 h-5 text-green-400" fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"><path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
-                              <button
-                                class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg
-                                  class="w-5 h-5 text-red-400" fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"><path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
-                            </td>
-                          </tr>
-                          <tr class="table-row-hover" data-wordsbook="Tous"
-                            data-categories="Contenu" data-language="French">
-                            <td
-                              class="px-6 py-4 font-medium flex items-center gap-3">
-                              <div
-                                class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img
-                                  src="./assets/images/icons/document-icon.svg"
-                                  class="w-5 h-5" /></div>
-                              <div><p class="font-bold">Analyse de Marché</p><p
-                                  class="text-xs text-subtle">Générateur
-                                  d'Articles</p></div>
-                            </td>
-                            <td class="p-3">Tous</td><td class="p-3">June 15,
-                              2025</td><td class="p-3">Contenu</td>
-                            <td class="p-3 flex items-center gap-2"><img
-                                src="./assets/images/icons/france-flag.svg" />French</td>
-                            <td class="p-3">720</td>
-                            <td class="p-3 text-center space-x-2">
-                              <button
-                                class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg
-                                  class="w-5 h-5 text-green-400" fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"><path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
-                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
-                              <button
-                                class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg
-                                  class="w-5 h-5 text-red-400" fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"><path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
-                            </td>
-                          </tr>
-                          <tr class="table-row-hover" data-wordsbook="All"
-                            data-categories="Technical" data-language="En-Uk">
-                          </tr>
-                          <tr class="table-row-hover" data-wordsbook="Santé"
-                            data-categories="Médical" data-language="French">
-                          </tr>
-                        </tbody>
+                        <tbody id="document-table-body" class="divide-y divide-gray-200 dark:divide-gray-700">
+  <tr class="table-row-hover" data-wordsbook="All" data-categories="Content" data-language="En-Uk">
+    <td class="px-6 py-4 font-medium flex items-center gap-3">
+      <div class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img src="./assets/images/icons/document-icon.svg" class="w-5 h-5" /></div>
+      <div><p class="font-bold">Project Proposal</p><p class="text-xs text-subtle">Articles Generator</p></div>
+    </td>
+    <td class="p-3">All</td>
+    <td class="p-3">July 15, 2026</td>
+    <td class="p-3">Content</td>
+    <td class="p-3 flex items-center gap-2"><img src="./assets/images/icons/uk-flag.svg" />En-Uk</td>
+    <td class="p-3">634</td>
+    <td class="p-3 text-center space-x-2">
+      <button class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
+      <button class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+    </td>
+  </tr>
+  <tr class="table-row-hover" data-wordsbook="Tous" data-categories="Contenu" data-language="French">
+    <td class="px-6 py-4 font-medium flex items-center gap-3">
+      <div class="bg-gray-200 dark:bg-gray-700 p-2 rounded-full"><img src="./assets/images/icons/document-icon.svg" class="w-5 h-5" /></div>
+      <div><p class="font-bold">Analyse de Marché</p><p class="text-xs text-subtle">Générateur d'Articles</p></div>
+    </td>
+    <td class="p-3">Tous</td>
+    <td class="p-3">June 15, 2025</td>
+    <td class="p-3">Contenu</td>
+    <td class="p-3 flex items-center gap-2"><img src="./assets/images/icons/france-flag.svg" />French</td>
+    <td class="p-3">720</td>
+    <td class="p-3 text-center space-x-2">
+      <button class="p-2 bg-green-500/20 rounded-full hover:bg-green-500/40"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg></button>
+      <button class="p-2 bg-red-500/20 rounded-full hover:bg-red-500/40"><svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></button>
+    </td>
+  </tr>
+  <!-- Remove or populate empty rows -->
+</tbody>
                       </table>
                     </div>
                   </div>
@@ -843,6 +799,15 @@
         </div>
       </div>
 
+       <div id="editor-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden bg-black/50 dark:bg-black/70 backdrop-blur-sm">
+        <div class="w-full max-w-4xl h-[90vh] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-2xl flex flex-col">
+            <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="text-xl font-bold">View Document</h2><button id="close-modal-btn" class="p-2 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button></div>
+            <div class="p-4"><input id="editor-title" type="text" class="w-full p-3 bg-gray-100 dark:bg-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"></div>
+            <div class="px-4 flex-grow flex flex-col"><textarea id="doc-editor"></textarea></div>
+        </div>
+    </div>
+    </div>
+
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script src="./assets/js/dashboard.js"></script>
 
@@ -882,22 +847,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Google Translate Initialization ---
   window.googleTranslateElementInit = () => {
-    new google.translate.TranslateElement(
-      { pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
-      'google_translate_element'
-    );
+    try {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+        'google_translate_element'
+      );
+    } catch (error) {
+      console.error('Google Translate failed to initialize:', error);
+    }
   };
+
+  // --- Apply Saved Theme on Page Load ---
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    themeIconSun.classList.remove('hidden');
+    themeIconMoon.classList.add('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    themeIconSun.classList.add('hidden');
+    themeIconMoon.classList.remove('hidden');
+  }
 
   // --- Theme Toggle Logic ---
   if (themeToggle && themeIconSun && themeIconMoon) {
     themeToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.toggle('dark');
       themeIconSun.classList.toggle('hidden');
       themeIconMoon.classList.toggle('hidden');
-      // Update TinyMCE skin if editor is active
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.body.offsetHeight; // Trigger reflow
       if (window.tinymce && window.tinymce.activeEditor) {
         window.tinymce.activeEditor.remove();
-        initializeTinyMCE(); // Re-initialize editor with updated theme
+        initializeTinyMCE();
       }
     });
   }
@@ -909,7 +891,6 @@ document.addEventListener("DOMContentLoaded", () => {
       langIcon.alt = langText;
       langName.textContent = langText;
       langMenu.classList.add('hidden');
-      // Update Google Translate if needed
       const googleTranslate = document.querySelector('.goog-te-combo');
       if (googleTranslate) {
         googleTranslate.value = langCode;
@@ -927,19 +908,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Activate Tab Function ---
   const activateTab = (tabId) => {
     if (!tabId) return;
-    // Highlight active main tab button
     documentsMainTabTriggers.forEach((trigger) => {
       trigger.classList.toggle('bg-gradient-to-b', trigger.dataset.tab === tabId);
       trigger.classList.toggle('from-[#6049BC]', trigger.dataset.tab === tabId);
       trigger.classList.toggle('to-[#D24AC9]', trigger.dataset.tab === tabId);
     });
-
-    // Show matching content panel
     documentsMainTabContents.forEach((content) => {
       content.classList.toggle('hidden', content.id !== `${tabId}-content`);
     });
-
-    // Sync sidebar submenu
     if (documentsToolsSubmenu) {
       documentsToolsSubmenu.querySelectorAll('.sidebar-submenu-item').forEach((item) => {
         item.classList.toggle('sidebar-submenu-active', item.dataset.sidebarTab === tabId);
@@ -1044,56 +1020,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- TinyMCE Initialization Function ---
   const initializeTinyMCE = () => {
-    if (window.tinymce && document.getElementById('doc-editor')) {
+    try {
+      if (!window.tinymce || !document.getElementById('doc-editor')) {
+        throw new Error('TinyMCE or editor element not found');
+      }
+      if (tinymce.get('doc-editor')) {
+        tinymce.remove('#doc-editor');
+      }
       tinymce.init({
         selector: '#doc-editor',
-        plugins: 'lists link image charmap preview anchor pagebreak searchreplace wordcount visualblocks code fullscreen insertdatetime media table emoticons',
-        toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | link image | forecolor backcolor removeformat',
+        plugins: 'lists link image charmap preview anchor searchreplace wordcount visualblocks code fullscreen insertdatetime media table emoticons',
+        toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor removeformat',
+        menubar: false,
+        statusbar: true,
         height: '100%',
-        skin: document.documentElement.classList.contains('dark') ? 'oxide-dark' : 'default',
+        skin: document.documentElement.classList.contains('dark') ? 'oxide-dark' : 'oxide',
         content_css: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
-        setup: function(editor) {
-          editor.on('init', function() {
+        setup: function (editor) {
+          editor.on('init', function () {
             editor.setContent('Default content');
+            editor.getWin().document.body.classList.toggle('mce-content-body-dark', document.documentElement.classList.contains('dark'));
           });
         }
       });
+    } catch (error) {
+      console.error('TinyMCE initialization failed:', error);
     }
   };
 
-  // --- Editor Modal Logic (Placeholder until modal HTML is added) ---
+  // --- Editor Modal Logic ---
   let activeEditor = null;
   const editorModal = document.getElementById('editor-modal');
   const editorTitleInput = document.getElementById('editor-title');
   const closeModalBtn = document.getElementById('close-modal-btn');
-  const editButtons = document.querySelectorAll('.bg-green-500\\/20'); // Targeting edit buttons based on existing class
+  const editButtons = document.querySelectorAll('.bg-green-500\\/20');
 
   const openEditorModal = (row) => {
-    if (!editorModal || !editorTitleInput) return;
-    const title = row.querySelector('.font-bold')?.textContent || 'Untitled';
-    const content = row.dataset.content || `Content for "${title}" goes here.`;
+    try {
+      if (!editorModal || !editorTitleInput) {
+        throw new Error('Modal or title input not found');
+      }
+      console.log('Opening modal for row:', row);
+      const title = row.querySelector('.font-bold')?.textContent || 'Untitled';
+      const content = row.dataset.content || `Content for "${title}" goes here.`;
 
-    editorTitleInput.value = title;
-    editorModal.classList.remove('hidden');
+      editorTitleInput.value = title;
+      editorModal.classList.remove('hidden');
 
-    initializeTinyMCE();
-    if (window.tinymce && window.tinymce.activeEditor) {
-      window.tinymce.activeEditor.setContent(content);
-      activeEditor = window.tinymce.activeEditor;
+      initializeTinyMCE();
+      if (window.tinymce && window.tinymce.activeEditor) {
+        window.tinymce.activeEditor.setContent(content);
+        activeEditor = window.tinymce.activeEditor;
+      } else {
+        throw new Error('TinyMCE editor failed to initialize');
+      }
+    } catch (error) {
+      console.error('Error opening editor modal:', error);
     }
   };
 
   const closeEditorModal = () => {
-    if (activeEditor) {
-      tinymce.remove(activeEditor);
-      activeEditor = null;
+    try {
+      if (activeEditor) {
+        tinymce.remove(activeEditor);
+        activeEditor = null;
+      }
+      if (editorModal) {
+        editorModal.classList.add('hidden');
+      }
+    } catch (error) {
+      console.error('Error closing editor modal:', error);
     }
-    editorModal?.classList.add('hidden');
   };
 
   if (editButtons) {
     editButtons.forEach(button => {
       button.addEventListener('click', (e) => {
+        console.log('Edit button clicked:', button);
         const row = e.currentTarget.closest('tr');
         openEditorModal(row);
       });
@@ -1112,7 +1115,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-  
 </script>
 
       <script type="text/javascript"
